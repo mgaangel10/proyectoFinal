@@ -1,9 +1,10 @@
 ¿Que es lo que va hacer el administrador?
 
 -Agregar un nuevo corte de pelo/ barba
--Agregar una cita
--Agregar un nuevo cliente
 -Agregar empleado
+-Agregar productos para vender
+-Actualizar productos
+-Preparar sorteos de servicios
 
 ¿Ques lo que puede hacer el cliente?
 
@@ -11,5 +12,56 @@
 -Valorar
 -Registrarse
 -Subir comentarios
+-Ver reseñas
+-Ver ejemoplos de su trabajo
+-Pedir un servicio especial(que no este en el menu de opciones)
+-Ver tiempo del servicio
+
+
+**********************************CONTENIDO*********************************
+La pagina contara con la pagina principal donde se vera un menu con distinta opciones siendo
+ pedir reserva , ver servicios , ver comentarios, ver resultados de servcios , galeria de producto ...
+
+la pagina contara con todo lo necesario para poder gestionarlo y que el clienete pueda interactuar
+
+******ADMINISTRADOR******
+
+En la parte del admistrador tendra un apartado en el cual puede agregar un servicio en el que tendra que responder
+una series de preguntas o un formulario en el que pondra el precio y la duracion del servicio y decir si es
+un servicio especial o no.
+
+Tambien tendra otro apartado para agregar/contratar un empleado indicando su  nombre su dni .. y su funcion
+es decir , si es especialista en barba , en tintes arreglados para eventos ...
+
+Otro apartado sera agregar productos para vender indicando su nombre precio marca descripcion...
+
+Otro apartado para una opcion de hacer sorteo en el que indique lo que sortea si es un servicio o un producto
+
+subir fotos o videos sobre sus servicos terminados para que los clientes puedan verlo
+
+****CLIENTE****
+
+El menu del clienete aparecera reservar una cita y pudiendo elegir el servicio y tambien poder ver el timepo de 
+duracion del servicio y elegir si es un servicio especial
+
+Una vez reservado la cita el cliente podra elegir si pagar en efectivo o pagar mediante tarjeta 
+
+el cliente podra tambien valorar el trabajo hecho del servicio subir comentarios explicando su experiencia
+
+el cliente podra ver los trabajos hechos por el peluquero
+
+el cliente podra ver las reseñas es decir lo que la gente a valorado por su trabajo y ver los comentraios de
+las de mas personas
+
+el cliente tiene que registrarse para poder pedir cita 
+
+por cada pelado el cliente ganara una especie de puntos que alcanzado un maximo el cliente tendra la posibilidad
+de canjearlo por un servicio o canjearlo para poder comprra un producto
+
+
+
+  
+
+
 
 
