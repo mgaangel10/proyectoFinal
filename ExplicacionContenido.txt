@@ -1,0 +1,15 @@
+¿Que es lo que va hacer el administrador?
+
+-Agregar un nuevo corte de pelo/ barba
+-Agregar una cita
+-Agregar un nuevo cliente
+-Agregar empleado
+
+¿Ques lo que puede hacer el cliente?
+
+-Pecir cita
+-Valorar
+-Registrarse
+-Subir comentarios
+
+

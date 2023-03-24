@@ -1,0 +1,10 @@
+requisitos para el proyecto final!!
+-----------------------------------------------
+que hace el usario, el admi,?
+
+como  lo hago?
+
+y que es lo que hace la aplicacion?
+
+-le estamos haciendo la aplicacion al de la tienda y dar de alta ... y ya despues veremos si el usuario puede comprar desde su casa
+
