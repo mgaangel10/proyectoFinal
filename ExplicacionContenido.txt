@@ -1,28 +1,28 @@
 ¿Que es lo que va hacer el administrador?
 
--Agregar un nuevo corte de pelo/ barba
--Agregar empleado
--Agregar productos para vender
--Actualizar productos
--Preparar sorteos de servicios
+-Agregar un nuevo corte de pelo/ barba.
+-Agregar empleado.
+-Agregar productos para vender.
+-Actualizar productos.
+-Preparar sorteos de servicios.
 
 ¿Ques lo que puede hacer el cliente?
 
--Pecir cita
--Valorar
--Registrarse
--Subir comentarios
--Ver reseñas
--Ver ejemoplos de su trabajo
--Pedir un servicio especial(que no este en el menu de opciones)
--Ver tiempo del servicio
+-Pecir cita.
+-Valorar.
+-Registrarse.
+-Subir comentarios.
+-Ver reseñas.
+-Ver ejemoplos de su trabajo.
+-Pedir un servicio especial(que no este en el menu de opciones).
+-Ver tiempo del servicio.
 
 
 **********************************CONTENIDO*********************************
 La pagina contara con la pagina principal donde se vera un menu con distinta opciones siendo
  pedir reserva , ver servicios , ver comentarios, ver resultados de servcios , galeria de producto ...
 
-la pagina contara con todo lo necesario para poder gestionarlo y que el clienete pueda interactuar
+la pagina contara con todo lo necesario para poder gestionarlo y que el clienete pueda interactuar.
 
 ******ADMINISTRADOR******
 
@@ -35,28 +35,28 @@ es decir , si es especialista en barba , en tintes arreglados para eventos ...
 
 Otro apartado sera agregar productos para vender indicando su nombre precio marca descripcion...
 
-Otro apartado para una opcion de hacer sorteo en el que indique lo que sortea si es un servicio o un producto
+Otro apartado para una opcion de hacer sorteo en el que indique lo que sortea si es un servicio o un producto.
 
-subir fotos o videos sobre sus servicos terminados para que los clientes puedan verlo
+subir fotos o videos sobre sus servicos terminados para que los clientes puedan verlo.
 
 ****CLIENTE****
 
 El menu del clienete aparecera reservar una cita y pudiendo elegir el servicio y tambien poder ver el timepo de 
-duracion del servicio y elegir si es un servicio especial
+duracion del servicio y elegir si es un servicio especial.
 
-Una vez reservado la cita el cliente podra elegir si pagar en efectivo o pagar mediante tarjeta 
+Una vez reservado la cita el cliente podra elegir si pagar en efectivo o pagar mediante tarjeta. 
 
-el cliente podra tambien valorar el trabajo hecho del servicio subir comentarios explicando su experiencia
+el cliente podra tambien valorar el trabajo hecho del servicio subir comentarios explicando su experiencia.
 
-el cliente podra ver los trabajos hechos por el peluquero
+el cliente podra ver los trabajos hechos por el peluquero.
 
 el cliente podra ver las reseñas es decir lo que la gente a valorado por su trabajo y ver los comentraios de
-las de mas personas
+las de mas personas.
 
-el cliente tiene que registrarse para poder pedir cita 
+el cliente tiene que registrarse para poder pedir cita .
 
 por cada pelado el cliente ganara una especie de puntos que alcanzado un maximo el cliente tendra la posibilidad
-de canjearlo por un servicio o canjearlo para poder comprra un producto
+de canjearlo por un servicio o canjearlo para poder comprar un producto.
 
 
 

@@ -1,0 +1,255 @@
+drop table if exists empleado cascade;
+drop table if exists vende cascade;
+drop table if exists vendible cascade;
+drop table if exists lineaVenta cascade;
+drop table if exists producto cascade;
+drop table if exists servicio cascade;
+drop table if exists categoria cascade;
+drop table if exists venta cascade;
+drop table if exists cliente cascade;
+drop table if exists reserva cascade;
+
+create table empleado(
+	codEmpleado	smallserial,
+	nombre	text,
+	apellidos	text,
+	correo	text,
+	dni	varchar(11),
+	numTelefono	NUMERIC,
+	fechaContratacion	date,
+	salario	numeric,
+	puesto	text,
+	notasAdicionales	text,
+	esAdmi text,
+	constraint pk_empleado primary key (codEmpleado)
+);
+
+create table vende(
+	codEmpleado	smallserial,
+	codigo	smallserial,
+	constraint pk_vende primary key (codEmpleado,codigo)
+);
+
+create table vendible(
+	codigo	smallserial,
+	precio numeric,
+	nombre	text,
+	descripcion	text,
+	numPuntos	numeric,
+	descuentos	numeric,
+	codCategoria	smallserial,
+	constraint pk_vendible primary key (codigo)
+);
+
+create table servicio(
+	codigo	smallserial,
+	duracion	TIMESTAMP,
+	constraint pk_servicio primary key (codigo)
+);
+
+create table producto(
+	codigo	smallserial,
+	color	text,
+	constraint pk_producto primary key (codigo)
+);
+
+create table lineaVenta(
+	ABORTcodLinea	smallserial,
+	codigo	smallserial,
+	pvp	numeric,
+	constraint pk_lineaVenta primary key (codLinea)
+);
+
+create table venta(
+	codVenta	smallserial,
+	codCliente smallserial,
+	fecha date,
+	constraint pk_venta primary key (codVenta)
+);
+
+create table cliente(
+	dni	varchar(11) ,
+	nombre text,
+	apellidos	text,
+	correo	text,
+	codCliente	smallserial,
+	genero	text,
+	puntos numeric,
+	constraint pk_cliente primary key (codCliente)
+);
+
+create table reserva(
+	codReserva	smallserial,
+	codCliente	smallserial,
+	fecha	date,
+	hora	TIMESTAMP,
+	constraint pk_reserva primary key (codReserva, codCliente)
+);
+create table categoria(
+	codCategoria	smallserial,
+	nombre text,
+	constraint pK_categoria primary key (codCategoria)
+);
+
+alter table vende
+add constraint fk_vende_codEmple foreign key (codEmpleado)
+references empleado;
+
+alter table vende
+add constraint fk_vende_codigo foreign key (codigo)
+references vendible;
+
+alter table servicio
+add constraint fk_servicio_codigo foreign key (codigo)
+references vendible;
+
+alter table producto
+add constraint fk_producto_codigo foreign key (codigo)
+REFERENCES vendible;
+
+alter table lineaVenta
+add constraint fk_lineVenta_codigo foreign key (codigo)
+references vendible;
+
+alter table venta
+add constraint fk_venta_codCliente foreign key (codCliente)
+references cliente;
+
+alter table reserva
+add constraint fk_reserva_codCliente FOREIGN key (codCliente)
+references cliente;
+
+alter table vendible
+add constraint fk_vendible_codCategoria FOREIGN key (codCategoria)
+references categoria ;
+
+INSERT INTO empleado (codEmpleado, nombre, apellidos, correo, dni, numTelefono, fechaContratacion, salario, puesto, notasAdicionales, esAdmi) 
+VALUES 
+   (1, 'Juan', 'García', 'juan.garcia@example.com', '123456789A', 123456789, '2022-01-01', 30000, 'Gerente', 'Ninguna', 'No'),
+   (2, 'Ana', 'López', 'ana.lopez@example.com', '234567890B', 234567890, '2022-02-01', 25000, 'Analista', 'Ninguna', 'No'),
+   (3, 'Pedro', 'Fernández', 'pedro.fernandez@example.com', '345678901C', 345678901, '2022-03-01', 20000, 'Programador', 'Ninguna', 'No'),
+   (4, 'María', 'Martínez', 'maria.martinez@example.com', '456789012D', 456789012, '2022-04-01', 15000, 'Secretaria', 'Ninguna', 'No'),
+   (5, 'Pablo', 'Gómez', 'pablo.gomez@example.com', '567890123E', 567890123, '2022-05-01', 10000, 'Ayudante', 'Ninguna', 'No'),
+   (6, 'Sofía', 'Rodríguez', 'sofia.rodriguez@example.com', '678901234F', 678901234, '2022-06-01', 35000, 'Gerente', 'Ninguna', 'No'),
+   (7, 'Diego', 'Sánchez', 'diego.sanchez@example.com', '789012345G', 789012345, '2022-07-01', 40000, 'Gerente', 'Ninguna', 'No'),
+   (8, 'Lucía', 'Hernández', 'lucia.hernandez@example.com', '890123456H', 890123456, '2022-08-01', 28000, 'Analista', 'Ninguna', 'No'),
+   (9, 'Javier', 'González', 'javier.gonzalez@example.com', '901234567I', 901234567, '2022-09-01', 22000, 'Programador', 'Ninguna', 'No'),
+   (10, 'Luisa', 'Díaz', 'luisa.diaz@example.com', '012345678J', 12345678, '2022-10-01', 18000, 'Secretaria', 'Ninguna', 'No'),
+   (11, 'José', 'Ramírez', 'jose.ramirez@example.com', '234567891A', 234567891, '2022-11-01', 15000, 'Ayudante', 'Ninguna', 'No'),
+   (12, 'Carmen', 'Fuentes', 'carmen.fuentes@example.com', '345678912B', 345678912, '2022-12-01', 25000, 'Analista', 'Ninguna', 'No'),
+   (13, 'Jorge', 'Santos', 'jorge.santos@example.com', '456789123C', 456789123, '2023-01-01', 35000, 'Gerente', 'Ninguna', 'No'),
+   (14, 'Laura', 'González', 'laura.gonzalez@example.com', '567891234D', 567891234, '2023-02-01', 45000, 'Gerente', 'Ninguna', 'No'),
+   (15, 'Manuel', 'Muñoz', 'manuel.munoz@example.com', '678912345E', 678912345, '2023-03-01', 55000, 'Gerente', 'Ninguna', 'No'),
+   (16, 'Alicia', 'Pérez', 'alicia.perez@example.com', '789123456F', 789123456, '2023-04-01', 25000, 'Analista', 'Ninguna', 'No'),
+   (17, 'Francisco', 'Cortés', 'francisco.cortes@example.com', '901234567G', 901234567, '2023-05-01', 15000, 'Ayudante', 'Ninguna', 'No'),
+   (18, 'Raquel', 'Carrasco', 'raquel.carrasco@example.com', '012345678H', 12345678, '2023-06-01', 30000, 'Programador', 'Ninguna', 'No'),
+   (19, 'Miguel', 'Gallardo', 'miguel.gallardo@example.com', '123456789I', 23456789, '2023-07-01', 40000, 'Gerente', 'Ninguna', 'No'),
+   (20, 'Isabel', 'Ortega', 'isabel.ortega@example.com', '234567890J', 34567890, '2023-08-01', 20000, 'Programador', 'Ninguna', 'No'),
+   (21, 'Antonio', 'Benítez', 'antonio.benitez@example.com', '345678901K', 45678901, '2023-09-01', 15000, 'Ayudante', 'Ninguna', 'No'),
+   (22, 'Sara', 'Cruz', 'sara.cruz@example.com', '456789012L', 56789012, '2023-10-01', 25000, 'Analista', 'Ninguna', 'No');
+  
+  	insert into categoria (nombre, codcategoria) values ('Cepastat', 1);
+	insert into categoria (nombre, codcategoria) values ('oxygen', 2);
+	insert into categoria (nombre, codcategoria) values ('ibuprofen', 3);
+	insert into categoria (nombre, codcategoria) values ('VFEND', 4);
+	insert into categoria (nombre, codcategoria) values ('DIABETIC DRY SKIN DEFENSE', 5);
+	insert into categoria (nombre, codcategoria) values ('laura mercier tinted moisturizer Broad Spectrum SPF 20 Sunscreen Lightweight Flawless Coverage CAMEO', 6);
+	insert into categoria (nombre, codcategoria) values ('QUADRAPAX', 7);
+	insert into categoria (nombre, codcategoria) values ('Valsartan and Hydrochlorothiazide', 8);
+	insert into categoria (nombre, codcategoria) values ('Duraflu', 9);
+	insert into categoria (nombre, codcategoria) values ('Metoprolol Tartrate', 10);
+	insert into categoria (nombre, codcategoria) values ('berkley and jensen nicotine', 11);
+	insert into categoria (nombre, codcategoria) values ('Washington/Oregon Inland Weed Mixture', 12);
+	insert into categoria (nombre, codcategoria) values ('MUSE', 13);
+	insert into categoria (nombre, codcategoria) values ('ZOLPIDEM TARTRATE', 14);
+	insert into categoria (nombre, codcategoria) values ('Bupivacaine Hydrochloride', 15);
+	insert into categoria (nombre, codcategoria) values ('QUIXIN', 16);
+	insert into categoria (nombre, codcategoria) values ('Pepto-Bismol', 17);
+	insert into categoria (nombre, codcategoria) values ('Amlodipine Besylate', 18);
+	insert into categoria (nombre, codcategoria) values ('Levothyroxine sodium', 19);
+	insert into categoria (nombre, codcategoria) values ('Lidocoll', 20);
+	insert into categoria (nombre, codcategoria) values ('Calcium Gluconate', 21);
+	insert into categoria (nombre, codcategoria) values ('HEADACHE ANXIETY', 22);
+	insert into categoria (nombre, codcategoria) values ('AMANTADINE HYDROCHLORIDE', 23);
+	insert into categoria (nombre, codcategoria) values ('Aconitum Bryonia', 24);
+	insert into categoria (nombre, codcategoria) values ('LAMIVUDINE', 25);
+	insert into categoria (nombre, codcategoria) values ('Metformin Hydrochloride', 26);
+	insert into categoria (nombre, codcategoria) values ('Levetiracetam', 27);
+	insert into categoria (nombre, codcategoria) values ('Equaline aspirin', 28);
+	insert into categoria (nombre, codcategoria) values ('Metoclopramide', 29);
+	insert into categoria (nombre, codcategoria) values ('Rouge Dior 840 Crimson Serum', 30);
+	insert into categoria (nombre, codcategoria) values ('Spongia Ovi', 31);
+	insert into categoria (nombre, codcategoria) values ('Topiramate', 32);
+	insert into categoria (nombre, codcategoria) values ('WHITE HICKORY POLLEN', 33);
+	insert into categoria (nombre, codcategoria) values ('Benzonatate', 34);
+	insert into categoria (nombre, codcategoria) values ('Donepezil Hydrochloride', 35);
+	insert into categoria (nombre, codcategoria) values ('ASACOL', 36);
+	insert into categoria (nombre, codcategoria) values ('Healing for Babies', 37);
+	insert into categoria (nombre, codcategoria) values ('Carbocaine', 38);
+	insert into categoria (nombre, codcategoria) values ('NIACIN', 39);
+	insert into categoria (nombre, codcategoria) values ('Allergy Relief Non Drowsy', 40);
+	insert into categoria (nombre, codcategoria) values ('LMX5', 41);
+	insert into categoria (nombre, codcategoria) values ('LE TECHNIQ', 42);
+	insert into categoria (nombre, codcategoria) values ('ACETAMINOPHEN AND DIPHENHYDRAMINE HYDROCHLORIDE', 43);
+	insert into categoria (nombre, codcategoria) values ('Lisinopril', 44);
+	insert into categoria (nombre, codcategoria) values ('Clomipramine Hydrochloride', 45);
+	insert into categoria (nombre, codcategoria) values ('No7 Protect and Perfect Foundation Sunscreen Broad Spectrum SPF 15 Cool Ivory', 46);
+	insert into categoria (nombre, codcategoria) values ('Beefwood/Australian Pine', 47);
+	insert into categoria (nombre, codcategoria) values ('Alendronate Sodium', 48);
+	insert into categoria (nombre, codcategoria) values ('ARTEMISIA VULGARIS POLLEN', 49);
+	insert into categoria (nombre, codcategoria) values ('Every Day COCONUT Daily Face Broad Spectrum SPF 15', 50);
+	insert into categoria (nombre, codcategoria) values ('Peptic Relief', 51);
+	insert into categoria (nombre, codcategoria) values ('Stay Awake', 52);
+	insert into categoria (nombre, codcategoria) values ('Guinea Pig Epithelium', 53);
+	insert into categoria (nombre, codcategoria) values ('TRAMADOL HYDROCHLORIDE', 54);
+	insert into categoria (nombre, codcategoria) values ('Sulfamethoxazole and Trimethoprim', 55);
+	insert into categoria (nombre, codcategoria) values ('No7 Stay Perfect Foundation Sunscreen SPF 15 Almond', 56);
+	insert into categoria (nombre, codcategoria) values ('Atenolol', 57);
+	insert into categoria (nombre, codcategoria) values ('ASPIRIN', 58);
+	insert into categoria (nombre, codcategoria) values ('HOUSE DUST', 59);
+	insert into categoria (nombre, codcategoria) values ('Sulwhasoo Lumitouch Compact', 60);
+	insert into categoria (nombre, codcategoria) values ('Skinovage Nanocell Age Protecting', 61);
+	insert into categoria (nombre, codcategoria) values ('Piroxicam', 62);
+	insert into categoria (nombre, codcategoria) values ('Lunesta', 63);
+	insert into categoria (nombre, codcategoria) values ('Atenolol', 64);
+	insert into categoria (nombre, codcategoria) values ('Acne', 65);
+	insert into categoria (nombre, codcategoria) values ('Rite Aid Baby Sunscreen', 66);
+	insert into categoria (nombre, codcategoria) values ('sunmark pain reliever pm', 67);
+	insert into categoria (nombre, codcategoria) values ('White Birch', 68);
+	insert into categoria (nombre, codcategoria) values ('In Control Nicotine', 69);
+	insert into categoria (nombre, codcategoria) values ('LEVAQUIN', 70);
+	insert into categoria (nombre, codcategoria) values ('methylphenidate hydrochloride CD', 71);
+	insert into categoria (nombre, codcategoria) values ('ATORVASTATIN CALCIUM', 72);
+	insert into categoria (nombre, codcategoria) values ('Mango Blossom', 73);
+	insert into categoria (nombre, codcategoria) values ('Levothyroxine Sodium', 74);
+	insert into categoria (nombre, codcategoria) values ('Rye', 75);
+	insert into categoria (nombre, codcategoria) values ('Beyond Color', 76);
+	insert into categoria (nombre, codcategoria) values ('Flagyl', 77);
+	insert into categoria (nombre, codcategoria) values ('SENNA TIME', 78);
+	insert into categoria (nombre, codcategoria) values ('Stay Awake', 79);
+	insert into categoria (nombre, codcategoria) values ('Simvastatin', 80);
+	insert into categoria (nombre, codcategoria) values ('ZOLPIDEM TARTRATE', 81);
+	insert into categoria (nombre, codcategoria) values ('Pain Relief', 82);
+	insert into categoria (nombre, codcategoria) values ('Healthy Accents Anti Itch', 83);
+	insert into categoria (nombre, codcategoria) values ('Full Care BZK Towelette', 84);
+	insert into categoria (nombre, codcategoria) values ('EPIVIR', 85);
+	insert into categoria (nombre, codcategoria) values ('methylphenidate hydrochloride CD', 86);
+	insert into categoria (nombre, codcategoria) values ('mark.', 87);
+	insert into categoria (nombre, codcategoria) values ('CYMBALTA', 88);
+	insert into categoria (nombre, codcategoria) values ('Secret Outlast Invisible', 89);
+	insert into categoria (nombre, codcategoria) values ('Headaches', 90);
+	insert into categoria (nombre, codcategoria) values ('Spiny Pigweed', 91);
+	insert into categoria (nombre, codcategoria) values ('Famotidine', 92);
+	insert into categoria (nombre, codcategoria) values ('RISPERDAL', 93);
+	insert into categoria (nombre, codcategoria) values ('Dexamethasone', 94);
+	insert into categoria (nombre, codcategoria) values ('ADVANCED TIME ZONE AGE REVERSING', 95);
+	insert into categoria (nombre, codcategoria) values ('Herplex', 96);
+	insert into categoria (nombre, codcategoria) values ('TIAZAC', 97);
+	insert into categoria (nombre, codcategoria) values ('TRUFFLE EX SUN', 98);
+	insert into categoria (nombre, codcategoria) values ('XtraCare Foam Antibacterial Hand Wash', 99);
+	insert into categoria (nombre, codcategoria) values ('Hydrogen Peroxide', 100);
+
+	
+	
+select *
+from vendible;
