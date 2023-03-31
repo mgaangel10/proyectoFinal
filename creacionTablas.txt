@@ -10,18 +10,19 @@ drop table if exists cliente cascade;
 drop table if exists reserva cascade;
 
 create table empleado(
-	codEmpleado	smallserial,
-	nombre	text,
+	codEmpleado	smallserial not null,
+	nombre	text not null,
 	apellidos	text,
-	correo	text,
-	dni	varchar(11),
+	correo	text not null,
+	dni	varchar(11) not null,
 	numTelefono	NUMERIC,
 	fechaContratacion	date,
-	salario	numeric,
-	puesto	text,
+	salario	numeric ,
+	puesto	text not null,
 	notasAdicionales	text,
-	esAdmi text,
-	constraint pk_empleado primary key (codEmpleado)
+	esAdmi text not null,
+	constraint pk_empleado primary key (codEmpleado),
+	constraint ck_empelado check (salario > 0)
 );
 
 create table vende(
@@ -31,62 +32,64 @@ create table vende(
 );
 
 create table vendible(
-	codigo	smallserial,
-	precio numeric,
-	nombre	text,
+	codigo	smallserial not null,
+	precio numeric ,
+	nombre	text not null,
 	descripcion	text,
 	numPuntos	numeric,
-	descuentos	numeric,
-	codCategoria	smallserial,
-	constraint pk_vendible primary key (codigo)
+	descuentos	numeric ,
+	codCategoria	smallserial not null,
+	constraint pk_vendible primary key (codigo),
+	constraint ck_empelado check (precio > 0)
 );
 
 create table servicio(
-	codigo	smallserial,
-	duracion	TIME,
+	codigo	smallserial not null,
+	duracion	TIME not null,
 	constraint pk_servicio primary key (codigo)
 );
 
 create table producto(
-	codigo	smallserial,
-	color	text,
+	codigo	smallserial not null,
+	color	text ,
 	constraint pk_producto primary key (codigo)
 );
 
 create table lineaVenta(
-	codLinea	smallserial,
-	codigo	smallserial,
-	pvp	numeric,
-	constraint pk_lineaVenta primary key (codLinea)
+	codLinea	smallserial not null,
+	codigo	smallserial not null,
+	pvp	numeric not null,
+	constraint pk_lineaVenta primary key (codLinea),
+	constraint ck_empelado check (pvp > 0)
 );
 
 create table venta(
-	codVenta	smallserial,
+	codVenta	smallserial not null,
 	codCliente smallserial,
-	fecha date,
+	fecha date not null,
 	constraint pk_venta primary key (codVenta)
 );
 
 create table cliente(
-	dni	varchar(11) ,
-	nombre text,
+	dni	varchar(11) not null ,
+	nombre text not null,
 	apellidos	text,
-	correo	text,
-	codCliente	smallserial,
+	correo	text not null,
+	codCliente	smallserial not null,
 	genero	text,
 	puntos numeric,
 	constraint pk_cliente primary key (codCliente)
 );
 
 create table reserva(
-	codReserva	smallserial,
+	codReserva	smallserial not null,
 	codCliente	smallserial,
 	fecha	date,
 	hora	TIME,
 	constraint pk_reserva primary key (codReserva, codCliente)
 );
 create table categoria(
-	codCategoria	smallserial,
+	codCategoria	smallserial not null,
 	nombre text,
 	constraint pK_categoria primary key (codCategoria)
 );
@@ -766,177 +769,182 @@ VALUES
 
 
 
-insert into venta (codVenta, codCliente, fecha) values (1, 1, '4/21/2022');
+insert into venta (codVenta, codCliente, fecha) values (1, 1, '4/1/2022');
 insert into venta (codVenta, codCliente, fecha) values (2, 2, '5/11/2022');
 insert into venta (codVenta, codCliente, fecha) values (3, 3, '12/10/2022');
-insert into venta (codVenta, codCliente, fecha) values (4, 4, '9/24/2022');
-insert into venta (codVenta, codCliente, fecha) values (5, 5, '5/15/2022');
-insert into venta (codVenta, codCliente, fecha) values (6, 6, '2/20/2023');
-insert into venta (codVenta, codCliente, fecha) values (7, 7, '11/22/2022');
+insert into venta (codVenta, codCliente, fecha) values (4, 4, '9/4/2022');
+insert into venta (codVenta, codCliente, fecha) values (5, 5, '5/1/2022');
+insert into venta (codVenta, codCliente, fecha) values (6, 6, '2/2/2023');
+insert into venta (codVenta, codCliente, fecha) values (7, 7, '11/2/2022');
 insert into venta (codVenta, codCliente, fecha) values (8, 8, '6/8/2022');
-insert into venta (codVenta, codCliente, fecha) values (9, 9, '12/18/2022');
-insert into venta (codVenta, codCliente, fecha) values (10, 10, '7/17/2022');
-insert into venta (codVenta, codCliente, fecha) values (11, 11, '7/26/2022');
+insert into venta (codVenta, codCliente, fecha) values (9, 9, '12/1/2022');
+insert into venta (codVenta, codCliente, fecha) values (10, 10, '7/7/2022');
+insert into venta (codVenta, codCliente, fecha) values (11, 11, '7/6/2022');
 insert into venta (codVenta, codCliente, fecha) values (12, 12, '7/3/2022');
-insert into venta (codVenta, codCliente, fecha) values (13, 13, '2/17/2023');
-insert into venta (codVenta, codCliente, fecha) values (14, 14, '10/24/2022');
-insert into venta (codVenta, codCliente, fecha) values (15, 15, '8/16/2022');
+insert into venta (codVenta, codCliente, fecha) values (13, 13, '2/7/2023');
+insert into venta (codVenta, codCliente, fecha) values (14, 14, '10/4/2022');
+insert into venta (codVenta, codCliente, fecha) values (15, 15, '8/6/2022');
 insert into venta (codVenta, codCliente, fecha) values (16, 16, '2/3/2023');
-insert into venta (codVenta, codCliente, fecha) values (17, 17, '10/22/2022');
-insert into venta (codVenta, codCliente, fecha) values (18, 18, '4/27/2022');
-insert into venta (codVenta, codCliente, fecha) values (19, 19, '1/24/2023');
-insert into venta (codVenta, codCliente, fecha) values (20, 20, '6/29/2022');
-insert into venta (codVenta, codCliente, fecha) values (21, 21, '5/21/2022');
+insert into venta (codVenta, codCliente, fecha) values (17, 17, '10/2/2022');
+insert into venta (codVenta, codCliente, fecha) values (18, 18, '4/7/2022');
+insert into venta (codVenta, codCliente, fecha) values (19, 19, '1/4/2023');
+insert into venta (codVenta, codCliente, fecha) values (20, 20, '6/9/2022');
+insert into venta (codVenta, codCliente, fecha) values (21, 21, '5/1/2022');
 insert into venta (codVenta, codCliente, fecha) values (22, 22, '6/1/2022');
-insert into venta (codVenta, codCliente, fecha) values (23, 23, '8/18/2022');
-insert into venta (codVenta, codCliente, fecha) values (24, 24, '10/24/2022');
+insert into venta (codVenta, codCliente, fecha) values (23, 23, '8/8/2022');
+insert into venta (codVenta, codCliente, fecha) values (24, 24, '10/4/2022');
 insert into venta (codVenta, codCliente, fecha) values (25, 25, '6/5/2022');
-insert into venta (codVenta, codCliente, fecha) values (26, 26, '1/18/2023');
+insert into venta (codVenta, codCliente, fecha) values (26, 26, '1/8/2023');
 insert into venta (codVenta, codCliente, fecha) values (27, 27, '5/12/2022');
-insert into venta (codVenta, codCliente, fecha) values (28, 28, '8/11/2022');
+insert into venta (codVenta, codCliente, fecha) values (28, 28, '8/1/2022');
 insert into venta (codVenta, codCliente, fecha) values (29, 29, '12/10/2022');
 insert into venta (codVenta, codCliente, fecha) values (30, 30, '6/2/2022');
 insert into venta (codVenta, codCliente, fecha) values (31, 31, '3/2/2023');
-insert into venta (codVenta, codCliente, fecha) values (32, 32, '5/29/2022');
+insert into venta (codVenta, codCliente, fecha) values (32, 32, '5/9/2022');
 insert into venta (codVenta, codCliente, fecha) values (33, 33, '1/11/2023');
-insert into venta (codVenta, codCliente, fecha) values (34, 34, '8/18/2022');
+insert into venta (codVenta, codCliente, fecha) values (34, 34, '8/8/2022');
 insert into venta (codVenta, codCliente, fecha) values (35, 35, '8/3/2022');
-insert into venta (codVenta, codCliente, fecha) values (36, 36, '7/18/2022');
+insert into venta (codVenta, codCliente, fecha) values (36, 36, '7/1/2022');
 insert into venta (codVenta, codCliente, fecha) values (37, 37, '11/3/2022');
-insert into venta (codVenta, codCliente, fecha) values (38, 38, '7/18/2022');
-insert into venta (codVenta, codCliente, fecha) values (39, 39, '12/24/2022');
-insert into venta (codVenta, codCliente, fecha) values (40, 40, '8/29/2022');
+insert into venta (codVenta, codCliente, fecha) values (38, 38, '7/8/2022');
+insert into venta (codVenta, codCliente, fecha) values (39, 39, '12/4/2022');
+insert into venta (codVenta, codCliente, fecha) values (40, 40, '8/9/2022');
 insert into venta (codVenta, codCliente, fecha) values (41, 41, '7/6/2022');
-insert into venta (codVenta, codCliente, fecha) values (42, 42, '12/16/2022');
-insert into venta (codVenta, codCliente, fecha) values (43, 43, '10/17/2022');
+insert into venta (codVenta, codCliente, fecha) values (42, 42, '12/6/2022');
+insert into venta (codVenta, codCliente, fecha) values (43, 43, '10/1/2022');
 insert into venta (codVenta, codCliente, fecha) values (44, 44, '10/5/2022');
 insert into venta (codVenta, codCliente, fecha) values (45, 45, '6/10/2022');
-insert into venta (codVenta, codCliente, fecha) values (46, 46, '5/28/2022');
-insert into venta (codVenta, codCliente, fecha) values (47, 47, '4/17/2022');
+insert into venta (codVenta, codCliente, fecha) values (46, 46, '5/8/2022');
+insert into venta (codVenta, codCliente, fecha) values (47, 47, '4/7/2022');
 insert into venta (codVenta, codCliente, fecha) values (48, 48, '3/3/2023');
-insert into venta (codVenta, codCliente, fecha) values (49, 49, '10/19/2022');
+insert into venta (codVenta, codCliente, fecha) values (49, 49, '10/9/2022');
 insert into venta (codVenta, codCliente, fecha) values (50, 50, '5/10/2022');
-insert into venta (codVenta, codCliente, fecha) values (51, 51, '6/16/2022');
-insert into venta (codVenta, codCliente, fecha) values (52, 52, '10/16/2022');
-insert into venta (codVenta, codCliente, fecha) values (53, 53, '8/29/2022');
+insert into venta (codVenta, codCliente, fecha) values (51, 51, '6/6/2022');
+insert into venta (codVenta, codCliente, fecha) values (52, 52, '10/1/2022');
+insert into venta (codVenta, codCliente, fecha) values (53, 53, '8/2/2022');
 insert into venta (codVenta, codCliente, fecha) values (54, 54, '7/2/2022');
 insert into venta (codVenta, codCliente, fecha) values (55, 55, '9/6/2022');
 insert into venta (codVenta, codCliente, fecha) values (56, 56, '3/2/2023');
-insert into venta (codVenta, codCliente, fecha) values (57, 57, '1/20/2023');
+insert into venta (codVenta, codCliente, fecha) values (57, 57, '1/2/2023');
 insert into venta (codVenta, codCliente, fecha) values (58, 58, '10/4/2022');
 insert into venta (codVenta, codCliente, fecha) values (59, 59, '5/7/2022');
-insert into venta (codVenta, codCliente, fecha) values (60, 60, '11/18/2022');
-insert into venta (codVenta, codCliente, fecha) values (61, 61, '9/17/2022');
-insert into venta (codVenta, codCliente, fecha) values (62, 62, '6/23/2022');
-insert into venta (codVenta, codCliente, fecha) values (63, 63, '9/24/2022');
-insert into venta (codVenta, codCliente, fecha) values (64, 64, '9/29/2022');
-insert into venta (codVenta, codCliente, fecha) values (65, 65, '2/19/2023');
-insert into venta (codVenta, codCliente, fecha) values (66, 66, '10/29/2022');
+insert into venta (codVenta, codCliente, fecha) values (60, 60, '11/8/2022');
+insert into venta (codVenta, codCliente, fecha) values (61, 61, '9/1/2022');
+insert into venta (codVenta, codCliente, fecha) values (62, 62, '6/2/2022');
+insert into venta (codVenta, codCliente, fecha) values (63, 63, '9/4/2022');
+insert into venta (codVenta, codCliente, fecha) values (64, 64, '9/2/2022');
+insert into venta (codVenta, codCliente, fecha) values (65, 65, '2/9/2023');
+insert into venta (codVenta, codCliente, fecha) values (66, 66, '10/2/2022');
 insert into venta (codVenta, codCliente, fecha) values (67, 67, '1/9/2023');
-insert into venta (codVenta, codCliente, fecha) values (68, 68, '12/20/2022');
-insert into venta (codVenta, codCliente, fecha) values (69, 69, '10/30/2022');
+insert into venta (codVenta, codCliente, fecha) values (68, 68, '12/2/2022');
+insert into venta (codVenta, codCliente, fecha) values (69, 69, '10/3/2022');
 
 
 
 
-insert into reserva (codReserva, codCliente, fecha, hora) values (1, 1, '10/18/2022', '19:06');
+insert into reserva (codReserva, codCliente, fecha, hora) values (1, 1, '10/8/2022', '19:06');
 insert into reserva (codReserva, codCliente, fecha, hora) values (2, 2, '1/8/2023', '21:38');
-insert into reserva (codReserva, codCliente, fecha, hora) values (3, 3, '9/23/2022', '19:33');
-insert into reserva (codReserva, codCliente, fecha, hora) values (4, 4, '1/24/2023', '22:40');
-insert into reserva (codReserva, codCliente, fecha, hora) values (5, 5, '6/11/2022', '17:17');
-insert into reserva (codReserva, codCliente, fecha, hora) values (6, 6, '1/31/2023', '3:48');
+insert into reserva (codReserva, codCliente, fecha, hora) values (3, 3, '9/3/2022', '19:33');
+insert into reserva (codReserva, codCliente, fecha, hora) values (4, 4, '1/4/2023', '22:40');
+insert into reserva (codReserva, codCliente, fecha, hora) values (5, 5, '6/1/2022', '17:17');
+insert into reserva (codReserva, codCliente, fecha, hora) values (6, 6, '1/1/2023', '3:48');
 insert into reserva (codReserva, codCliente, fecha, hora) values (7, 7, '8/12/2022', '1:52');
-insert into reserva (codReserva, codCliente, fecha, hora) values (8, 8, '9/15/2022', '2:19');
+insert into reserva (codReserva, codCliente, fecha, hora) values (8, 8, '9/5/2022', '2:19');
 insert into reserva (codReserva, codCliente, fecha, hora) values (9, 9, '11/9/2022', '0:40');
-insert into reserva (codReserva, codCliente, fecha, hora) values (10, 10, '8/24/2022', '20:05');
-insert into reserva (codReserva, codCliente, fecha, hora) values (11, 11, '1/31/2023', '7:38');
+insert into reserva (codReserva, codCliente, fecha, hora) values (10, 10, '8/2/2022', '20:05');
+insert into reserva (codReserva, codCliente, fecha, hora) values (11, 11, '1/1/2023', '7:38');
 insert into reserva (codReserva, codCliente, fecha, hora) values (12, 12, '5/2/2022', '16:32');
 insert into reserva (codReserva, codCliente, fecha, hora) values (13, 13, '12/5/2022', '14:41');
 insert into reserva (codReserva, codCliente, fecha, hora) values (14, 14, '5/3/2022', '14:43');
-insert into reserva (codReserva, codCliente, fecha, hora) values (15, 15, '3/25/2023', '11:48');
+insert into reserva (codReserva, codCliente, fecha, hora) values (15, 15, '3/2/2023', '11:48');
 insert into reserva (codReserva, codCliente, fecha, hora) values (16, 16, '6/10/2022', '2:44');
-insert into reserva (codReserva, codCliente, fecha, hora) values (17, 17, '6/15/2022', '21:02');
-insert into reserva (codReserva, codCliente, fecha, hora) values (18, 18, '2/26/2023', '16:07');
+insert into reserva (codReserva, codCliente, fecha, hora) values (17, 17, '6/5/2022', '21:02');
+insert into reserva (codReserva, codCliente, fecha, hora) values (18, 18, '2/6/2023', '16:07');
 insert into reserva (codReserva, codCliente, fecha, hora) values (19, 19, '12/1/2022', '6:09');
-insert into reserva (codReserva, codCliente, fecha, hora) values (20, 20, '12/23/2022', '6:15');
-insert into reserva (codReserva, codCliente, fecha, hora) values (21, 21, '10/17/2022', '0:19');
+insert into reserva (codReserva, codCliente, fecha, hora) values (20, 20, '12/3/2022', '6:15');
+insert into reserva (codReserva, codCliente, fecha, hora) values (21, 21, '10/7/2022', '0:19');
 insert into reserva (codReserva, codCliente, fecha, hora) values (22, 22, '7/5/2022', '4:28');
-insert into reserva (codReserva, codCliente, fecha, hora) values (23, 23, '7/24/2022', '15:05');
+insert into reserva (codReserva, codCliente, fecha, hora) values (23, 23, '7/4/2022', '15:05');
 insert into reserva (codReserva, codCliente, fecha, hora) values (24, 24, '3/9/2023', '7:12');
-insert into reserva (codReserva, codCliente, fecha, hora) values (25, 25, '4/16/2022', '17:25');
-insert into reserva (codReserva, codCliente, fecha, hora) values (26, 26, '3/18/2023', '23:48');
+insert into reserva (codReserva, codCliente, fecha, hora) values (25, 25, '4/6/2022', '17:25');
+insert into reserva (codReserva, codCliente, fecha, hora) values (26, 26, '3/8/2023', '23:48');
 insert into reserva (codReserva, codCliente, fecha, hora) values (27, 27, '6/9/2022', '12:36');
-insert into reserva (codReserva, codCliente, fecha, hora) values (28, 28, '4/22/2022', '18:31');
+insert into reserva (codReserva, codCliente, fecha, hora) values (28, 28, '4/2/2022', '18:31');
 insert into reserva (codReserva, codCliente, fecha, hora) values (29, 29, '7/5/2022', '13:09');
-insert into reserva (codReserva, codCliente, fecha, hora) values (30, 30, '11/14/2022', '0:54');
+insert into reserva (codReserva, codCliente, fecha, hora) values (30, 30, '11/4/2022', '0:54');
 insert into reserva (codReserva, codCliente, fecha, hora) values (31, 31, '1/6/2023', '7:36');
 insert into reserva (codReserva, codCliente, fecha, hora) values (32, 32, '9/11/2022', '6:46');
 insert into reserva (codReserva, codCliente, fecha, hora) values (33, 33, '7/5/2022', '22:38');
-insert into reserva (codReserva, codCliente, fecha, hora) values (34, 34, '5/15/2022', '0:39');
-insert into reserva (codReserva, codCliente, fecha, hora) values (35, 35, '4/21/2022', '12:21');
+insert into reserva (codReserva, codCliente, fecha, hora) values (34, 34, '5/5/2022', '0:39');
+insert into reserva (codReserva, codCliente, fecha, hora) values (35, 35, '4/2/2022', '12:21');
 insert into reserva (codReserva, codCliente, fecha, hora) values (36, 36, '1/9/2023', '12:34');
-insert into reserva (codReserva, codCliente, fecha, hora) values (37, 37, '2/23/2023', '15:26');
-insert into reserva (codReserva, codCliente, fecha, hora) values (38, 38, '4/20/2022', '10:45');
-insert into reserva (codReserva, codCliente, fecha, hora) values (39, 39, '11/13/2022', '19:28');
+insert into reserva (codReserva, codCliente, fecha, hora) values (37, 37, '2/3/2023', '15:26');
+insert into reserva (codReserva, codCliente, fecha, hora) values (38, 38, '4/2/2022', '10:45');
+insert into reserva (codReserva, codCliente, fecha, hora) values (39, 39, '11/1/2022', '19:28');
 insert into reserva (codReserva, codCliente, fecha, hora) values (40, 40, '3/4/2023', '15:09');
 insert into reserva (codReserva, codCliente, fecha, hora) values (41, 41, '1/1/2023', '2:47');
-insert into reserva (codReserva, codCliente, fecha, hora) values (42, 42, '6/12/2022', '1:34');
-insert into reserva (codReserva, codCliente, fecha, hora) values (43, 43, '3/17/2023', '8:27');
-insert into reserva (codReserva, codCliente, fecha, hora) values (44, 44, '5/24/2022', '8:25');
-insert into reserva (codReserva, codCliente, fecha, hora) values (45, 45, '4/18/2022', '15:53');
-insert into reserva (codReserva, codCliente, fecha, hora) values (46, 46, '2/21/2023', '12:14');
-insert into reserva (codReserva, codCliente, fecha, hora) values (47, 47, '5/17/2022', '13:34');
+insert into reserva (codReserva, codCliente, fecha, hora) values (42, 42, '6/2/2022', '1:34');
+insert into reserva (codReserva, codCliente, fecha, hora) values (43, 43, '3/7/2023', '8:27');
+insert into reserva (codReserva, codCliente, fecha, hora) values (44, 44, '5/2/2022', '8:25');
+insert into reserva (codReserva, codCliente, fecha, hora) values (45, 45, '4/8/2022', '15:53');
+insert into reserva (codReserva, codCliente, fecha, hora) values (46, 46, '2/2/2023', '12:14');
+insert into reserva (codReserva, codCliente, fecha, hora) values (47, 47, '5/7/2022', '13:34');
 insert into reserva (codReserva, codCliente, fecha, hora) values (48, 48, '2/12/2023', '21:11');
-insert into reserva (codReserva, codCliente, fecha, hora) values (49, 49, '11/23/2022', '0:18');
-insert into reserva (codReserva, codCliente, fecha, hora) values (50, 50, '8/27/2022', '19:17');
-insert into reserva (codReserva, codCliente, fecha, hora) values (51, 51, '7/28/2022', '15:58');
+insert into reserva (codReserva, codCliente, fecha, hora) values (49, 49, '11/3/2022', '0:18');
+insert into reserva (codReserva, codCliente, fecha, hora) values (50, 50, '8/7/2022', '19:17');
+insert into reserva (codReserva, codCliente, fecha, hora) values (51, 51, '7/2/2022', '15:58');
 insert into reserva (codReserva, codCliente, fecha, hora) values (52, 52, '11/10/2022', '19:57');
-insert into reserva (codReserva, codCliente, fecha, hora) values (53, 53, '7/24/2022', '0:28');
-insert into reserva (codReserva, codCliente, fecha, hora) values (54, 54, '6/25/2022', '0:16');
-insert into reserva (codReserva, codCliente, fecha, hora) values (55, 55, '5/25/2022', '9:46');
+insert into reserva (codReserva, codCliente, fecha, hora) values (53, 53, '7/2/2022', '0:28');
+insert into reserva (codReserva, codCliente, fecha, hora) values (54, 54, '6/5/2022', '0:16');
+insert into reserva (codReserva, codCliente, fecha, hora) values (55, 55, '5/2/2022', '9:46');
 insert into reserva (codReserva, codCliente, fecha, hora) values (56, 56, '1/11/2023', '9:56');
 insert into reserva (codReserva, codCliente, fecha, hora) values (57, 57, '11/9/2022', '2:22');
-insert into reserva (codReserva, codCliente, fecha, hora) values (58, 58, '6/22/2022', '6:58');
+insert into reserva (codReserva, codCliente, fecha, hora) values (58, 58, '6/2/2022', '6:58');
 insert into reserva (codReserva, codCliente, fecha, hora) values (59, 59, '10/3/2022', '1:06');
-insert into reserva (codReserva, codCliente, fecha, hora) values (60, 60, '3/26/2023', '15:41');
-insert into reserva (codReserva, codCliente, fecha, hora) values (61, 61, '6/18/2022', '8:36');
+insert into reserva (codReserva, codCliente, fecha, hora) values (60, 60, '3/6/2023', '15:41');
+insert into reserva (codReserva, codCliente, fecha, hora) values (61, 61, '6/1/2022', '8:36');
 insert into reserva (codReserva, codCliente, fecha, hora) values (62, 62, '12/1/2022', '2:10');
-insert into reserva (codReserva, codCliente, fecha, hora) values (63, 63, '1/15/2023', '15:05');
-insert into reserva (codReserva, codCliente, fecha, hora) values (64, 64, '3/13/2023', '14:37');
-insert into reserva (codReserva, codCliente, fecha, hora) values (65, 65, '3/17/2023', '4:52');
+insert into reserva (codReserva, codCliente, fecha, hora) values (63, 63, '1/1/2023', '15:05');
+insert into reserva (codReserva, codCliente, fecha, hora) values (64, 64, '3/3/2023', '14:37');
+insert into reserva (codReserva, codCliente, fecha, hora) values (65, 65, '3/7/2023', '4:52');
 insert into reserva (codReserva, codCliente, fecha, hora) values (66, 66, '10/10/2022', '22:24');
-insert into reserva (codReserva, codCliente, fecha, hora) values (67, 67, '8/27/2022', '3:36');
-insert into reserva (codReserva, codCliente, fecha, hora) values (68, 68, '2/15/2023', '22:20');
+insert into reserva (codReserva, codCliente, fecha, hora) values (67, 67, '8/7/2022', '3:36');
+insert into reserva (codReserva, codCliente, fecha, hora) values (68, 68, '2/5/2023', '22:20');
 insert into reserva (codReserva, codCliente, fecha, hora) values (69, 69, '3/5/2023', '7:58');
 insert into reserva (codReserva, codCliente, fecha, hora) values (70, 70, '5/3/2022', '12:26');
-insert into reserva (codReserva, codCliente, fecha, hora) values (71, 71, '1/19/2023', '10:06');
+insert into reserva (codReserva, codCliente, fecha, hora) values (71, 71, '1/9/2023', '10:06');
 insert into reserva (codReserva, codCliente, fecha, hora) values (72, 72, '9/9/2022', '10:31');
 insert into reserva (codReserva, codCliente, fecha, hora) values (73, 73, '10/6/2022', '0:13');
 insert into reserva (codReserva, codCliente, fecha, hora) values (74, 74, '5/5/2022', '8:42');
-insert into reserva (codReserva, codCliente, fecha, hora) values (75, 75, '7/30/2022', '15:51');
-insert into reserva (codReserva, codCliente, fecha, hora) values (76, 76, '8/13/2022', '12:09');
-insert into reserva (codReserva, codCliente, fecha, hora) values (77, 77, '3/17/2023', '23:24');
-insert into reserva (codReserva, codCliente, fecha, hora) values (78, 78, '3/25/2023', '5:42');
-insert into reserva (codReserva, codCliente, fecha, hora) values (79, 79, '4/17/2022', '21:46');
-insert into reserva (codReserva, codCliente, fecha, hora) values (80, 80, '2/14/2023', '11:07');
-insert into reserva (codReserva, codCliente, fecha, hora) values (81, 81, '3/13/2023', '6:39');
+insert into reserva (codReserva, codCliente, fecha, hora) values (75, 75, '7/3/2022', '15:51');
+insert into reserva (codReserva, codCliente, fecha, hora) values (76, 76, '8/3/2022', '12:09');
+insert into reserva (codReserva, codCliente, fecha, hora) values (77, 77, '3/7/2023', '23:24');
+insert into reserva (codReserva, codCliente, fecha, hora) values (78, 78, '3/5/2023', '5:42');
+insert into reserva (codReserva, codCliente, fecha, hora) values (79, 79, '4/7/2022', '21:46');
+insert into reserva (codReserva, codCliente, fecha, hora) values (80, 80, '2/4/2023', '11:07');
+insert into reserva (codReserva, codCliente, fecha, hora) values (81, 81, '3/3/2023', '6:39');
 insert into reserva (codReserva, codCliente, fecha, hora) values (82, 82, '11/10/2022', '5:00');
-insert into reserva (codReserva, codCliente, fecha, hora) values (83, 83, '1/31/2023', '11:08');
+insert into reserva (codReserva, codCliente, fecha, hora) values (83, 83, '1/3/2023', '11:08');
 insert into reserva (codReserva, codCliente, fecha, hora) values (84, 84, '6/11/2022', '5:06');
 insert into reserva (codReserva, codCliente, fecha, hora) values (85, 85, '2/1/2023', '9:06');
-insert into reserva (codReserva, codCliente, fecha, hora) values (86, 86, '8/15/2022', '23:27');
+insert into reserva (codReserva, codCliente, fecha, hora) values (86, 86, '8/5/2022', '23:27');
 insert into reserva (codReserva, codCliente, fecha, hora) values (87, 87, '5/4/2022', '12:16');
-insert into reserva (codReserva, codCliente, fecha, hora) values (88, 88, '10/28/2022', '14:34');
-insert into reserva (codReserva, codCliente, fecha, hora) values (89, 89, '7/24/2022', '0:52');
-insert into reserva (codReserva, codCliente, fecha, hora) values (90, 90, '1/19/2023', '14:30');
-insert into reserva (codReserva, codCliente, fecha, hora) values (91, 91, '5/16/2022', '14:32');
+insert into reserva (codReserva, codCliente, fecha, hora) values (88, 88, '10/8/2022', '14:34');
+insert into reserva (codReserva, codCliente, fecha, hora) values (89, 89, '7/2/2022', '0:52');
+insert into reserva (codReserva, codCliente, fecha, hora) values (90, 90, '1/9/2023', '14:30');
+insert into reserva (codReserva, codCliente, fecha, hora) values (91, 91, '5/6/2022', '14:32');
 insert into reserva (codReserva, codCliente, fecha, hora) values (92, 92, '12/4/2022', '6:58');
 insert into reserva (codReserva, codCliente, fecha, hora) values (93, 93, '2/10/2023', '9:05');
-insert into reserva (codReserva, codCliente, fecha, hora) values (94, 94, '8/27/2022', '13:25');
-insert into reserva (codReserva, codCliente, fecha, hora) values (95, 95, '9/27/2022', '19:29');
+insert into reserva (codReserva, codCliente, fecha, hora) values (94, 94, '8/7/2022', '13:25');
+insert into reserva (codReserva, codCliente, fecha, hora) values (95, 95, '9/2/2022', '19:29');
 insert into reserva (codReserva, codCliente, fecha, hora) values (96, 96, '10/4/2022', '15:47');
 insert into reserva (codReserva, codCliente, fecha, hora) values (97, 97, '6/4/2022', '12:04');
-insert into reserva (codReserva, codCliente, fecha, hora) values (98, 98, '8/16/2022', '9:15');
+insert into reserva (codReserva, codCliente, fecha, hora) values (98, 98, '8/1/2022', '9:15');
 insert into reserva (codReserva, codCliente, fecha, hora) values (99, 99, '2/12/2023', '17:45');
-insert into reserva (codReserva, codCliente, fecha, hora) values (100, 100, '8/13/2022', '5:32');
+insert into reserva (codReserva, codCliente, fecha, hora) values (100, 100, '8/3/2022', '5:32');
+
+
+
+
+
 
