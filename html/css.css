@@ -1,0 +1,50 @@
+div{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: solid;
+}
+
+div .divnav{
+width: 100%;
+height: 30%;
+box-sizing: border-box;
+border: solid;
+}
+
+div .divnav nav{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    border: solid;
+    box-sizing: border-box;
+}
+div .divnav nav ul {
+    display: flex;
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+}
+div .divnav nav ul li{
+    position: relative;
+    
+    list-style: none;
+    width: 100%;
+    height: 100%;
+}
+div .divnav nav ul li img{
+    width: 100px;
+    height: 100%;
+    float: right;
+}
+div .nonav div{
+   border-color: white;
+}
+div .nonav {
+    width: 100%;
+    height: 500px;
+    background-image:url('fondo.jpg');
+    background-repeat: no-repeat;
+  
+    background-size: cover;
+}
