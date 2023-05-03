@@ -82,5 +82,9 @@ height: 250px;
     display: flex;
     margin: 0 auto;
 }
+a{
+   
+   text-decoration: none;
+}
 
 
