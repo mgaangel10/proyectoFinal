@@ -84,8 +84,10 @@ height: 250px;
     margin: 0 auto;
 }
 a{
-   
+   color: #c00000;
    text-decoration: none;
 }
 
-
+.card{
+    background-color: #c00000;
+}
