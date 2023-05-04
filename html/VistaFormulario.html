@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<form   method="POST" th:action="addEmpleado" th:object="${usuarioFormulario}">
+    <div class="formu">
+        <div>
+            <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="Indique su nombre" name="nombre" th:field="*{nombre}">
+        </div>
+        <div>
+            <label for="apellidos">Apellidos</label>
+        <input type="text" id="nombre" placeholder="Indique sus apellidos" name="apellidos" th:field="*{apellidos}">
+        </div>
+        
+        <div>
+            <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Indique su email" name="emaail" th:field="*{email}">
+        </div>
+        <div>
+            <a href=""><button type="submit">Enviar</button></a>
+        </div>
+        
+        
+    </div>
+</form>
+    
+    
+</body>
+</html>
