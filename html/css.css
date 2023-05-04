@@ -58,6 +58,7 @@ width: 200px;
 height: 200px;
 }
 .flex{
+    margin-top: 1%;
     display: flex;
 }
 .flex div img{
