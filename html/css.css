@@ -53,6 +53,7 @@ width: 200px;
 height: 200px;
 }
 .flex{
+    width: 700px;
     margin-top: 1%;
     display: flex;
 }
@@ -135,9 +136,19 @@ h1{
 .prodMasVendidos button{
     
 }
+table{
+    color: white;
+}
 
-
-
+thead{
+    color: white;
+}
+tr{
+    color: white;
+}
+td{
+    color: white;
+}
 
 
 
