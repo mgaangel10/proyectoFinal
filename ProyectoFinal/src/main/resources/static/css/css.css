@@ -1,0 +1,170 @@
+body{
+    background-color: rgba(0, 0, 0, 0.836);
+}
+nav{
+    background-color:#c00000;
+}
+button{
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+input{
+    border-radius: 20px;
+    background-color: white;
+   
+}
+::placeholder{
+    color: white;
+    
+}
+
+
+.quienesSomos{
+    
+    
+    width: 80%;
+    height: 100%;
+    background-color: #c00000;
+}
+.quienesSomos p{
+    width: 100%;
+    height: 100%;
+color: white;
+text-align: center;
+
+}
+.quienesSomos div h2{
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    
+}
+.listaServicio{
+    width: 100%;
+    height: 100%;
+}
+.listaServicio .flex {
+    display: flex;
+}
+.listaServicio .flex  img{
+width: 200px;
+height: 200px;
+}
+.flex{
+    width: 700px;
+    margin-top: 1%;
+    display: flex;
+}
+.flex div img{
+width: 100%;
+height: 250px;
+}
+.formu{
+   
+    border-radius: 15pt;
+   padding: 2.5%;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+}
+.formu label{
+    color: red;
+}
+.formu button{
+    color: #c00000;
+    display: flex;
+    margin: 0 auto;
+}
+.formu label{
+    display: flex;
+    margin: 0 auto;
+}
+a{
+   color: #c00000;
+   text-decoration: none;
+}
+
+.card:hover{
+    color: #c00000;
+    background-color: transparent;
+    transition: 1.5s;
+}
+.prod{
+    
+    display: flex;
+}
+
+.prod a{
+   
+  margin: 0 auto;
+  
+   
+ 
+}
+div{
+    margin: 0 auto;
+}
+.prod a button{
+    margin: 3% auto;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.658);
+    width: 250px;
+    height: 150px;
+}
+.prod button:hover{
+    background-color: transparent;
+    color: rgb(253, 0, 0);
+    transition: 1s;
+}
+h1{
+    text-align: center;
+    color: white;
+}
+.prodMasVendidos{
+    display: flex;
+    width: 200px;
+    height: 350px;
+ 
+}
+.prodMasVendidos div{
+    width: 300px;
+    
+
+}
+.prodMasVendidos button{
+    
+}
+table{
+    color: white;
+}
+
+thead{
+    color: white;
+}
+tr{
+    color: white;
+}
+td{
+    color: white;
+}
+.editar{
+    background-color: rgb(40, 40, 232);
+}
+.borrar{
+    background-color: #de0e0e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
