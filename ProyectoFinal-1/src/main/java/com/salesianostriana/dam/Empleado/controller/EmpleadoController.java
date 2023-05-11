@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.Empelado.model.Empleado;
 import com.salesianostriana.dam.Empleado.service.EmpleadoService;
 @Controller
+@RequestMapping("/")
 public class EmpleadoController {
 	
 	
@@ -35,7 +37,7 @@ public class EmpleadoController {
 	@PostMapping("/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("empleado") Empleado e) {
 		emse.add(e);
-		return "redirect:/administrador";
+		return "redirect:/mostrarFormulario";
 	}
 	@GetMapping("/editar/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {

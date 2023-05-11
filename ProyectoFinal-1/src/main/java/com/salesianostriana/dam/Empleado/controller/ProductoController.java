@@ -6,13 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.salesianostriana.dam.Empelado.model.Empleado;
 import com.salesianostriana.dam.Empelado.model.Producto;
 import com.salesianostriana.dam.Empleado.service.ProductoService;
 
 @Controller
+@RequestMapping("/prod")
 public class ProductoController {
+	
 	private ProductoService prod;
 	
 	@GetMapping("/addProd")
@@ -48,9 +50,10 @@ public class ProductoController {
 }
 	
 	@GetMapping("/listaProductos")
-	public String MostrarProducto(Model model) {
-		model.addAttribute("lista",prod.findAll());
-		return "listaProductos";
+	public String MostrarProducto() {
+
+
+		return "listaprod";	
 	}
 	
 	@PostMapping("/editarP/submit")

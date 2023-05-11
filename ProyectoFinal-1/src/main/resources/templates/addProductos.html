@@ -29,10 +29,10 @@
       </nav>
       <h2>Añadir Productos</h2>
       <hr>
-      <form th:action="@{/nuevoProducto}" th:object="${producto}" method="post">
+      <form th:action="${producto.id != 0} ? @{/editarP/submit} : @{/nuevoProducto}" th:object="${producto}" method="post">
         <div class="formu" >
 			
-			
+			<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
             <div >
                 <label for="nombre">Nombre</label>
                 
@@ -56,7 +56,7 @@
             <input type="text" id="color" name="color" th:field="*{color}" placeholder="Indique el nombre del producto"  >
             </div>
            
-                <button type="submit">Agregar</button>
+                <button type="submit" name="Agregar" id="Agregar">Agregar</button>
            
             
             

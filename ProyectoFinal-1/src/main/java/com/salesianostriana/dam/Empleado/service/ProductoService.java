@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 import com.salesianostriana.dam.Empelado.model.Producto;
 import com.salesianostriana.dam.Empleado.repositorio.ProductoRepo;
 
+import lombok.NoArgsConstructor;
+
 @Service
+
 public class ProductoService {
 	private ProductoRepo prod;
 	
@@ -28,9 +31,9 @@ public class ProductoService {
 	public List<Producto> findAll(){
 		return prod.findAll();
 	}
-	public Producto findById(long codProducto) {
-		return prod.findById(codProducto).orElse(null);
+	public Producto findById(long id) {
+		return prod.findById(id).orElse(null);
 	}
 	
-	public void delete(long codProducto) { prod.deleteById(codProducto); }
+	public void delete(long id) { prod.deleteById(id); }
 }
