@@ -1,9 +1,11 @@
-package com.salesianostriana.dam.Modelos;
+package com.salesianostriana.dam.Empelado.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+
 public class Producto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -18,7 +21,10 @@ public class Producto {
 	private String nombre;
 	private double precio;
 	private String descripcion;
-	private boolean descuentos;
+	private double descuento;
 	private String color;
+	
+	
+	
 
 }

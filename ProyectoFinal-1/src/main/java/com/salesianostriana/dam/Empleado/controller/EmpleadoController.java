@@ -35,7 +35,7 @@ public class EmpleadoController {
 	@PostMapping("/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("empleado") Empleado e) {
 		emse.add(e);
-		return "redirect:/mostrarFormulario";
+		return "redirect:/administrador";
 	}
 	@GetMapping("/editar/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
@@ -59,6 +59,11 @@ public class EmpleadoController {
 		
 		
 	}
+	@GetMapping("/administrador")
+	public String administrador() {
+		return "administrador";
+	}
+	
 	@PostMapping("/editar/submit")
 		public String procesarFormularioEdicion(@ModelAttribute("empleado") Empleado a) {
 			emse.edit(a);
