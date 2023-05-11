@@ -6,7 +6,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="inicio.html"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -29,7 +29,7 @@
       </nav>
       <h2>Añadir Productos</h2>
       <hr>
-      <form th:action="${producto.id != 0} ? @{/editarP/submit} : @{/nuevoProducto}" th:object="${producto}" method="post">
+      <form th:action="@{/nuevoProducto}" th:object="${producto}" method="post">
         <div class="formu" >
 			
 			<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />

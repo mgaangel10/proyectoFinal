@@ -1,30 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lista Servicios</title>
-    <!-- Latest compiled and minified CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css.css">
+<head th:replace="~{fragmentos/head::head}">
+   
 </head>
 <body>
     <div class="list-group">
-        <a href="administrador.html" class="list-group-item list-group-item-action">Volver a la pagina incial de administrador</a>
+        <a th:href="@{/administrador}" class="list-group-item list-group-item-action">Volver a la pagina incial de administrador</a>
 </div>
 <h2>Lista de Servicios</h2>
     <hr>
     <div class="flex">
-        <div class="card" style="width:400px" th:each="empleado : ${lista}">
+        <div class="card" style="width:400px" th:each="servicio : ${lista}">
           <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
           <div class="card-body">
-            <h4 class="card-title" th:text="${empleado.nombre}" >nombre</h4>
-            <h4 class="card-title" th:text="${empleado.apellidos}" >apellidos</h4>
-            <p class="card-text" th:text="${empleado.email}" >email</p>
+            <h4 class="card-title" th:text="${servicio.nombre}" >nombre</h4>
+            <h4 class="card-title" th:text="${servicio.precio}" >precio</h4>
+            <p class="card-text" th:text="${servicio.descripcion}" >descripcion</p>
             <button class="editar"><a href="#">Ver datos del Servicio</a> </button>
           </div>
         </div>

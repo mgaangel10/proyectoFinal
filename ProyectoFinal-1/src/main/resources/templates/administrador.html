@@ -6,7 +6,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="inicio.html"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,13 +31,14 @@
       <h2>Servicios y Productos</h2>
       <hr>
       <div class="list-group">
-        <a href="añadirServicio.html" class="list-group-item list-group-item-action">Añadir Servicio</a>
-        <a th:href="@{/prod/addProd}" class="list-group-item list-group-item-action">Añadir Producto</a>
+        <a th:href="@{/addServ}" class="list-group-item list-group-item-action">Añadir Servicio</a>
+        <a th:href="@{/addProd}" class="list-group-item list-group-item-action">Añadir Producto</a>
         <a href="editarProducto.html" class="list-group-item list-group-item-action">Editar Producto</a>
         <a href="editarServicio.html" class="list-group-item list-group-item-action">Editar Servicio</a>
         <a href="eliminarProductos.html" class="list-group-item list-group-item-action">Eliminar Producto</a>
         <a href="eliminarServicio.html" class="list-group-item list-group-item-action">Eliminar Servicio</a>
-         <a th:href="@{/prod/listaProductos}" class="list-group-item list-group-item-action">Lista de productos</a>
+         <a th:href="@{/listaProductos}" class="list-group-item list-group-item-action">Lista de productos</a>
+         <a th:href="@{/listaServicios}" class="list-group-item list-group-item-action">Lista de Servicios</a>
       </div>
 
 

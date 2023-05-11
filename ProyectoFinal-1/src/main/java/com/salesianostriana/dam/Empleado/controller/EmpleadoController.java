@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.dam.Empelado.model.Empleado;
 import com.salesianostriana.dam.Empleado.service.EmpleadoService;
 @Controller
-@RequestMapping("/")
+
 public class EmpleadoController {
 	
 	
