@@ -30,7 +30,7 @@ public class ProductoController {
 	@PostMapping("/nuevoProducto")
 	public String procesarFormulario(@ModelAttribute("producto") Producto p) {
 		prod.save(p);
-		return "redirect:/listaProductos";
+		return "redirect:/administrador";
 	}
 	@GetMapping("/editarP/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
@@ -53,6 +53,7 @@ public class ProductoController {
 		model.addAttribute("lista",prod.findAll());
 		return "listaprod";	
 	}
+	
 	
 	
 	

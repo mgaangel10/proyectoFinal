@@ -12,6 +12,7 @@
 	<nav th:replace="~{fragmentos/nav::nav}">
 		
 	</nav>
+	<h2>Agregar un administrador</h2>
 	<form th:action="${empleado.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${empleado}" method="post">
         <div class="formu">
 			<input th:if="${empleado.id != 0}" type="hidden" name="id" th:field="*{id}" />

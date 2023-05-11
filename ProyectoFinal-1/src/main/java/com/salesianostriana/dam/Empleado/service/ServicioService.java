@@ -8,5 +8,7 @@ import com.salesianostriana.dam.Empleado.service.base.BaseServiceImpl;
 
 @Service
 public class ServicioService extends BaseServiceImpl<Servicio,Long,ServicioRepo>{
+	
+	
 
 }

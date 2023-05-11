@@ -10,6 +10,9 @@
 <nav th:replace="~{fragmentos/nav::nav}">
 	
 </nav>
+<div class="list-group">
+        <a th:href="@{/administrador}" class="list-group-item list-group-item-action"><< Ir a la pagina incial de administrador</a>
+</div>
 <h2>Estos son sus datos</h2>
 <div class="flex">
 	<div class="card" style="width:400px" th:each="empleado : ${lista}">
@@ -23,7 +26,7 @@
     </div>
 </div>
 <di>
-	<button><a th:href="@{/administrador}">ir a Administrador</a></button>
+	
 	
 </di>
    

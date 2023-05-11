@@ -29,7 +29,7 @@
       </nav>
       <h2>Añadir Productos</h2>
       <hr>
-      <form th:action="@{/nuevoProducto}" th:object="${producto}" method="post">
+      <form th:action=" @{/nuevoProducto}" th:object="${producto}" method="post">
         <div class="formu" >
 			
 			<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />

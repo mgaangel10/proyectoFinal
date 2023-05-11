@@ -28,7 +28,7 @@ public class ServicioController {
 	@PostMapping("/nuevoServicio")
 	public String procesarFormulario(@ModelAttribute("servicio") Servicio s) {
 		serv.save(s);
-		return "redirect:/listaServicios";
+		return "redirect:/administrador";
 	}
 	@GetMapping("/editarS/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
