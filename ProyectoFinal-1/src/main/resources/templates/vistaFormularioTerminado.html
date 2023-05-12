@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragmentos/head::head}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+
+</head>
+<nav th:replace="~{fragmentos/nav::nav}">
+	
+</nav>
+<div class="list-group">
+        <a th:href="@{/administrador}" class="list-group-item list-group-item-action"><< Ir a la pagina incial de administrador</a>
+</div>
+<h2>Estos son sus datos</h2>
+<div class="flex">
+	<div class="card" style="width:400px" th:each="empleado : ${lista}">
+      <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title" th:text="${empleado.nombre}" >nombre</h4>
+        <h4 class="card-title" th:text="${empleado.apellidos}" >apellidos</h4>
+        <p class="card-text" th:text="${empleado.email}" >email</p>
+       <button class="editar"><a href="#" th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a> </button>|<button class="borrar"><a href="#" th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></button>
+      </div>
+    </div>
+</div>
+<di>
+	
+	
+</di>
+   
+         

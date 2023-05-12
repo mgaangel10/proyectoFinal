@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ens">
+<head th:replace="~{fragmentos/head::head}">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img src="m (1).png" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adminoOno.html"><button>Iniciar Sesion</button></a>
+              </li>
+              
+            </ul>
+            <form class="d-flex">
+              <input   type="text" placeholder="Search">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <h2>Añadir Servicio</h2>
+      <hr>
+      <form th:action="@{/nuevoServicio}" th:object="${servicio}" method="post">
+        <div class="formu">
+				<input th:if="${servicio.id != 0}" type="hidden" name="id" th:field="*{id}" />
+            <div>
+                <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Indique el nombre del producto"  >
+            </div>
+            <div>
+                <label for="precio">Precio</label>
+           <input type="number" id="precio" name="precio" th:field="*{precio}" placeholder="Indique el precio"  >
+            </div>
+            
+            <div>
+                <label for="descripcion">Descripción</label>
+             <input type="text" id="descripcion" name="descripcion"  th:field="*{descripcion}" placeholder="Indique la descripcion"  >
+            </div>
+            <div>
+                <label for="descuento">Descuento</label>
+             <input type="number" id="descuento" name="descuento" th:field="*{descuento}" placeholder="Indique el descuento"  >
+
+            </div>
+            <div>  
+                <label for="duracion">Duracion en minutos</label>
+            <input type="number" id="duracion" name="duracion" th:field="*{duracion}" placeholder="duracion"  >
+            </div>
+           
+               <input type="submit" name="Enviar" id="Enviar" >
+           
+            
+            
+        </div>
+    </form>
+
+    
+</body>
+</html>
