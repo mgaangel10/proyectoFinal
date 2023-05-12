@@ -43,8 +43,7 @@ public class EmpleadoController {
 	@GetMapping("/editar/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		
-		//Buscamos al alumno por id y recordemos que el método findById del servicio, 
-		//devuelve el objeto buscado o null si no se encuentra.
+		
 		 
 		
 		Empleado aEditar = emse.findById(id);
@@ -53,8 +52,7 @@ public class EmpleadoController {
 			model.addAttribute("empleado", aEditar);
 			return "vistaFormulario";
 		} else {
-			// No existe ningún alumno con el Id proporcionado.
-			// Redirigimos hacia el listado.
+			
 			return "redirect:/mostrarFormulario";
 		}
 		
