@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.salesianostriana.dam.Empelado.model.Usuario;
 
-public interface UsuarioRepo extends JpaRepository<Usuario,Long>{
+public interface UsuarioRepositorio 
+	extends JpaRepository<Usuario, Long>{
+	
 	Optional<Usuario> findFirstByUsername(String username);
 
 }

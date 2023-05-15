@@ -5,20 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-
-public class MainController {
+@RequestMapping("/admin")
+public class AdminControlador {
 	
-	@GetMapping("/viewProductos")
-	public String viewP() {
-		return "vistaProductos";
-	}
-	@GetMapping("/viewServicios")
-	public String viewS() {
-		return "vistaServicios";
-	}
-	@GetMapping("/logeo")
+	@GetMapping("/e")
 	public String index() {
-		return "logueo";
+		return "admin";
 	}
-	
+	@GetMapping("/")
+	public String portada() {
+		return "index";
+	}
+
 }

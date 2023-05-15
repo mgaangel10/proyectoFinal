@@ -1,4 +1,4 @@
-package securiti;
+package com.salesianostriana.dam.seguridad.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -62,24 +62,26 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
-		.authorizeRequests()
-			.antMatchers("/css/**","/js/**","/webjars/**", "/h2-console/**").permitAll()
-			.antMatchers("/admin/**").hasRole("ADMIN")
-			.anyRequest().authenticated()
-			.and()
-		.formLogin()
-			.loginPage("/login")
-			.defaultSuccessUrl("/")
-			.permitAll();
-		
-		// Añadimos esto para poder seguir accediendo a la consola de H2
-		// con Spring Security habilitado.
-		http.csrf().disable();
-		http.headers().frameOptions().disable();
-		
-		return http.build();
+	public SecurityFilterChain securityFilderChain(HttpSecurity http)throws Exception{
+	    http
+	    .authorizeRequests()
+	        .antMatchers("/css/**","/js/**","/webjars/**", "/h2-console/**").permitAll()
+	        .antMatchers("/**/admin/**").hasRole("ADMIN")
+	        .anyRequest().permitAll()
+	        .and().formLogin()
+	        .loginPage("/login")
+		    .defaultSuccessUrl("/")
+	        .permitAll()
+	        .and()
+	        .logout().logoutUrl("/logout")
+	        .logoutSuccessUrl("/").permitAll();
+	    
+	    http
+	    .csrf().disable()
+	    .headers().frameOptions().disable();
+
+	    
+	    return http.build();
 	}
 
 }

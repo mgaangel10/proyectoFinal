@@ -1,4 +1,4 @@
-package web;
+package com.salesianostriana.dam;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.salesianostriana.dam.Empelado.model.Usuario;
-import com.salesianostriana.dam.Empleado.repositorio.UsuarioRepo;
+import com.salesianostriana.dam.Empleado.repositorio.UsuarioRepositorio;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class InitData {
 	
-	private final UsuarioRepo repo;
+	private final UsuarioRepositorio repo;
 	private final PasswordEncoder passwordEncoder;
 	
 	@PostConstruct
@@ -38,5 +38,6 @@ public class InitData {
 		repo.saveAll(List.of(usuario, admin));
 		
 	}
-
 }
+
+

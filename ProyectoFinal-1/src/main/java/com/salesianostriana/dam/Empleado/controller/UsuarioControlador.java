@@ -10,7 +10,7 @@ import com.salesianostriana.dam.Empelado.model.Usuario;
 
 @Controller
 @RequestMapping("/user")
-public class UsuarioController {
+public class UsuarioControlador {
 
 	@GetMapping("/me")
 	public String me() {

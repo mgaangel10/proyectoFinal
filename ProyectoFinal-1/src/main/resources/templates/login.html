@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="~{fragmentos/head::head}">
+  
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+              </li>
+             
+              
+            </ul>
+            <form class="d-flex">
+              <input   type="text" placeholder="Search">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <h2>Añadir Productos</h2>
+      <hr>
+      <form th:action=" @{/login}"  method="post">
+        <div class="formu" >
+			
+			
+            <div >
+                <label for="username">Nombre de Usuario</label>
+                
+            <input type="text" id="nombre" name="username"  placeholder="Indique el nombre del producto" required autofocus >
+            </div>
+            <div>
+                <label for="password">contraseña</label>
+            <input type="password" id="password" name="password"  placeholder="indique su contraseña"  >
+            </div>
+            
+            
+           
+                <input type="submit"  id="Agregar">Iniciar Sesion</input>
+           
+            
+            
+        </div>
+    </form>
+
+
+    
+</body>
+</html>

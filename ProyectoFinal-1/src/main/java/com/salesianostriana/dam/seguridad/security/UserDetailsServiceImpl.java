@@ -1,11 +1,11 @@
-package securiti;
+package com.salesianostriana.dam.seguridad.security;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.salesianostriana.dam.Empleado.repositorio.UsuarioRepo;
+import com.salesianostriana.dam.Empleado.repositorio.UsuarioRepositorio;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService{
 
-	private final UsuarioRepo repo;
+	private final UsuarioRepositorio repo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
