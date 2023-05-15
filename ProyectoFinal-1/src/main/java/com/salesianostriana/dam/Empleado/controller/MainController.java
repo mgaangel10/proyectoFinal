@@ -20,5 +20,9 @@ public class MainController {
 	public String index() {
 		return "logueo";
 	}
+	@GetMapping("/")
+	public String indexx() {
+		return "index";
+	}
 	
 }
