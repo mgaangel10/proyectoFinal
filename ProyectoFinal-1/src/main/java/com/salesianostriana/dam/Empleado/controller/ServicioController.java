@@ -33,8 +33,8 @@ public class ServicioController {
 	@GetMapping("/editarS/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		Optional<Servicio> aEditar = serv.findById(id);
-				if (aEditar != null) {
-			model.addAttribute("servicio", aEditar);
+				if (aEditar.isPresent()) {
+			model.addAttribute("servicio", aEditar.get());
 			return "addServicios";
 		} else {
 			return "redirect:/listaServicios";

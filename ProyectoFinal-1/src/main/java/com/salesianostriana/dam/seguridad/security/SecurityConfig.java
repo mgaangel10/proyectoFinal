@@ -70,7 +70,7 @@ public class SecurityConfig {
 	        .anyRequest().permitAll()
 	        .and().formLogin()
 	        .loginPage("/login")
-		    .defaultSuccessUrl("/")
+		    .defaultSuccessUrl("/administrador")
 	        .permitAll()
 	        .and()
 	        .logout().logoutUrl("/logout")

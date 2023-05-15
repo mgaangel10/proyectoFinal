@@ -29,7 +29,7 @@
       </nav>
       <h2>Añadir Servicio</h2>
       <hr>
-      <form th:action="@{/nuevoServicio}" th:object="${servicio}" method="post">
+      <form th:action="${servicio.id != 0} ? @{/editarS/submit} : @{/nuevoServicio}" th:object="${servicio}" method="post">
         <div class="formu">
 				<input th:if="${servicio.id != 0}" type="hidden" name="id" th:field="*{id}" />
             <div>

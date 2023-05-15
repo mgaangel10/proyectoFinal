@@ -20,5 +20,9 @@ public class MainController {
 	public String index() {
 		return "logueo";
 	}
+	@GetMapping("/editarServicio")
+	public String editarS() {
+		return "editarServices";
+	}
 	
 }

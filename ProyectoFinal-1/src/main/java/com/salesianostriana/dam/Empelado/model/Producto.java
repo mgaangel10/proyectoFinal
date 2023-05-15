@@ -25,7 +25,7 @@ public class Producto {
 	private String descripcion;
 	private double descuento;
 	private String color;
-	private double duracion;
+	
 	
 	
 	

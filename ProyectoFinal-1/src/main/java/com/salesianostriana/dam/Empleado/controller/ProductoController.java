@@ -35,8 +35,8 @@ public class ProductoController {
 	@GetMapping("/editarP/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		Optional<Producto> aEditar = prod.findById(id);
-				if (aEditar != null) {
-			model.addAttribute("producto", aEditar);
+				if (aEditar.isPresent()) {
+			model.addAttribute("producto", aEditar.get());
 			return "addProductos";
 		} else {
 			return "redirect:/listaProductos";
