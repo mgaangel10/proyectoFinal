@@ -33,14 +33,15 @@ public class CategoriaController {
 	@GetMapping("/nuevaC")
 	public String nuevac(Model model) {
 		model.addAttribute("categoria",new Categoria());
-		return "addCategoria";
+		return "addCategorias";
 	}
 	
 	@PostMapping("/nuevaC/submit")
 	public String enviar(@ModelAttribute("categoria") Categoria c, Model model) {
 		cat.save(c);
-		return"redirect/administrador";
+		return"redirect:/administrador";
 	}
+	
 	
 	@GetMapping("/editarC/{id}")
 	public String editarC(@PathVariable("id")Long id,Model model) {
@@ -48,7 +49,7 @@ public class CategoriaController {
 		
 		if (categoria.isPresent()) {
 			model.addAttribute("categoria",categoria.get());
-			return"addCategoria";
+			return"addCategorias";
 		} else {
 			return"redirect:/listC";
 		}
@@ -57,7 +58,7 @@ public class CategoriaController {
 	@PostMapping("/editarC/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("categoria") Categoria c) {
 		cat.save(c);
-		return "redirect:/listaC";
+		return "redirect:/listC";
 	}
 	
 	@GetMapping("/borrarC/{id}")

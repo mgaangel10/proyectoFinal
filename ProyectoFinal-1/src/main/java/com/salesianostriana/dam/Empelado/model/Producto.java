@@ -28,7 +28,7 @@ public class Producto {
 	private Long id;
 	
 	private String nombre;
-	@Lob
+	
 	private double precio;
 	private String descripcion;
 	private double descuento;
@@ -40,7 +40,7 @@ public class Producto {
 	@OneToMany(mappedBy="producto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	private Set<Puntuacion> puntuaciones = new HashSet<Puntuacion>();
 	
-	public Producto(String nombre, String descripcion, float pvp, float descuento, String imagen, Categoria categoria) {
+	public Producto(String nombre, String descripcion, double precio, double descuento,String color , Categoria categoria) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.descripcion = descripcion;

@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head th:replace="~{fragmentos/head::head}">
-  
+   
 </head>
 <body>
-	<table>
-					<thead>
-						<tr>
-							<th>Imagen</th>
-							<th>Nombre</th>
-							<th>Operaciones</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-
-	
-						<tr th:each="categoria : ${categoria}">
-							<td><img
-								th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'"
-								class="img-responsive icono-categoria" alt="imagen" /></td>
-							<td th:text="${categoria.nombre}"></td>
-							<td class="operaciones"><a href="#"
-								th:href="@{/editarC/{id}(id=${categoria.id})}"
-								class="btn btn-primary">Editar</a>
-								<button type="button" class="btn btn-danger" data-toggle="modal"
-									data-target="#delete-modal" th:data-id="${categoria.id}">Borrar</button></td>
-						</tr>
-					</tbody>
-				</table>
+    <div class="list-group">
+        <a th:href="@{/administrador}" class="list-group-item list-group-item-action"><< Volver a la pagina incial de administrador</a>
+</div>
+<h2>Lista de Servicios</h2>
+    <hr>
+    <div class="flex">
+        <div class="card" style="width:400px" th:each="categoria : ${categoria}">
+          <img class="card-img-top" th:txt="${categoria.imagen}" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title" th:text="${categoria.nombre}" >nombre</h4>
+            
+            
+            <button class="editar"><a  th:href="@{/editarC/{id}(id=${categoria.id})}">Editar</a> </button><button class="borrar"><a href="#" th:href="@{/borrarC/{id}(id=${categoria.id})}">Borrar</a></button>
+          </div>
+        </div>
+    </div>
+    
 </body>
+</html>
