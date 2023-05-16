@@ -29,40 +29,21 @@
       </nav>
       <h2>Añadir Productos</h2>
       <hr>
-      <form th:action=" @{/nuevoProducto}" th:object="${producto}" method="post">
+      <form th:action="${categoria.id != 0} ? @{/editarC/submit} : @{/nuevaC/submit}" th:object="${categoria}" method="post">
         <div class="formu" >
 			
 			<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
             <div >
                 <label for="nombre">Nombre</label>
                 
-            <input type="text" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Indique el nombre del producto"  >
+            <input type="text" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Indique el nombre de la categoria"  >
             </div>
             <div>
-                <label for="precio">Precio</label>
-            <input type="number" id="precio" name="precio" th:field="*{precio}" placeholder="Indique el precio"  >
+                <label for="imagen">imagen</label>
+            <input type="text" id="imagen" name="imagen" th:field="*{imagen}" placeholder="Indique la url de la imagen"  >
             </div>
             
-            <div>
-                <label for="descripcion">Descripción</label>
-            <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}"  placeholder="Indique la descripcion"  >
-            </div>
-            <div>
-                <label for="descuento">Descuento</label>
-           <input type="number" id="descuento" name="descuento" th:field="*{descuento}" placeholder="Indique el descuento"  >
-            </div>
-            <div>
-                <label for="color">Color</label>
-            <input type="text" id="color" name="color" th:field="*{color}" placeholder="Indique el nombre del producto"  >
-            </div>
-            <div >
-						<label for="categoria">Categoría</label> <select
-							th:field="*{categoria}">
-							<option value="-1">---</option>
-							<option th:each="categoria : ${categoria}"
-								th:value="${categoria.id}" th:text="${categoria.nombre}">Categoría</option>
-						</select>
-					</div>
+            
            
                 <button type="submit" name="Agregar" id="Agregar">Agregar</button>
            

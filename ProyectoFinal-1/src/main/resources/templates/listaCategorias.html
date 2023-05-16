@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="~{fragmentos/head::head}">
+  
+</head>
+<body>
+	<table>
+					<thead>
+						<tr>
+							<th>Imagen</th>
+							<th>Nombre</th>
+							<th>Operaciones</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+
+	
+						<tr th:each="categoria : ${categoria}">
+							<td><img
+								th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'"
+								class="img-responsive icono-categoria" alt="imagen" /></td>
+							<td th:text="${categoria.nombre}"></td>
+							<td class="operaciones"><a href="#"
+								th:href="@{/editarC/{id}(id=${categoria.id})}"
+								class="btn btn-primary">Editar</a>
+								<button type="button" class="btn btn-danger" data-toggle="modal"
+									data-target="#delete-modal" th:data-id="${categoria.id}">Borrar</button></td>
+						</tr>
+					</tbody>
+				</table>
+</body>

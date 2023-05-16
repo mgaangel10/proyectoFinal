@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.Empelado.model.Empleado;
 import com.salesianostriana.dam.Empelado.model.Producto;
+import com.salesianostriana.dam.Empleado.service.CategoriaService;
 import com.salesianostriana.dam.Empleado.service.ProductoService;
 
 @Controller
@@ -21,9 +22,13 @@ public class ProductoController {
 	@Autowired
 	private ProductoService prod;
 	
+	@Autowired
+	private CategoriaService catService;
+	
 	@GetMapping("/addProd")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("producto",new Producto());
+		model.addAttribute("categoria", catService.findAll());
 		return "addProductos";
 	}
 	
@@ -37,6 +42,7 @@ public class ProductoController {
 		Optional<Producto> aEditar = prod.findById(id);
 				if (aEditar.isPresent()) {
 			model.addAttribute("producto", aEditar.get());
+			model.addAttribute("categoria", catService.findAll());
 			return "addProductos";
 		} else {
 			return "redirect:/listaProductos";
