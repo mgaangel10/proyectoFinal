@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.salesianostriana.dam.Empelado.model.Producto;
 import com.salesianostriana.dam.Empelado.model.Servicio;
 import com.salesianostriana.dam.Empleado.service.ServicioService;
 
@@ -50,6 +49,11 @@ public class ServicioController {
 	public String MostrarProducto(Model model) {
 		model.addAttribute("lista",serv.findAll());
 		return "listaServicios";	
+	}
+	@GetMapping("/borrarS/{id}")
+	public String borrar(@PathVariable("id") long id) {
+		serv.deleteById(id);
+		return "redirect:/listaServicios";
 	}
 
 }

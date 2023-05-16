@@ -71,12 +71,13 @@ public class EmpleadoController {
 			return "redirect:/mostrarFormulario";//Volvemos a redirigir la listado a través del controller 
 			//para pintar la lista actualizada con la modificación hecha
 		}
+	
+	
 	@GetMapping("/borrar/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		emse.delete(id);
 		return "redirect:/mostrarFormulario";
 	}
-	
 	
 	
 	

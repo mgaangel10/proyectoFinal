@@ -48,12 +48,16 @@ public class ProductoController {
 		return "redirect:/listaprod";
 	}
 	
-	@GetMapping("/listaProductos")
+	@GetMapping("/listaprod")
 	public String MostrarProducto(Model model) {
 		model.addAttribute("lista",prod.findAll());
 		return "listaprod";	
 	}
-	
+	@GetMapping("/borrarP/{id}")
+	public String borrar(@PathVariable("id") long id) {
+		prod.deleteById(id);
+		return "redirect:/listaProductos";
+	}
 	
 	
 	

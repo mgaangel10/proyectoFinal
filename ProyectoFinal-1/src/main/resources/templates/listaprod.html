@@ -16,7 +16,7 @@
             <h4 class="card-title" th:text="${producto.nombre}">nombre</h4>
             <h4 class="card-title" th:text="${producto.precio}">precio</h4>
             <p class="card-text"  >descripcion</p>
-           <button class="editar"><a href="#" th:href="@{/editarP/{id}(id=${producto.id})}">editar</a> </button>
+           <button class="editar"><a href="#" th:href="@{/editarP/{id}(id=${producto.id})}">editar</a> </button></button><button class="borrar"><a href="#" th:href="@{/borrarP/{id}(id=${producto.id})}">Borrar</a></button>
            
           </div>
         </div>
