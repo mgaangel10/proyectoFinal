@@ -16,10 +16,13 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+
 public class SecurityConfig {
 	
 	private final UserDetailsService userDetailsService;
 	private final PasswordEncoder passwordEncoder;
+	
+	private final RoleBasedSuccesHandler role;
 	
 	@Bean
 	public AuthenticationManager 
@@ -70,7 +73,8 @@ public class SecurityConfig {
 	        .anyRequest().permitAll()
 	        .and().formLogin()
 	        .loginPage("/login")
-		    .defaultSuccessUrl("/administrador")
+//		    .defaultSuccessUrl("/administrador")
+	        .successHandler(role)
 	        .permitAll()
 	        .and()
 	        .logout().logoutUrl("/logout")
