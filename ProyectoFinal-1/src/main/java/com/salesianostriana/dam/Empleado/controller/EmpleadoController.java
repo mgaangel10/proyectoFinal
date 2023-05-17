@@ -1,21 +1,24 @@
 package com.salesianostriana.dam.Empleado.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.Empelado.model.Empleado;
 import com.salesianostriana.dam.Empleado.service.EmpleadoService;
+import com.salesianostriana.dam.Empleado.service.UsuarioService;
 @Controller
 
 public class EmpleadoController {
 	
-	
+
 	private EmpleadoService emse;
+	
+	private UsuarioService us;
 	
 	public EmpleadoController (EmpleadoService ser) {
 		this.emse=ser;
@@ -77,6 +80,18 @@ public class EmpleadoController {
 	public String borrar(@PathVariable("id") long id) {
 		emse.delete(id);
 		return "redirect:/mostrarFormulario";
+	}
+	
+	@GetMapping("/borrarCl/{id}")
+	public String borrarCl(@PathVariable("id") long id) {
+		us.deleteById(id);
+		return "redirect:/administrador";
+	}
+	
+	@GetMapping("/lista/Us")
+	public String listaUsu(Model model) {
+		model.addAttribute("usuario",us.findAll());
+		return "listaClientes";
 	}
 	
 	

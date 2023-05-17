@@ -65,6 +65,11 @@ public class ProductoController {
 		return "redirect:/listaProductos";
 	}
 	
+	@GetMapping("/verP")
+	public String verP(Model model) {
+		model.addAttribute("lista",prod.findAll());
+		return "productos";	
+	}
 	
 	
 	

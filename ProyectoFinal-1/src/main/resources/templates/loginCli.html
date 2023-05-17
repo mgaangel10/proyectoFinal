@@ -13,7 +13,7 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+                <a class="nav-link" th:href="@{indexCli}"><button>Volver</button></a>
               </li>
              
               
@@ -25,24 +25,24 @@
           </div>
         </div>
       </nav>
-      <h2>Añadir Productos</h2>
+      <h2>Resgistrarse</h2>
       <hr>
-      <form th:action=" @{/login}"  method="post">
+      <form th:action=" @{/nuevoCli}" th:object="${usuario}"  method="post">
         <div class="formu" >
-			
+			<input th:if="${usuario.id != 0}" type="hidden" name="id" th:field="*{id}" />
 			<div >
                 <label for="correo">Correo</label>
                 
-            <input type="text" id="correo" name="correo"  placeholder="Indique su correo electronico" required autofocus >
+            <input type="text" id="correo" name="correo" th:field="*{correo}" placeholder="Indique su correo electronico" required autofocus >
             </div>
             <div >
                 <label for="username">Nombre de Usuario</label>
                 
-            <input type="text" id="nombre" name="username"  placeholder="Indique el nombre del producto" required autofocus >
+            <input type="text" id="nombre" name="username" th:field="*{username}" placeholder="Indique el nombre del producto" required autofocus >
             </div>
             <div>
                 <label for="password">contraseña</label>
-            <input type="password" id="password" name="password"  placeholder="indique su contraseña"  >
+            <input type="password" id="password" name="password" th:field="*{password}" placeholder="indique su contraseña"  >
             </div>
             
             

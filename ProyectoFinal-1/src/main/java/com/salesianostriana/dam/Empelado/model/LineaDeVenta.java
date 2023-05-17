@@ -29,14 +29,14 @@ public class LineaDeVenta {
 	private double total;
 	
 	@ManyToOne
-	private Venta venta;
+	private Venta ventas;
 	
 	@OneToMany(mappedBy="venta", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
-	private Set<Venta> ventas = new HashSet<Venta>();
+	
 	
 	public void LienaDeVenta(double total,Venta venta) {
 		this.total=total;
-		this.venta=venta;
+		this.ventas=venta;
 	}
 	
 }

@@ -23,7 +23,7 @@ public class RoleBasedSuccesHandler implements AuthenticationSuccessHandler{
 	
 	
 	private RedirectStrategy redirect = new DefaultRedirectStrategy();
-	private final String ROLE_USER_URL="/";
+	private final String ROLE_USER_URL="/me";
 	private final String ROLE_ADMIN_URL="/administrador";
 
 	@Override

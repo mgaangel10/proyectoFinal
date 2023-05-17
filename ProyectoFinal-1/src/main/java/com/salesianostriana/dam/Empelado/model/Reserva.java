@@ -33,15 +33,15 @@ public class Reserva {
 	private LocalTime hora;
 	
 	@ManyToOne
-	private Cliente cliente;
+	private Usuario usuario;
 	
-	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
-	private Set<Cliente> clientes = new HashSet<Cliente>();
+	@OneToMany(mappedBy="usuarios", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	
-	public void Reserva(LocalDate fecha,LocalTime hora,Cliente c) {
+	
+	public void Reserva(LocalDate fecha,LocalTime hora,Usuario c) {
 		this.fecha=fecha;
 		this.hora=hora;
-		this.cliente=c;
+		this.usuario=c;
 	}
 	
 }

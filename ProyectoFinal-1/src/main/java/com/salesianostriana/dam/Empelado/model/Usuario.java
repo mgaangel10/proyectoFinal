@@ -31,6 +31,7 @@ public class Usuario implements UserDetails {
 	private String username, password;
 	
 	private boolean admin;
+	private String correo;
 	
 	
 	

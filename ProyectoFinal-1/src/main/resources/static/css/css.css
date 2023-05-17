@@ -56,6 +56,7 @@ width: 200px;
 height: 200px;
 }
 .flex{
+	height: 100%;
     width: 700px;
     margin-top: 1%;
     display: flex;
@@ -139,8 +140,15 @@ h1,h2{
 .prodMasVendidos button{
     
 }
-table{
+.table{
+    margin: 0 auto;
     color: white;
+    width: 600px;
+    height: 100%;
+}
+.table tbody tr th img{
+    width: 35px;
+    height: 35px;
 }
 
 thead{
@@ -151,6 +159,9 @@ tr{
 }
 td{
     color: white;
+}
+th{
+    color: black;
 }
 
 

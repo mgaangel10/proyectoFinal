@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="~{fragmentos/head::head}">
+    
+</head>
+<body>
+    <div class="list-group">
+        <a th:href="@{/administrador}" class="list-group-item list-group-item-action"><< Volver a la pagina incial de administrador</a>
+</div>
+<h2>Listado de Usuarios</h2>
+    <hr>
+    <div class="flex" th:each="usuario : ${usuario}">
+        <div class="card" style="width:400px" >
+          <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title" th:text="${usuario.username}">username</h4>
+            <h4 class="card-title" th:text="${usuario.correo}">correo</h4>
+          
+          </button><button class="borrar"><a href="#" th:href="@{/borrarCl/{id}(id=${usuario.id})}">Borrar</a></button>
+           
+          </div>
+        </div>
+    </div>
+    
+</body>
+</html>

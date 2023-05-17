@@ -13,6 +13,25 @@
 		
 	</main>
    
-    
+     <table class="table" th:each="empleado : ${lista}">
+          <thead class="table-light">
+            <tr>
+				<th scope="col">1</th>
+              <th scope="col">Foto</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+			  <th scope="col" th:text="${empleado.id}">1</th>
+              <th scope="row"><img th:src="@{/img/m.png}" alt=""></th>
+              <td th:text="${empleado.nombre}">Mark</td>
+              <td th:text="${empleado.apellidos}">Otto</td>
+              <td th:text="${empleado.email}">@mdo</td>
+            </tr>
+          </tbody>
+        </table>
 </body>
 </html>
