@@ -17,7 +17,7 @@
             <h4 class="card-title" th:text="${producto.nombre}">nombre</h4>
             <h4 class="card-title" th:text="${producto.precio}">precio</h4>
             <p class="card-text"  >descripcion</p>
-           <button class="editar"><a href="#" >Ver producto</a> </button>
+           <button class="editar"><a th:href="@{/productoCarr/{id}(id=${producto.id})}" >Comprar</a> </button>
           </div>
         </div>
        </div>

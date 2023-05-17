@@ -14685,3 +14685,7 @@ Database is already closed (to disable automatic closing at VM shutdown, add ";D
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-05-17 20:03:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "IMAGEN CHARACTER VARYING(255)": "'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgSFRUYEhIaGBgY... (8255)"
+Value too long for column "IMAGEN CHARACTER VARYING(255)": "'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgSFRUYEhIaGBgY... (8255)"; SQL statement:
+insert into categoria (imagen, nombre, id) values (?, ?, ?) [22001-214]

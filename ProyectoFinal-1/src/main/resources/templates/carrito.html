@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragmentos/head::head}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carrito</title>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="inicio.html"><img src="m (1).png" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+              
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adminoOno.html"><button>Iniciar Sesion</button></a>
+              </li>
+              
+            </ul>
+            <form class="d-flex">
+              <input   type="text" placeholder="Search">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <h2>Tu compra</h2>
+      <hr>
+      <table class="table" th:each="element : ${productos.entrySet()}">
+        <thead class="table-light">
+          <tr>
+              <th scope="col">1</th>
+            <th scope="col">Foto</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <th scope="col"> precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+          
+            <td th:text="${element.key.nombre}">Mark</td>
+            <td th:text="${element.key.precio}">precio</td>
+          </tr>
+          <tr>
+            <td th:text="${element.key.precio * element.value}"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>total</td>
+            <td>
+                <h3 th:text="${total}">100€</h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    
+</body>
+</html>
