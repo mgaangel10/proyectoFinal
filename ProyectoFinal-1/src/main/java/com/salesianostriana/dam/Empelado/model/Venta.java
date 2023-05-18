@@ -38,7 +38,7 @@ public class Venta {
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
 	@OneToMany(
-			mappedBy="venta",
+			mappedBy="LineaDeVenta",
 			fetch=FetchType.EAGER,
 			cascade=CascadeType.ALL,
 			orphanRemoval=true
@@ -48,16 +48,23 @@ public class Venta {
 	public List<LineaDeVenta> getLineaDeVenta(){
 		return Collections.unmodifiableList(lv);
 	}
-	Map<Producto,Integer> p = new HashMap<Producto,Integer>();
+	
+	
 	
 	public void addLv(LineaDeVenta lv) {
+		List<Producto> p= new ArrayList<Producto>();
 		Venta v=new Venta();
-		for (Producto p : ) {
-			
+	    for (Producto pe : p) {
+			double total=0.0;
+			int cantidad= pe.getCantidad();
+			total= pe.getPrecio()* cantidad;
+			lv.builder()
+			.prod(pe)
+			.ven(this)
+			.build();
+	
 		}
-		
-		
-		
+	    lv.getVen().addLv(lv);
 	}
 	
 	public void eliminarLv(LineaDeVenta l) {

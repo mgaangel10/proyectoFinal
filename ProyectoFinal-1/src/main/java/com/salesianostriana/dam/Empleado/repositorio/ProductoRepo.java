@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.Empleado.repositorio;
+ package com.salesianostriana.dam.Empleado.repositorio;
 
 import java.util.List;
 
