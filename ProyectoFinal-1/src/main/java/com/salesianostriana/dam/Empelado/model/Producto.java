@@ -1,15 +1,11 @@
 package com.salesianostriana.dam.Empelado.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -33,37 +29,28 @@ public class Producto {
 	private String descripcion;
 	private double descuento;
 	private String color;
-	
+	private int cantidad;
+	@OneToMany(
+			mappedBy="producto",
+			fetch=FetchType.EAGER,
+			cascade=CascadeType.ALL,
+			orphanRemoval=true
+			)
+
 	@ManyToOne
 	private Categoria categoria;
 	
-	@OneToMany(mappedBy="producto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
-	private Set<Puntuacion> puntuaciones = new HashSet<Puntuacion>();
 	
-	public Producto(String nombre, String descripcion, double precio, double descuento,String color , Categoria categoria) {
+	
+	public Producto(String nombre, String descripcion, double precio, double descuento,String color,int cantidad , Categoria categoria) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.descripcion = descripcion;
 		this.descuento = descuento;
 		this.color=color;
+		this.cantidad=cantidad;
 		this.categoria = categoria;
 	}
-	public void addPuntuacion(Puntuacion puntuacion) {
-		this.puntuaciones.add(puntuacion);
-		puntuacion.setProducto(this);
-	}
-	public double getPuntuacionMedia() {
-		if (this.puntuaciones.isEmpty())
-			return 0;
-		else 
-			return this.puntuaciones.stream()
-					.mapToInt(Puntuacion::getPuntuacion)
-					.average()
-					.getAsDouble();
-	}
 	
-	public double getNumeroTotalPuntuaciones() {
-		return this.puntuaciones.size();
-	}
 
 }

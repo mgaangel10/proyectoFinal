@@ -33,39 +33,38 @@
       </nav>
       <h2>Tu compra</h2>
       <hr>
-      <table class="table" th:each="element : ${productos.entrySet()}">
-        <thead class="table-light">
-          <tr>
-              <th scope="col">1</th>
-            <th scope="col">Foto</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            <th scope="col"> precio</th>
-          </tr>
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio unitario</th>
+                <th>Subtotal</th>
+                <th>Acciones</th>
+            </tr>
         </thead>
         <tbody>
-          <tr>
-            
-          
-            <td th:text="${element.key.nombre}">Mark</td>
-            <td th:text="${element.key.precio}">precio</td>
-          </tr>
-          <tr>
-            <td th:text="${element.key.precio * element.value}"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>total</td>
-            <td>
-                <h3 th:text="${total}">100€</h3>
-            </td>
-          </tr>
+            <tr th:each="element : ${productos.entrySet()}">
+                <td th:text="${element.key.nombre}"></td>
+               
+                <td th:text="${element.key.precio}"></td>
+                <td th:text="${element.key.precio * element.values}"></td>
+                <td>
+                    <a th:href="@{/borrarProd/{id}(id=${producto.id})}">Eliminar</a>
+                </td>
+            </tr>
         </tbody>
-      </table>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total:</td>
+                <td th:text="${total}"></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+   
+</body>
+</html>
 
 
     

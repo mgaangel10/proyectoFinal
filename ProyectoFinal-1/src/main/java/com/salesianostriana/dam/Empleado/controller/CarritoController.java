@@ -15,11 +15,11 @@ import com.salesianostriana.dam.Empleado.service.ProductoService;
 
 @Controller
 public class CarritoController {
-	@Autowired
+
 	private CarritoService c;
-	@Autowired
+
 	private ProductoService p;
-	@Autowired
+
 	public CarritoController(CarritoService car,ProductoService pr) {
 		this.c=car;
 		this.p=pr;
@@ -33,6 +33,7 @@ public class CarritoController {
 	}
 	@GetMapping("/productoCarr/{id}")
 	public String productoCarrito(@PathVariable("id")Long id,Model model) {
+	
 		c.addProdCarrito(p.findById(id));
 		return"redirect:/carrito";
 	}

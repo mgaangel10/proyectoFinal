@@ -1,16 +1,12 @@
 package com.salesianostriana.dam.Empelado.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.MapsId;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,14 +25,19 @@ public class LineaDeVenta {
 	private double total;
 	
 	@ManyToOne
-	private Venta ventas;
+	@MapsId("LineaVentaId")
+	@JoinColumn(name="LineaVentaId")
+	private Venta ven;
+	@ManyToOne
+	@MapsId("ProdId")
+	@JoinColumn(name="ProdId")
+	private Producto prod;
 	
-	@OneToMany(mappedBy="venta", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	
 	
-	public void LienaDeVenta(double total,Venta venta) {
-		this.total=total;
-		this.ventas=venta;
-	}
+	
+	
+	
+	
 	
 }

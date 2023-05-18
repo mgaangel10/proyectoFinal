@@ -6,4 +6,8 @@ import com.salesianostriana.dam.Empleado.service.base.BaseServiceImpl;
 
 public class VentaService extends BaseServiceImpl<Venta,Long,VentaRepo>{
 
+	@Override
+	public Venta save(Venta v) {
+		return super.save(v);
+	}
 }
