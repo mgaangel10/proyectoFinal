@@ -42,15 +42,7 @@ public class Producto {
 	
 	
 	
-	public Producto(String nombre, String descripcion, double precio, double descuento,String color,int cantidad , Categoria categoria) {
-		this.nombre = nombre;
-		this.precio = precio;
-		this.descripcion = descripcion;
-		this.descuento = descuento;
-		this.color=color;
-		this.cantidad=cantidad;
-		this.categoria = categoria;
-	}
+	
 	
 	
 
