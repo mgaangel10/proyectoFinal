@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.Empleado.service;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +34,18 @@ public class CarritoService {
 		if (optional.isPresent()) {
 			v.addLv(lv);
 		}
+	}
+	public void checkout(Optional<Producto> optional) {
+		if (optional.isPresent()) {
+			for (Map.Entry<Producto,Integer> en : prod.entrySet()) {
+				lv.setProd(en.getKey());
+				lv.getProd().setCantidad(en.getValue());
+				lv.setTotal(lv.getProd().getPrecio()*en.getValue());
+				lv.getVen().setFecha(LocalDate.now());
+			}
+		}
+		v.addLv(lv);
+		
 	}
 	
 	public void eliminarDelCarrito(Optional<Producto> optional) {

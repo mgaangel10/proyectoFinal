@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.Empelado.model;
 
+import java.io.Serializable;
+
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +21,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class LineaDeVenta {
+public class LineaDeVenta implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private double total;
+	
+	@EmbeddedId
+	@Builder.Default
+	private LineaDeVentaPk lineaPk = new LineaDeVentaPk();
 	
 	@ManyToOne
 	@MapsId("LineaVentaId")

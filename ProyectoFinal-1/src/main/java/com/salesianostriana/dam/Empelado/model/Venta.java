@@ -3,9 +3,8 @@ package com.salesianostriana.dam.Empelado.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import javax.persistence.CascadeType;
@@ -38,7 +37,7 @@ public class Venta {
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
 	@OneToMany(
-			mappedBy="LineaDeVenta",
+			mappedBy="ven",
 			fetch=FetchType.EAGER,
 			cascade=CascadeType.ALL,
 			orphanRemoval=true
@@ -52,19 +51,9 @@ public class Venta {
 	
 	
 	public void addLv(LineaDeVenta lv) {
-		List<Producto> p= new ArrayList<Producto>();
-		Venta v=new Venta();
-	    for (Producto pe : p) {
-			double total=0.0;
-			int cantidad= pe.getCantidad();
-			total= pe.getPrecio()* cantidad;
-			lv.builder()
-			.prod(pe)
-			.ven(this)
-			.build();
-	
-		}
-	    lv.getVen().addLv(lv);
+	lv.getLineaPk().setLineDeVentaId(id);
+	lv.setVen(this);
+	this.getLineaDeVenta().add(lv);
 	}
 	
 	public void eliminarLv(LineaDeVenta l) {
@@ -79,6 +68,7 @@ public class Venta {
 			eliminarLv(l.get());
 		}
 	}
+	
 	
 	
 	
