@@ -28,5 +28,9 @@ public class MainController {
 	public String verP() {
 		return"productos";
 	}
+	@GetMapping("/compra")
+	public String compra() {
+		return"compra";
+	}
 	
 }

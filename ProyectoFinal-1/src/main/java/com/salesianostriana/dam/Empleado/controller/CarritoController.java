@@ -41,13 +41,13 @@ public class CarritoController {
 
 	
 	@GetMapping("/borrarProd/{id}")
-	public String elimar(@PathVariable("id") Long id, Model model) {
+	public String elimar(@PathVariable("id") Long id) {
 		Optional <Producto> elimar= p.findById(id);
-		if (elimar.isPresent()) {
+		if (elimar!=null) {
 			c.eliminarPro(elimar.get());
 			return"redirect:/carrito";
 		} else {
-			return"carrito";
+			return"productos";
 
 		}
 	}
@@ -55,7 +55,7 @@ public class CarritoController {
 	@GetMapping("/check")
 	private String saveCarr(@AuthenticationPrincipal Usuario u) {
 		c.checkout(u);
-		return"redirect:/";
+		return"redirect:/compra";
 	}
 	
 	@ModelAttribute("total")

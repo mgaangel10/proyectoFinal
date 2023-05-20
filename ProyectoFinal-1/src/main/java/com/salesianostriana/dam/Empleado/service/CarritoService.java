@@ -56,8 +56,8 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	}
 	public void checkout(Usuario u) {
 		Optional<Producto> optional = java.util.Optional.empty();
-		LineaDeVenta lv = null;
-		Venta ve = null;
+		LineaDeVenta lv = new LineaDeVenta();
+		Venta ve = new Venta();
 		if (optional.isPresent()) {
 			for (Map.Entry<Producto,Integer> en : prod.entrySet()) {
 				lv.setP(en.getKey());
@@ -67,6 +67,7 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 			}
 		}
 		ve.addLv(lv);
+		prod.clear();
 	}
 	
 	

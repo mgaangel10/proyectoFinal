@@ -63,6 +63,7 @@
               <td th:text="${element.key.precio}">Doe</td>
               <td th:text="${element.value}">john@example.com</td>
               <td th:text="${element.key.precio * element.value}">john@example.com</td>
+              <td><a th:href="@{/borrarProd/{id}(id=${element.key.id}) }">Borrar</a></td>
             </tr>
           
           </tbody>
@@ -70,6 +71,9 @@
 			  <tr>
 				  <td>total</td>
 				  <td th:text="${total}">0.0</td>
+				  <td><a th:href="@{check}">Terminar compra</a></td>
+				  <td><a th:href="@{/verP}">Seguir comprando</a></td>
+				  
 			  </tr>
 		  </tfoot>
         </table>
