@@ -28,7 +28,7 @@ public class Producto {
 	private Long id;
 	
 	private String nombre;
-	@Lob
+	
 	private double precio;
 	private String descripcion;
 	private double descuento;

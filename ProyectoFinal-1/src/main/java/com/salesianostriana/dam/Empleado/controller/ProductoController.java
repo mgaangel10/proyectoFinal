@@ -45,7 +45,7 @@ public class ProductoController {
 			model.addAttribute("categoria", catService.findAll());
 			return "addProductos";
 		} else {
-			return "redirect:/listaProductos";
+			return "redirect:/listaprod";
 		}
 	}
 	@PostMapping("/editarP/submit")
@@ -62,7 +62,12 @@ public class ProductoController {
 	@GetMapping("/borrarP/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		prod.deleteById(id);
-		return "redirect:/listaProductos";
+		return "redirect:/listaprod";
+	}
+	@GetMapping("/verP")
+	public String verP(Model model) {
+		model.addAttribute("lista",prod.findAll());
+		return "productos";	
 	}
 	
 	

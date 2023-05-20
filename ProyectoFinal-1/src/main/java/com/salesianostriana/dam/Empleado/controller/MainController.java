@@ -24,5 +24,9 @@ public class MainController {
 	public String editarS() {
 		return "editarServices";
 	}
+	@GetMapping("/productos")
+	public String verP() {
+		return"productos";
+	}
 	
 }
