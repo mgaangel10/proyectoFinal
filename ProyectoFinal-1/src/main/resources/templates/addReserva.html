@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ens">
+<head th:replace="~{fragmentos/head::head}">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img src="m (1).png" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adminoOno.html"><button>Iniciar Sesion</button></a>
+              </li>
+              
+            </ul>
+            <form class="d-flex">
+              <input   type="text" placeholder="Search">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <h2>Rellena tu reserva</h2>
+      <hr>
+     <form th:action="@{reserva/submit}" th:object="${reserva}" method="post">
+        <div class="formu">
+			<input th:if="${reserva.id != 0}" type="hidden" name="id" th:field="*{id}" />
+            <h2>Usuario</h2>
+            <hr>
+            <div th:each="usuario : ${usuario}">
+               <p th:text="usuario.username">nombre usuario</p>
+            </div>
+           
+            
+            <div>
+                <label for="date">Tipo de corte</label>
+            	<select th:field="*{servicio}">
+					<option value="-1">---</option>
+					<option th:each="servicio : ${servicio}"
+					th:value="${servicio.id}" th:text="${servicio.nombre}">servicios</option>
+				</select>
+            </div>
+            <div th:each="reserva : ${reserva}">
+                <label for="date">dia de la reserva</label>
+            <input type="date" id="date" placeholder="indiqe la fecha" name="date" > <br>
+            
+            </div>
+            
+           
+                <button type="submit" name="reservar" id="reservar">Enviar</button>
+           
+            
+            
+        </div>
+    </form>
+
+    
+</body>
+</html>

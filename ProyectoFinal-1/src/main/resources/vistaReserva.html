@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragmentos/head::head}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+
+</head>
+
+<body>
+	
+	<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragmentos/head::head}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adminoOno.html"><button>Cambiar de Cuenta</button></a>
+              </li>
+              
+            </ul>
+            <form class="d-flex">
+              <input   type="text" placeholder="Search">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container mt-3">
+        <h2>Tu cesta</h2>
+                
+        <table class="table table-hover ">
+          <thead>
+            <tr>
+              <th>nombre</th>
+              <th>Precio</th>
+              
+              <th>Total</th>
+              <th>Borrar</th>
+            </tr>
+          </thead>
+          <tbody th:each="element:${servicio.entrySet()}">
+            <tr>
+              <td th:text="${element.key.nombre}">John</td>
+              <td th:text="${element.key.precio}">Doe</td>
+              <td th:text="${element.key.precio}">john@example.com</td>
+              <td><a th:href="@{/borrarProd/{id}(id=${element.key.id}) }">Borrar</a></td>
+            </tr>
+          
+          </tbody>
+          <tfoot>
+			  <tr>
+				  <td>total</td>
+				  <td th:text="${total}">0.0</td>
+				  <td><a th:href="@{check}">Terminar compra</a></td>
+				  <td><a th:href="@{/verS}">Seguir comprando</a></td>
+				  
+			  </tr>
+		  </tfoot>
+        </table>
+      </div>
+	
+   
+    
+
+    
+</body>
+</html>
