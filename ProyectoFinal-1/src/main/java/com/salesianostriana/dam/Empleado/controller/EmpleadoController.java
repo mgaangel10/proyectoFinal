@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.salesianostriana.dam.Empelado.model.Empleado;
+import com.salesianostriana.dam.Empleado.service.EmailSender;
 import com.salesianostriana.dam.Empleado.service.EmpleadoService;
 import com.salesianostriana.dam.formbeans.SearchBean;
 @Controller
+@RestController
 
 public class EmpleadoController {
 	
@@ -25,6 +28,8 @@ public class EmpleadoController {
 	private EmpleadoService emse;
 	@Autowired
 	HttpSession session;
+	@Autowired
+	private EmailSender emailSender;
 	
 	public EmpleadoController (EmpleadoService ser) {
 		this.emse=ser;
@@ -98,7 +103,22 @@ public class EmpleadoController {
 		result.forEach(System.out::println);
 		return "vistaFormularioTerminado";
 	}
-	
+	@PostMapping("/subscribirse")
+	public ModelAndView enviarEmail(@RequestParam("destinatario") String destinatario,
+            @RequestParam("asunto") String asunto,
+            @RequestParam("mensaje") String mensaje) {
+Empleado e = new Empleado();
+e.setEmail(destinatario);
+asunto="hola";
+mensaje="gracias";
+emailSender.sendEmail(destinatario, asunto, mensaje);
+
+ModelAndView mav = new ModelAndView("email-enviado");
+mav.addObject("destinatario", destinatario);
+mav.addObject("asunto", asunto);
+mav.addObject("mensaje", mensaje);
+return mav;
+	}
 	
 	
 	
