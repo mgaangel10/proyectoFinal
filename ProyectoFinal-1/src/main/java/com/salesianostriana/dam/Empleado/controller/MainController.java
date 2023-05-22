@@ -32,5 +32,7 @@ public class MainController {
 	public String compra() {
 		return"compra";
 	}
+
+	
 	
 }

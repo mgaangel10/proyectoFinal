@@ -22,6 +22,7 @@ public class ServicioController {
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("servicio",new Servicio());
 		return "addServicios";
+	
 	}
 	
 	@PostMapping("/nuevoServicio")
@@ -54,6 +55,11 @@ public class ServicioController {
 	public String borrar(@PathVariable("id") long id) {
 		serv.deleteById(id);
 		return "redirect:/listaServicios";
+	}
+	@GetMapping("/verS")
+	public String showServcios(Model model) {
+		model.addAttribute("lista",serv.findAll());
+		return "servicios";
 	}
 
 }
