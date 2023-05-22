@@ -14,6 +14,12 @@
         <a th:href="@{/administrador}" class="list-group-item list-group-item-action"><< Ir a la pagina incial de administrador</a>
 </div>
 <h2>Estos son sus datos</h2>
+ <<form th:action="@{/buscarApe}" method="post">
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="ape">
+      <button type="submit">Buscar</button>
+    </form>
+		</form>
 <div class="flex">
 	<div class="card" style="width:400px" th:each="empleado : ${lista}">
       <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">

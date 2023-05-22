@@ -15,13 +15,14 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@EqualsAndHashCode(callSuper=false)
 public class Producto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -40,7 +41,7 @@ public class Producto {
 	@OneToMany(mappedBy="producto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	private Set<Puntuacion> puntuaciones = new HashSet<Puntuacion>();
 	
-	public Producto(String nombre, String descripcion, float pvp, float descuento, String imagen, Categoria categoria) {
+	public Producto(String nombre, String descripcion, double precio, float descuento, String imagen,String color, Categoria categoria) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.descripcion = descripcion;

@@ -9,18 +9,37 @@
 </div>
 <h2>Listado de Productos</h2>
     <hr>
-    <div class="flex" >
-        <div class="card" style="width:400px" th:each="producto : ${lista}">
-          <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title" th:text="${producto.nombre}">nombre</h4>
-            <h4 class="card-title" th:text="${producto.precio}">precio</h4>
-            <p class="card-text"  >descripcion</p>
-           <button class="editar"><a href="#" th:href="@{/editarP/{id}(id=${producto.id})}">editar</a> </button></button><button class="borrar"><a href="#" th:href="@{/borrarP/{id}(id=${producto.id})}">Borrar</a></button>
+   <div class="container mt-3">
+        
+                
+        <table class="table table-hover ">
+          <thead>
+            <tr>
+              <th>nombre</th>
+              <th>Precio</th>
+              <th>descripcion</th>
+              <th>color</th>
            
-          </div>
-        </div>
-    </div>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody th:each="producto : ${lista}">
+            <tr>
+              <td th:text="${producto.nombre}">John</td>
+              <td th:text="${producto.precio}">Doe</td>
+              
+              <td th:text="${producto.descripcion}">john@example.com</td>
+             <td th:text="${producto.color}">john@example.com</td>
+              
+              <td><button class="editar"><a href="#" th:href="@{/editarP/{id}(id=${producto.id})}">editar</a> </button></button><button class="borrar"><a href="#" th:href="@{/borrarP/{id}(id=${producto.id})}">Borrar</a></button> </td>
+             
+            </tr>
+          
+          </tbody>
+          
+        </table>
+      </div>
+	
     
 </body>
 </html>

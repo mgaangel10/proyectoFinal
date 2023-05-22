@@ -1,7 +1,10 @@
 package com.salesianostriana.dam.Empleado.service;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.Empelado.model.Categoria;
@@ -12,6 +15,7 @@ import com.salesianostriana.dam.Empleado.service.base.BaseServiceImpl;
 @Service
 
 public class ProductoService extends BaseServiceImpl<Producto,Long,ProductoRepo>{
+	@Autowired
 	private ProductoRepo prod;
 	
 	public int numeroProductosCategoria(Categoria categoria) {
@@ -21,5 +25,14 @@ public class ProductoService extends BaseServiceImpl<Producto,Long,ProductoRepo>
 	public int numeroProductosCategoria(Optional<Categoria> categoria) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	public List<Producto> searchByNombre(String nombre){
+		return prod.findByNombreContainingIgnoreCase(nombre);
+	}
+	public List<Producto> ordenarNombre(){
+		return prod.findAll(Sort.by(Sort.Direction.ASC,"nombre"));
+	}
+	public List<Producto> buscarProductosPorPrecioMasBarato() {
+	    return prod.buscarProductosPorPrecioMasBarato();
 	}
 }

@@ -1,5 +1,10 @@
 package com.salesianostriana.dam.Empleado.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,26 +12,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.Empelado.model.Empleado;
 import com.salesianostriana.dam.Empleado.service.EmpleadoService;
+import com.salesianostriana.dam.formbeans.SearchBean;
 @Controller
 
 public class EmpleadoController {
 	
-	
+	@Autowired
 	private EmpleadoService emse;
+	@Autowired
+	HttpSession session;
 	
 	public EmpleadoController (EmpleadoService ser) {
 		this.emse=ser;
 	}
 	@GetMapping({"/","/todo"})
 	public String index(Model model) {
+		model.addAttribute("lista",emse.findAll());
 		return "index";
 	}
 	@GetMapping("/mostrarFormulario")
 	public String Mostrar(Model model) {
 		model.addAttribute("lista",emse.findAll());
+		model.addAttribute("searchForm",new SearchBean());
 		return "vistaFormularioTerminado";
 	}
 	
@@ -77,6 +88,15 @@ public class EmpleadoController {
 	public String borrar(@PathVariable("id") long id) {
 		emse.delete(id);
 		return "redirect:/mostrarFormulario";
+	}
+	
+	
+	@PostMapping("/buscarApe")
+	public String buscarPorApellidos(@RequestParam("ape")String apellido,Long id) {
+		List<Empleado> result = emse.buscarPorApellido(apellido);
+		
+		result.forEach(System.out::println);
+		return "vistaFormularioTerminado";
 	}
 	
 	

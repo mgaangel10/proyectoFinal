@@ -2,9 +2,11 @@ package com.salesianostriana.dam.Empleado.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.Empelado.model.Empleado;
+import com.salesianostriana.dam.Empelado.model.Producto;
 import com.salesianostriana.dam.Empleado.repositorio.EmpleadoRepo;
 
 
@@ -12,6 +14,7 @@ import com.salesianostriana.dam.Empleado.repositorio.EmpleadoRepo;
 
 @Service
 public class EmpleadoService {
+	@Autowired
 	private EmpleadoRepo emre;
 	
 	public EmpleadoService (EmpleadoRepo e) {
@@ -35,6 +38,9 @@ public class EmpleadoService {
 	}
 	public void delete(long id) { emre.deleteById(id); }
 	
+	public List<Empleado> buscarPorApellido(String a){
+		return this.emre.findByApellidosContainsIgnoreCase(a);
+	}
 	
 
 }

@@ -13,11 +13,9 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+                <a class="nav-link" th:href="@{/administrador}"><button>Volver</button></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="adminoOno.html"><button>Cambiar de Cuenta</button></a>
-              </li>
+              
               
             </ul>
             <form class="d-flex">
@@ -47,10 +45,7 @@
                 <label for="descripcion">Descripción</label>
             <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}"  placeholder="Indique la descripcion"  >
             </div>
-            <div>
-                <label for="descuento">Descuento</label>
-           <input type="number" id="descuento" name="descuento" th:field="*{descuento}" placeholder="Indique el descuento"  >
-            </div>
+            
             <div>
                 <label for="color">Color</label>
             <input type="text" id="color" name="color" th:field="*{color}" placeholder="Indique el nombre del producto"  >

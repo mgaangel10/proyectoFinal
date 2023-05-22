@@ -12,7 +12,35 @@
 	<main th:replace="~{fragmentos/main::main}">
 		
 	</main>
-   
+	 <div class="container mt-3">
+        
+               <h2>Peluqeros</h2>
+               <hr> 
+        <table class="table table-hover ">
+          <thead>
+            <tr>
+              <th>nombre</th>
+              <th>apellidos</th>
+              <th>email</th>
+            </tr>
+          </thead>
+          <tbody th:each="empleado : ${lista}">
+            <tr>
+              <td th:text="${empleado.nombre}">John</td>
+              <td th:text="${empleado.apellidos}">Doe</td>
+              
+              <td th:text="${empleado.email}">john@example.com</td>
+             
+             
+            </tr>
+          
+          </tbody>
+          
+        </table>
+      </div>
+   <footer th:replace="~{fragmentos/footer::footer}">
+	   
+   </footer>
     
 </body>
 </html>

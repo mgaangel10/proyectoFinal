@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Validación de Precio</title>
+  <script>
+    function validarPrecio() {
+      var precio = parseFloat(document.getElementById("precioInput").value);
+      try {
+        if (isNaN(precio)) {
+          throw new Error("Ingrese un número válido");
+        }
+        if (precio < 0) {
+          throw new Error("El precio no puede ser negativo");
+        }
+        console.log("El precio es válido");
+        // Aquí puedes realizar otras acciones si el precio es válido
+      } catch (error) {
+        console.error("Error: " + error.message);
+        // Aquí puedes mostrar el mensaje de error en tu página HTML
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Validación de Precio</h1>
+  <input type="text" id="precioInput" placeholder="Ingrese un precio">
+  <button onclick="validarPrecio()">Validar</button>
+</body>
+</html>

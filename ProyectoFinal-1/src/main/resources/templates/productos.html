@@ -30,11 +30,9 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+                <a class="nav-link" th:href="@{/}"><button>Volver</button></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="adminoOno.html"><button>Cambiar de Cuenta</button></a>
-              </li>
+              
               
             </ul>
             <form class="d-flex">
@@ -44,23 +42,52 @@
           </div>
         </div>
       </nav>
-      <h2>Listado de Productos</h2>
-    <hr>
-    <div class="flex" th:each="producto : ${lista}">
-        <div class="card" style="width:400px" >
-          <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title" th:text="${producto.nombre}">nombre</h4>
-            <h4 class="card-title" th:text="${producto.precio}">precio</h4>
-            <p class="card-text"  >descripcion</p>
-            
-				<button  class="editar" ><a  th:href="@{/prodACarr/{id}(id=${producto.id})}">Comprar</a> </button>
+      
+     <form action="#" th:action="@{/search/submit}" th:object="${searchForm}" method="post">
+		 <label for="nombre">Buscar por nombre</label>
+		<input type="text" name="nombre" th:field="*{search}" placeholder="Buscar Por Nombre"  style="margin-left: 5%; padding: 4px;" />
+		<button class="btn- btn-danger" type="submit"  style="padding: 4px;">
+			<span class="glyphicon glyphicon-search"></span>
+		</button>
+		</form>
+		<h2>Listado de productos</h2>
+        <hr>
+        <button ><a th:href="@{/ordenarPrecioBarato}">por precio más bajo</a> </button>
+		 <div class="container mt-3">
+        
+                
+        <table class="table table-hover ">
+          <thead>
+            <tr>
+              <th>nombre</th>
+              <th>Precio</th>
+              <th>descripcion</th>
+              <th>color</th>
+              <th>Categoria</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody th:each="producto : ${lista}">
+            <tr>
+              <td th:text="${producto.nombre}">John</td>
+              <td th:text="${producto.precio}">Doe</td>
+              
+              <td th:text="${producto.descripcion}">john@example.com</td>
+             <td th:text="${producto.color}">john@example.com</td>
+              <td th:text="${producto.categoria.nombre}">john@example.com</td>
+              <td> <button  class="editar" ><a  th:href="@{/prodACarr/{id}(id=${producto.id})}">Comprar</a> </button></td>
+             
+            </tr>
+          
+          </tbody>
+          
+        </table>
+      </div>
+	
 		
-           
-           
-          </div>
-        </div>
-    </div>
+    
+    
+   
 	
    
     

@@ -5,22 +5,40 @@
 </head>
 <body>
     <div class="list-group">
-        <a th:href="@{/administrador}" class="list-group-item list-group-item-action"><< Volver a la pagina incial de administrador</a>
+        <a th:href="@{/}" class="list-group-item list-group-item-action"><< Volver a la pagina incial </a>
 </div>
 <h2>Lista de Servicios</h2>
     <hr>
-    <div class="flex">
-        <div class="card" style="width:400px" th:each="servicio : ${lista}">
-          <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title" th:text="${servicio.nombre}" >nombre</h4>
-            <h4 class="card-title" th:text="${servicio.precio}" >precio</h4>
-            <p class="card-text" th:text="${servicio.descripcion}" >descripcion</p>
-            
-            <button class="editar"><a th:href="@{/addReserva}">Reserva</a></button>
-          </div>
-        </div>
-    </div>
+    <div class="container mt-3">
+        
+                
+        <table class="table table-hover ">
+          <thead>
+            <tr>
+              <th>nombre</th>
+              <th>Precio</th>
+              <th>descripcion</th>
+              <th>duracion</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody th:each="producto : ${lista}">
+            <tr>
+              <td th:text="${producto.nombre}">John</td>
+              <td th:text="${producto.precio}">Doe</td>
+              
+              <td th:text="${producto.descripcion}">john@example.com</td>
+             <td th:text="${producto.duracion}">john@example.com</td>
+             
+              <td> <button class="editar"><a th:href="@{/addReserva}">Reserva</a></button></td>
+             
+            </tr>
+          
+          </tbody>
+          
+        </table>
+      </div>
+      
     
 </body>
 </html>

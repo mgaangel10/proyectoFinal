@@ -13,7 +13,7 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="administrador.html"><button>Volver</button></a>
+                <a class="nav-link" th:href="@{/}"><button>Volver</button></a>
               </li>
              
               
@@ -49,6 +49,10 @@
             
         </div>
     </form>
+    
+    <footer th:replace="~{fragmentos/footer::footer}">
+	   
+   </footer>
 
 
     
