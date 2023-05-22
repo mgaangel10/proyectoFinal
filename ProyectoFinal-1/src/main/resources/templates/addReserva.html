@@ -29,27 +29,31 @@
       </nav>
       <h2>Rellena tu reserva</h2>
       <hr>
-     <form th:action="@{reserva/submit}" th:object="${reserva}" method="post">
+     <form th:action="@{/addReserva/submit}" th:object="${reserva}" method="post">
         <div class="formu">
 			<input th:if="${reserva.id != 0}" type="hidden" name="id" th:field="*{id}" />
-            <h2>Usuario</h2>
-            <hr>
-            <div th:each="usuario : ${usuario}">
-               <p th:text="usuario.username">nombre usuario</p>
-            </div>
-           
+			<di th:each="usuario : ${usuario}" >
+				<h2 >Usuario</h2>
+ 			<p th:text="${usuario.username}">username</p>
+			</di>
             
+            <hr>
             <div>
-                <label for="date">Tipo de corte</label>
-            	<select th:field="*{servicio}">
-					<option value="-1">---</option>
-					<option th:each="servicio : ${servicio}"
-					th:value="${servicio.id}" th:text="${servicio.nombre}">servicios</option>
+				<label for="servicio">Tipo de servicio</label><select
+				th:field="*{servicio}">
+				<option value="-1">---</option>
+				<option th:each="servicio : ${servicio}"
+				th:value="${servicio.id}" th:text="${servicio.nombre}">servicio</option>
+					
 				</select>
+			</div>
+             <div>
+               <label for="date">fecha de reserva</label>
+            <input type="date" name="date" id="date" th:field="*{fecha}">
             </div>
-            <div th:each="reserva : ${reserva}">
-                <label for="date">dia de la reserva</label>
-            <input type="date" id="date" placeholder="indiqe la fecha" name="date" > <br>
+            <div >
+             <label for="time">hora de reserva</label>
+             <input type="time" name="time" id="time" th:fielf="*{hora}">
             
             </div>
             

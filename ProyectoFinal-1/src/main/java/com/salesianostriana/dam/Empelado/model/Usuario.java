@@ -38,8 +38,6 @@ public class Usuario implements UserDetails {
 	private Long id;
 	
 	private String username, password;
-	private String nombre;
-	private String apellidos;
 	
 	
 	private boolean admin;
@@ -48,7 +46,7 @@ public class Usuario implements UserDetails {
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
 	@OneToMany(
-			mappedBy="u", fetch= FetchType.EAGER,
+			mappedBy="usuario", fetch= FetchType.EAGER,
 			cascade=CascadeType.ALL,
 			orphanRemoval=true
 			)

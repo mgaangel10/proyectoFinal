@@ -9,3 +9,6 @@ insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_
 insert into servicio (id, nombre, precio, descripcion,descuento,duracion) values (NEXTVAL('hibernate_sequence'),'degradado',10,'corte para no calvos',0,30);
 insert into servicio (id, nombre, precio, descripcion,descuento,duracion) values (NEXTVAL('hibernate_sequence'),'rapado',11,'corte a rass',0,10);
 
+
+
+

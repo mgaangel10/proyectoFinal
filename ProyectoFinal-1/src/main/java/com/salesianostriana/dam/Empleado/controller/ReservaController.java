@@ -29,48 +29,28 @@ public class ReservaController {
 		private ServicioService s;
 		
 		
-		@GetMapping("/addReserva")
-		public String nuevaReser(Model model) {
-			model.addAttribute("usuario",us.findAll());
-			model.addAttribute("reserva",new Reserva());
-			model.addAttribute("Servcio",s.findAll());
-			return"addReserva";
-		}
-		@PostMapping("reserva/submit")
-		public String submitReserva(@ModelAttribute("reserva") Servicio s) {
-			r.addReserva(s);
-			return"redirect:/vistaReserva";
-		}
+	@GetMapping("/addReserva")
+	public String addReserva (Model model) {
+		model.addAttribute("servicio",s.findAll());
+		model.addAttribute("usuario",us.findAll());
+		model.addAttribute("reserva",new Reserva());
+		return"addReserva";
+	}
+	
+	@PostMapping("/addReserva/submit")
+	public String enviarResevar(@ModelAttribute("reserva")Reserva re) {
 		
-		@GetMapping("/borrarReserva")
-		public String borrarReserva(@PathVariable("id") Long id) {
-			Optional<Servicio> eliminar = s.findById(id);
-			if (eliminar!=null) {
-				r.elminarReserva(eliminar.get());
-				return"redirect:/vistaReserva";
-			} else {
-				return"servcios";
-			}
-		}
+		r.save(re);
+		return"redirect:/vistaReserva";
+	}
+	@GetMapping("/vistaReserva")
+	public String vistReserva (Model model) {
 		
-		@GetMapping("/checkout")
-		private String saveRe(@AuthenticationPrincipal Usuario u) {
-			r.checkout(u);
-			return"redirect:/compraSe";
-		}
-		
-		public double total() {
-			Map<Servicio,Reserva> reser=r.getReserva();
-			double total = 0.0;
-			if (reser!=null) {
-				for(Servicio s:reser.keySet()) {
-					total+=s.getPrecio();
-				}
-				return total;
-			} else {
-				return 0.0;
-			}
-		}
+		model.addAttribute("reserva",r.findAll());
+		return"vistaReserva";
+	}
+	
+	
 	
 		
 	

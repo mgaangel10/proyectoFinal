@@ -2,9 +2,6 @@ package com.salesianostriana.dam.Empelado.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,20 +26,22 @@ public class Reserva {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate fecha;
 	private LocalTime hora;
 	private double total;
 	
 	@ManyToOne
-	@MapsId("usuarioId")
+	//@MapsId("usuarioId")
 	@JoinColumn(name="usuarioId")
-	private Usuario u;
+	private Usuario usuario;
 	
 	
 	@ManyToOne
-	@MapsId("servicioId")
+	//@MapsId("servicioId")
 	@JoinColumn(name="servicioId")
-	private Servicio serv;
+	private Servicio servicio;
 	
 	
 	

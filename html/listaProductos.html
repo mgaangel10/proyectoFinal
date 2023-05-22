@@ -18,8 +18,7 @@
 </div>
 <h2>Listado de Productos</h2>
     <hr>
-    <div class="flex">
-        <div class="card" style="width:400px" th:each="empleado : ${lista}">
+    <div class="d-flex align-content-center flex-wrap"> <div class="card" style="width:400px" th:each="empleado : ${lista}">
           <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
           <div class="card-body">
             <h4 class="card-title" th:text="${empleado.nombre}" >nombre</h4>
@@ -28,7 +27,9 @@
            <button class="editar"><a href="#">Ver datos del Productos</a> </button>
           </div>
         </div>
-    </div>
+      </div>
+       
+    
     
 </body>
 </html>

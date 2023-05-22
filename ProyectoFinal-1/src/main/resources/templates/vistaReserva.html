@@ -52,26 +52,26 @@
             <tr>
               <th>nombre</th>
               <th>Precio</th>
-              
+              <th>Cantidad</th>
               <th>Total</th>
               <th>Borrar</th>
             </tr>
           </thead>
-          <tbody th:each="element:${servicio.entrySet()}">
+          <tbody th:each="reserva : ${reserva}">
             <tr>
-              <td th:text="${element.key.nombre}">John</td>
-              <td th:text="${element.key.precio}">Doe</td>
-              <td th:text="${element.key.precio}">john@example.com</td>
-              <td><a th:href="@{/borrarProd/{id}(id=${element.key.id}) }">Borrar</a></td>
+              <td th:text="@{reserva.servicio.nombre}">John</td>
+              <td th:text="@{reserva.servicio.precio}">Doe</td>
+              <td>1</td>
+              <td th:text="@{reserva.servicio.precio}">john@example.com</td>
+              <td><a >Borrar</a></td>
             </tr>
           
           </tbody>
           <tfoot>
 			  <tr>
 				  <td>total</td>
-				  <td th:text="${total}">0.0</td>
-				  <td><a th:href="@{check}">Terminar compra</a></td>
-				  <td><a th:href="@{/verS}">Seguir comprando</a></td>
+				  <td>0.0</td>
+				  <td><a>Seguir comprando</a></td>
 				  
 			  </tr>
 		  </tfoot>

@@ -39,7 +39,7 @@ public class Servicio {
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
 	@OneToMany(
-			mappedBy="serv", fetch= FetchType.EAGER,
+			mappedBy="servicio", fetch= FetchType.EAGER,
 			cascade=CascadeType.ALL,
 			orphanRemoval=true
 			)
