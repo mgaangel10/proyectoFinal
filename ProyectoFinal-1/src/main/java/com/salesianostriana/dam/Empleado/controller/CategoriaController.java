@@ -33,7 +33,7 @@ public class CategoriaController {
 	@GetMapping("/nuevaC")
 	public String nuevac(Model model) {
 		model.addAttribute("categoria",new Categoria());
-		return "addCategoria";
+		return "addCategorias";
 	}
 	
 	@PostMapping("/nuevaC/submit")

@@ -27,7 +27,7 @@
       </nav>
       <h2>Añadir Productos</h2>
       <hr>
-      <form th:action=" @{/nuevoProducto}" th:object="${producto}" method="post">
+      <form th:action=" @{/nuevoProducto}" th:object="${producto}" method="post" action="#" id="formularioE" data-aos="flip-down">
         <div class="formu" >
 			
 			<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
@@ -60,13 +60,16 @@
 					</div>
            
                 <button type="submit" name="Agregar" id="Agregar">Agregar</button>
-           
+              <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
             
             
         </div>
     </form>
 
-
+ <script>
+  AOS.init();
+</script>
     
 </body>
 </html>

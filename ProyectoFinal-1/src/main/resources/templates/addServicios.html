@@ -27,7 +27,7 @@
       </nav>
       <h2>Añadir Servicio</h2>
       <hr>
-      <form th:action="${servicio.id != 0} ? @{/editarS/submit} : @{/nuevoServicio}" th:object="${servicio}" method="post">
+      <form th:action="${servicio.id != 0} ? @{/editarS/submit} : @{/nuevoServicio}" th:object="${servicio}" method="post" action="#" id="formularioE" data-aos="flip-down">
         <div class="formu">
 				<input th:if="${servicio.id != 0}" type="hidden" name="id" th:field="*{id}" />
             <div>
@@ -54,12 +54,15 @@
             </div>
            
                <input type="submit" name="Enviar" id="Enviar" >
-           
-            
+              <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+            <script>
+  AOS.init();
+</script>
             
         </div>
     </form>
-
+ 
     
 </body>
 </html>

@@ -92,27 +92,8 @@ public class ProductoController {
 		return "productos";
 	}
 	
-	@GetMapping("/ordenarPrecioBarato")
-	public String ordenarPorPrecioMasBajo(Model model) {
-	    List<Producto> productos = prod.buscarProductosPorPrecioMasBarato();
-	    model.addAttribute("lista", productos);
-	    return "productos";
-	}
 	
-	@GetMapping("/orderBy/{orderBy}")
-	public String Orden(@PathVariable String orderBy,Model model) {
-		List<Producto> pr;
-		switch(orderBy) {
-		
-		case "nombreAscend":
-			pr = prod.findAllBySorted(Direction.ASC, "nombre");
-			break;
-			default:
-				pr=prod.findAll();
-		}
-		model.addAttribute("lista",pr);
-		return"productos";
-	}
+	
 	
 	
 	
