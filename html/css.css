@@ -163,7 +163,10 @@ td{
 th{
     color: black;
 }
-
+#mensajeError{
+    display: none;
+    color: red;
+}
 
 
 

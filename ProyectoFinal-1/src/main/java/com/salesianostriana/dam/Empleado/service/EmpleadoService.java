@@ -38,9 +38,8 @@ public class EmpleadoService {
 	}
 	public void delete(long id) { emre.deleteById(id); }
 	
-	public List<Empleado> buscarPorApellido(String a){
-		return this.emre.findByApellidosContainsIgnoreCase(a);
+	public List<Empleado> searchByNombre(String nombre){
+		return emre.findByNombreContainingIgnoreCase(nombre);
 	}
-	
 
 }

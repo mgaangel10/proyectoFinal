@@ -81,21 +81,21 @@ public class ProductoController {
 	@GetMapping("/ordenarByNombre")
 	public String ordenarNombre(@RequestParam("nombre")String nombre,Model model) {
 		List<Producto> p = prod.ordenarNombre();
-		model.addAttribute("producto",p);
+		model.addAttribute("lista",p);
 		return "productos";
 	}
 	
 	
 	@PostMapping("/search/submit")
 	public String enviarBusqueda(@ModelAttribute("searchForm") SearchBean search,Model model) {
-		model.addAttribute("producto",prod.searchByNombre(search.getSearch()));
+		model.addAttribute("lista",prod.searchByNombre(search.getSearch()));
 		return "productos";
 	}
 	
 	@GetMapping("/ordenarPrecioBarato")
 	public String ordenarPorPrecioMasBajo(Model model) {
 	    List<Producto> productos = prod.buscarProductosPorPrecioMasBarato();
-	    model.addAttribute("producto", productos);
+	    model.addAttribute("lista", productos);
 	    return "productos";
 	}
 	
@@ -110,7 +110,7 @@ public class ProductoController {
 			default:
 				pr=prod.findAll();
 		}
-		model.addAttribute("ordenList",pr);
+		model.addAttribute("lista",pr);
 		return"productos";
 	}
 	

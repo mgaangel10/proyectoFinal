@@ -34,7 +34,10 @@ public class ProductoService extends BaseServiceImpl<Producto,Long,ProductoRepo>
 		return prod.findAll(Sort.by(Sort.Direction.ASC,"nombre"));
 	}
 	public List<Producto> buscarProductosPorPrecioMasBarato() {
-	    return prod.buscarProductosPorPrecioMasBarato();
+        Sort sort = Sort.by(Direction.ASC, "precio");
+        
+        return prod.findAll(sort);
+        
 	}
 	public List<Producto>findAllBySorted(Direction d,String orderBy){
 		Sort sort = Sort.by(d,orderBy);

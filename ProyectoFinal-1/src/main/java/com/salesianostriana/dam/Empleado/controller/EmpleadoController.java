@@ -91,13 +91,8 @@ public class EmpleadoController {
 	}
 	
 	
-	@PostMapping("/buscarApe")
-	public String buscarPorApellidos(@RequestParam("ape")String apellido,Long id) {
-		List<Empleado> result = emse.buscarPorApellido(apellido);
-		
-		result.forEach(System.out::println);
-		return "vistaFormularioTerminado";
-	}
+	
+	
 	
 	
 	

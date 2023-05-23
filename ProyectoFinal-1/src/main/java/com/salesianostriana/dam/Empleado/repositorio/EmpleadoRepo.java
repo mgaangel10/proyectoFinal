@@ -18,6 +18,6 @@ public interface EmpleadoRepo extends JpaRepository<Empleado, Long>{
 			""")
 	List<Empleado> buscarTodo(String apellidos,String nombre);
 	
-	List<Empleado> findByApellidosContainsIgnoreCase(String apellidos);
+	public List<Empleado> findByNombreContainingIgnoreCase(String name);
 
 }

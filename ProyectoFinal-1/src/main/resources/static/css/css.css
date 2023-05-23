@@ -173,9 +173,13 @@ h2{
 	color: white;
 	margin-left: 40%;
 }
-
-
-
+#mensajeError{
+	display: none;
+	color: red;
+}
+.table-hover{
+    color: bisque !important;
+}
 
 
 

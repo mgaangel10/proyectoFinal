@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Import AOS-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>index</title>
 
 </head>
@@ -16,7 +18,7 @@
         
                <h2>Peluqeros</h2>
                <hr> 
-        <table class="table table-hover ">
+        <table class="table" style="color:aliceblue;">
           <thead>
             <tr>
               <th>nombre</th>
@@ -41,6 +43,11 @@
    <footer th:replace="~{fragmentos/footer::footer}">
 	   
    </footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
     
 </body>
 </html>

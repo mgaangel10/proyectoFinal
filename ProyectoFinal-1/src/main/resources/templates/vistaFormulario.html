@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../static/js/validacion.js" th:src="@{/js/validacion.js}"></script>
     <title>formulario</title>
 
 </head>
@@ -13,7 +14,7 @@
 		
 	</nav>
 	<h2>Agregar un administrador</h2>
-	<form th:action="${empleado.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${empleado}" method="post">
+	<form th:action="${empleado.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${empleado}" method="post" action="#" id="formularioE">
         <div class="formu">
 			<input th:if="${empleado.id != 0}" type="hidden" name="id" th:field="*{id}" />
         <div>
@@ -29,8 +30,17 @@
             <label for="email">Email</label> 
         <input type="email" id="email" name="email" th:field="*{email}"   placeholder="Indique su email">
         </div>
+         <div>
+            <label for="password">password</label> 
+        <input type="password" id="password" name="password" th:field="*{password}"   placeholder="Indique su contraseña">
+        </div>
+         <div>
+            <label for="repeatPassword">repeatPassword</label> 
+        <input type="password" id="repeatPassword" name="repeatPassword" th:field="*{repeatPassword}"   placeholder="Repita su contraseña">
+        </div>
+        <p id="mensajeError">¡Las contraseñas no coinciden!</p>
        
-         <input type="submit" name="Enviar" id="Enviar">
+         <button type="submit">Enviar</button>
        
         
         
