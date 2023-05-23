@@ -180,6 +180,10 @@ h2{
 .table-hover{
     color: bisque !important;
 }
+hr{
+	color: #de0e0e;
+	border: 30pt;
+}
 
 
 

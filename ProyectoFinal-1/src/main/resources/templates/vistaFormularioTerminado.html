@@ -7,31 +7,54 @@
     <title>index</title>
 
 </head>
-<nav th:replace="~{fragmentos/nav::nav}">
-	
-</nav>
+<nav class="navbar navbar-expand-sm navbar-dark " th:fragment="nav">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+             
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/nuevo}"><button>Inicar sesion</button></a>
+              </li>
+              
+            </ul>
+            <form class="d-flex" th:action="@{/searchE/submit}" th:object="${searchForm}" method="POST" >
+              <input   type="text" placeholder="Search"  name="nombre" th:field="*{search}">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
 <div class="list-group">
         <a th:href="@{/administrador}" class="list-group-item list-group-item-action"><< Ir a la pagina incial de administrador</a>
 </div>
-<h2>Estos son sus datos</h2>
- <<form th:action="@{/buscarApe}" method="post">
-      <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" name="ape">
-      <button type="submit">Buscar</button>
-    </form>
-		</form>
-<div class="flex">
-	<div class="card" style="width:400px" th:each="empleado : ${lista}">
-      <img class="card-img-top" th:src="@{/img/perfil2.png}" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title" th:text="${empleado.nombre}" >nombre</h4>
-        <h4 class="card-title" th:text="${empleado.apellidos}" >apellidos</h4>
-        <p class="card-text" th:text="${empleado.email}" >email</p>
-        
-       <button class="editar"><a href="#" th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a> </button>|<button class="borrar"><a href="#" th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></button>
-      </div>
-    </div>
-</div>
+<h2>Lista de administradores</h2>
+<hr>
+  
+   <table class="table" style="color:aliceblue;">
+          <thead>
+            <tr>
+              <th>nombre</th>
+              <th>apellidos</th>
+              <th>email</th>
+            </tr>
+          </thead>
+          <tbody th:each="empleado : ${lista}">
+            <tr>
+              <td th:text="${empleado.nombre}">John</td>
+              <td th:text="${empleado.apellidos}">Doe</td>
+              
+              <td th:text="${empleado.email}">john@example.com</td>
+             
+             
+            </tr>
+          
+          </tbody>
+          
+        </table>
 <di>
 	
 	

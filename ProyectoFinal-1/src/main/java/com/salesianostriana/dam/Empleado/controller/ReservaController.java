@@ -41,6 +41,7 @@ public class ReservaController {
 	public String enviarResevar(@ModelAttribute("reserva")Reserva re) {
 		
 		r.save(re);
+		r.addReserv(re);
 		
 		return"redirect:/vistaReserva";
 	}

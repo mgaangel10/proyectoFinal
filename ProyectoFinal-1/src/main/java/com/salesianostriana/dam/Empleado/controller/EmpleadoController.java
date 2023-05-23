@@ -92,7 +92,11 @@ public class EmpleadoController {
 	
 	
 	
-	
+	@PostMapping("/searchE/submit")
+	public String enviarBusqueda(@ModelAttribute("searchForm") SearchBean search,Model model) {
+		model.addAttribute("lista",emse.searchByNombre(search.getSearch()));
+		return "vistaFormularioTerminado";
+	}
 	
 	
 	
