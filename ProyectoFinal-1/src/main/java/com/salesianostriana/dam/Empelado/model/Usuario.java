@@ -2,6 +2,7 @@ package com.salesianostriana.dam.Empelado.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -41,6 +42,13 @@ public class Usuario implements UserDetails {
 	
 	
 	private boolean admin;
+	
+	
+	
+	
+	
+	
+	
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

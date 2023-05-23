@@ -26,6 +26,11 @@ public class ReservaService extends BaseServiceImpl<Reserva,Long,ReservaRepo>{
 	@Autowired
 	private ReservaRepo r;
 	
+	public void addReserv(Reserva res) {
+		res.getServicio().setPrecio(res.getTotal());
+		res.getServicio().getNombre();
+	}
+	
 	
 	
 	

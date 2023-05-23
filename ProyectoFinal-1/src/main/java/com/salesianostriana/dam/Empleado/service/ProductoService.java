@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.Empelado.model.Categoria;
@@ -34,5 +35,9 @@ public class ProductoService extends BaseServiceImpl<Producto,Long,ProductoRepo>
 	}
 	public List<Producto> buscarProductosPorPrecioMasBarato() {
 	    return prod.buscarProductosPorPrecioMasBarato();
+	}
+	public List<Producto>findAllBySorted(Direction d,String orderBy){
+		Sort sort = Sort.by(d,orderBy);
+		return this.repository.findAll(sort);
 	}
 }
