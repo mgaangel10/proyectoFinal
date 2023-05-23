@@ -67,6 +67,22 @@ public class CarritoController {
 		if (carrito!=null) {
 			for(Producto p:carrito.keySet()) {
 				total+=p.getPrecio()*carrito.get(p);
+				
+			}
+			return total;
+		} else {
+			return 0.0;
+
+		}
+	}
+	@ModelAttribute("totalD")
+	public double totalD() {
+		Map<Producto,Integer> carrito=c.getProductosCarr();
+		double total=0.0;
+		if (carrito!=null) {
+			for(Producto p:carrito.keySet()) {
+				total+=p.getPrecio()*carrito.get(p);
+				total=total-p.getDescuento();
 			}
 			return total;
 		} else {

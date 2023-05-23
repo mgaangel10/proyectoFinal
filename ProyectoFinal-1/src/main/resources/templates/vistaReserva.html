@@ -47,31 +47,35 @@
       <div class="container mt-3">
         <h2>Tu cesta</h2>
                 
-        <table class="table table-hover ">
+        <table class="table "style="color:aliceblue;">
           <thead>
             <tr>
               <th>nombre</th>
               <th>Precio</th>
-              <th>Cantidad</th>
+              <th>fecha</th>
+              <td>hora</td>
               <th>Total</th>
-              <th>Borrar</th>
+              
             </tr>
           </thead>
           <tbody th:each="reserva : ${reserva}">
             <tr>
               <td th:text="${reserva.servicio.nombre}">John</td>
               <td th:text="${reserva.servicio.precio}">Doe</td>
-              <td>1</td>
-              <td th:text="${reserva.servicio.precio}">john@example.com</td>
-              <td><a >Borrar</a></td>
+              <td th:text="${reserva.fecha}">1</td>
+              <td th:text="${reserva.hora}">2</td>
+              <td th:text="${reserva.servicio.precio}">Doe</td>
+             
+             
             </tr>
           
           </tbody>
           <tfoot>
 			  <tr>
-				  <td th:text="${reserva.servicio.precio} ">total</td>
-				  <td>0.0</td>
-				  <td><a>Seguir comprando</a></td>
+				  <td >total</td>
+				  <td >0.0</td>
+				 
+				  <td><a th:href="@{/verS}">Seguir comprando</a></td>
 				  
 			  </tr>
 		  </tfoot>

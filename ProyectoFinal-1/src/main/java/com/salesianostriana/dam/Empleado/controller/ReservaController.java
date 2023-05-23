@@ -1,10 +1,8 @@
 package com.salesianostriana.dam.Empleado.controller;
 
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.Empelado.model.Producto;
 import com.salesianostriana.dam.Empelado.model.Reserva;
 import com.salesianostriana.dam.Empelado.model.Servicio;
-import com.salesianostriana.dam.Empelado.model.Usuario;
 import com.salesianostriana.dam.Empleado.service.ReservaService;
 import com.salesianostriana.dam.Empleado.service.ServicioService;
 import com.salesianostriana.dam.Empleado.service.UsuarioService;
@@ -51,6 +49,13 @@ public class ReservaController {
 		model.addAttribute("reserva",r.findAll());
 		return"vistaReserva";
 	}
+	
+	@GetMapping("/borrarReserv/{id}")
+	public String elimar(@PathVariable("id") Long id) {
+		r.deleteById(id);
+		return "redirect:/vistaReserva";
+		}
+	
 	
 	
 	

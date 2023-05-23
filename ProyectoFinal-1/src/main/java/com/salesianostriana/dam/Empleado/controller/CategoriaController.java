@@ -48,7 +48,7 @@ public class CategoriaController {
 		
 		if (categoria.isPresent()) {
 			model.addAttribute("categoria",categoria.get());
-			return"addCategoria";
+			return"addCategoriaS";
 		} else {
 			return"redirect:/listC";
 		}
@@ -57,7 +57,7 @@ public class CategoriaController {
 	@PostMapping("/editarC/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("categoria") Categoria c) {
 		cat.save(c);
-		return "redirect:/listaC";
+		return "redirect:/listC";
 	}
 	
 	@GetMapping("/borrarC/{id}")

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.Empelado.model.Servicio;
 import com.salesianostriana.dam.Empleado.service.ServicioService;
+import com.salesianostriana.dam.formbeans.SearchBean;
 
 @Controller
 public class ServicioController {
@@ -59,6 +60,12 @@ public class ServicioController {
 	@GetMapping("/verS")
 	public String showServcios(Model model) {
 		model.addAttribute("lista",serv.findAll());
+		model.addAttribute("searchForm",new SearchBean());
+		return "servicios";
+	}
+	@PostMapping("/searchS/submit")
+	public String enviarBusqueda(@ModelAttribute("searchForm") SearchBean search,Model model) {
+		model.addAttribute("lista",serv.searchByNombre(search.getSearch()));
 		return "servicios";
 	}
 

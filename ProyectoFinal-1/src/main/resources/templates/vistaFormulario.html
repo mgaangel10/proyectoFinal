@@ -14,7 +14,7 @@
 		
 	</nav>
 	<h2>Agregar un administrador</h2>
-	<form th:action="${empleado.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${empleado}" method="post" action="#" id="formularioE">
+	<form th:action="${empleado.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${empleado}" method="post" action="#" id="formularioE" data-aos="flip-down">
         <div class="formu">
 			<input th:if="${empleado.id != 0}" type="hidden" name="id" th:field="*{id}" />
         <div>
@@ -41,13 +41,16 @@
         <p id="mensajeError">¡Las contraseñas no coinciden!</p>
        
          <button type="submit">Enviar</button>
-       
-        
+       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
         
     </div>
          </form>
     
-   
+   <script>
+  AOS.init();
+</script>
+        
     
 </body>
 </html>

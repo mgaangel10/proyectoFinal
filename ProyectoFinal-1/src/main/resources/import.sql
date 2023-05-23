@@ -21,23 +21,23 @@ insert into categoria (id, nombre, imagen) values (2,'Maquinilla','https://pelu1
 insert into categoria (id, nombre, imagen) values (3,'tijeras','https://pelu10.com/4960-home_default/maquina-corte-inalambrica-cordless-uspro-li-edicion-limitada-sugar-skull-andis-73090.jpg');
 insert into categoria (id, nombre, imagen) values (4,'navajas','https://pelu10.com/4960-home_default/maquina-corte-inalambrica-cordless-uspro-li-edicion-limitada-sugar-skull-andis-73090.jpg');
 
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu ',9,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina',11,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla r33',33,'champoo para calvos',0,'rojo',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja l2',12,'gomina para no calvos',0,'verde',4);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'abrillantador',10,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador',8,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla yt5',70,'champoo para calvos',0,'rojo',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'razer 6r',25,'gomina para no calvos',0,'verde',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina star',3,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'polvos moldeador',5,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'cera',5,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu anti-caspa',9,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador para pelo blanco',8,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja r2',8,'gomina para no calvos',0,'verde',4);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla star',40,'champoo para calvos',0,'rojo',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu par pelo ondulado',15,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'tijeras',9,'champoo para calvos',0,'rojo',3);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu ',9,'Este champú está diseñado para combatir y prevenir la caspa en el cuero cabelludo.',2,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina',11,'El gel para el cabello es un producto de peinado que proporciona una fijación fuerte y duradera. ',2,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla r33',33,'La máquina de cortar el cabello es una herramienta de peluquería que se utiliza para cortar el cabello a diferentes longitudes.',1,'rojo',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja l2',12,'El spray de brillo es un producto de peinado que proporciona un acabado brillante y luminoso al cabello. ',1,'verde',4);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'abrillantador',10,' Este producto de cuidado del cabello se aplica después del lavado y no necesita ser enjuagado.',1,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador',8,'Este producto de peluquería permite cambiar el color del cabello de forma temporal o permanente.',1,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla yt5',70,'Hay diferentes tipos y modelos, desde las máquinas más básicas hasta las más sofisticadas con múltiples accesorios.',2,'rojo',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'razer 6r',25,'El spray de brillo es un producto de peinado que proporciona un acabado brillante y luminoso al cabello. ',1,'verde',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina star',3,' Este producto de cuidado del cabello se aplica después del lavado y no necesita ser enjuagado.',2,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'polvos moldeador',5,'Es ideal para crear peinados con cuerpo y movimiento.',3,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'cera',5,'La cera para el cabello es un producto de peinado que proporciona una fijación duradera y un acabado mate. ',1,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu anti-caspa',9,'Contiene ingredientes activos que reducen la inflamación y la descamación, dejando el cabello limpio y saludable.',0,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador para pelo blanco',8,'Las mascarillas capilares son tratamientos intensivos que ayudan a reparar el cabello dañado y aprevenir el quiebre.',0,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja r2',8,' Hay diferentes tipos de tijeras, como las tijeras de corte recto, las tijeras de entresacar y las tijeras de filo navaja.',0,'verde',4);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla star',40,'La mousse para el cabello es similar a la espuma, pero proporciona una fijación más suave y flexible.',0,'rojo',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu par pelo ondulado',15,'Los aceites capilares son productos de cuidado del cabello que nutren y suavizan el cabello, dejándolo brillante y sedoso. ',0,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'tijeras',9,'Las tijeras de peluquería son herramientas esenciales para cortar y dar forma al cabello. ',0,'rojo',3);
 
 
 

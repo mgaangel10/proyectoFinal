@@ -4,15 +4,37 @@
    
 </head>
 <body>
+	<nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/}"><button>Volver</button></a>
+              </li>
+              
+              
+            </ul>
+            <form class="d-flex" th:action="@{/searchS/submit}" th:object="${searchForm}" method="POST">
+              <input   type="text" placeholder="Search" th:field="*{search}">
+              <button  type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
     <div class="list-group">
         <a th:href="@{/}" class="list-group-item list-group-item-action"><< Volver a la pagina incial </a>
 </div>
+
 <h2>Lista de Servicios</h2>
     <hr>
     <div class="container mt-3">
         
                 
-        <table class="table table-hover ">
+        <table class="table" style="color:aliceblue;">
           <thead>
             <tr>
               <th>nombre</th>
@@ -22,13 +44,13 @@
               <th>Acciones</th>
             </tr>
           </thead>
-          <tbody th:each="producto : ${lista}">
+          <tbody th:each="servicio : ${lista}">
             <tr>
-              <td th:text="${producto.nombre}">John</td>
-              <td th:text="${producto.precio}">Doe</td>
+              <td th:text="${servicio.nombre}">John</td>
+              <td th:text="${servicio.precio}">Doe</td>
               
-              <td th:text="${producto.descripcion}">john@example.com</td>
-             <td th:text="${producto.duracion}">john@example.com</td>
+              <td th:text="${servicio.descripcion}">john@example.com</td>
+             <td th:text="${servicio.duracion}">john@example.com</td>
              
               <td> <button class="editar"><a th:href="@{/addReserva}">Reserva</a></button></td>
              
