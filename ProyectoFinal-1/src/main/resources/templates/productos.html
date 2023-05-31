@@ -77,7 +77,7 @@
               <td th:text="${producto.descripcion}">john@example.com</td>
              <td th:text="${producto.color}">john@example.com</td>
               <td th:text="${producto.categoria.nombre}">john@example.com</td>
-              <td> <button  class="editar" ><a  th:href="@{/prodACarr/{id}(id=${producto.id})}">Comprar</a> </button></td>
+              <td> <button  class="editar" sec:authorize="hasRole('ROLE_USER')"><a  th:href="@{/prodACarr/{id}(id=${producto.id})}">Comprar</a> </button></td>
              
             </tr>
           

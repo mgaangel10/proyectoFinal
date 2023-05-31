@@ -30,7 +30,7 @@
               <td th:text="${producto.descripcion}">john@example.com</td>
              <td th:text="${producto.duracion}">john@example.com</td>
              
-              <td> <button class="editar"><a th:href="@{/addReserva}">Reserva</a></button></td>
+              <td> <button class="editar" sec:authorize="hasRole('ROLE_USER')"><a th:href="@{/addReserva}">Reserva</a></button></td>
              
             </tr>
           

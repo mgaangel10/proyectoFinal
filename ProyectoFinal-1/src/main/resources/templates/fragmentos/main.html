@@ -10,14 +10,17 @@
             <ul class="navbar-nav me-auto">
              
               <li class="nav-item">
+                <a class="nav-link" th:href="@{/registro}"><button>Registrarse</button></a>
+              </li>
+               <li class="nav-item">
                 <a class="nav-link" th:href="@{/login}"><button>Iniciar Sesion</button></a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" sec:authorize="hasRole('ROLE_USER')" th:href="@{/logout}"><button>Salir</button></a>
               </li>
               
             </ul>
-            <form class="d-flex">
-              <input   type="text" placeholder="Search">
-              <button  type="button">Search</button>
-            </form>
+            
           </div>
         </div>
       </nav>

@@ -35,7 +35,7 @@ public class Reserva {
 	@ManyToOne
 	//@MapsId("usuarioId")
 	@JoinColumn(name="usuarioId")
-	private Usuario usuario;
+	private Cliente cliente;
 	
 	
 	@ManyToOne

@@ -38,10 +38,12 @@ public class Usuario implements UserDetails {
 	@GeneratedValue
 	private Long id;
 	
-	private String username, password;
+	protected String username;
+
+	protected String password;
 	
 	
-	private boolean admin;
+	protected boolean admin;
 	
 	
 	
@@ -50,15 +52,7 @@ public class Usuario implements UserDetails {
 	
 	
 
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@Builder.Default
-	@OneToMany(
-			mappedBy="usuario", fetch= FetchType.EAGER,
-			cascade=CascadeType.ALL,
-			orphanRemoval=true
-			)
-	private List<Reserva> re = new ArrayList<>();
+	
 	
 	
 	@Override

@@ -25,20 +25,33 @@
           </div>
         </div>
       </nav>
-      <h2>Inicio de sesion</h2>
+      <h2>Registro de Usuario</h2>
       <hr>
-      <form th:action=" @{/login}"  method="post">
+      <form th:action=" @{/addC/submit}" th:object="${cliente}" method="post">
         <div class="formu" >
 			
 			
             <div >
-                <label for="username">Nombre de Usuario</label>
+                <label for="nombre">Nombre</label>
                 
-            <input type="text" id="nombre" name="username"  placeholder="Indique el nombre del producto" required autofocus >
+            <input type="text" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Indique su nombre " required autofocus >
             </div>
             <div>
-                <label for="password">contraseña</label>
-            <input type="password" id="password" name="password"  placeholder="indique su contraseña"  >
+                <label for="apellidos">apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" th:field="*{apellidos}" placeholder="indique sus apellidos"  >
+            </div>
+            <div>
+                <label for="correo">correo</label>
+            <input type="text" id="correo" name="correo" th:field="*{correo}" placeholder="indique su correo"  >
+            </div>
+             <div >
+                <label for="nombre">cree un nombre de Usuario</label>
+                
+            <input type="text" id="nombreU" name="nombreU" th:field="*{username}" placeholder="Indique su nombre de usuario" required autofocus >
+            </div>
+            <div>
+                <label for="contraseña">contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" th:field="*{password}" placeholder="indique su contraseña"  >
             </div>
             
             

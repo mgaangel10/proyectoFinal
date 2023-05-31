@@ -12,9 +12,9 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.salesianostriana.dam.Empelado.model.Cliente;
 import com.salesianostriana.dam.Empelado.model.LineaDeVenta;
 import com.salesianostriana.dam.Empelado.model.Producto;
-import com.salesianostriana.dam.Empelado.model.Usuario;
 import com.salesianostriana.dam.Empelado.model.Venta;
 import com.salesianostriana.dam.Empleado.repositorio.ProductoRepo;
 import com.salesianostriana.dam.Empleado.repositorio.VentaRepo;
@@ -31,6 +31,8 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	@Autowired
 	private ProductoService ps;
 	
+	private VentaService ventaService;
+	
 	private Map<Producto,Integer> prod = new HashMap<>();
 	public Map<Producto,Integer> getProductosCarr(){
 		return Collections.unmodifiableMap(prod);
@@ -42,6 +44,7 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 		} else {
 			prod.put(p, 1);
 		}
+	
 	}
 	
 	public void eliminarPro(Producto p) {
@@ -54,19 +57,21 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 		}
 		
 	}
-	public void checkout(Usuario u) {
+	public void checkout(Cliente c) {
 		Optional<Producto> optional = java.util.Optional.empty();
 		LineaDeVenta lv = new LineaDeVenta();
 		Venta ve = new Venta();
 		if (optional.isPresent()) {
 			for (Map.Entry<Producto,Integer> en : prod.entrySet()) {
 				lv.setP(en.getKey());
-				lv.setCantiadad(en.getValue());
+				lv.setCantidad(en.getValue());
 				lv.setTotal(lv.getP().getPrecio()*en.getValue());
 				lv.getVenta().setFecha(LocalDate.now());
 			}
 		}
 		ve.addLv(lv);
+		 
+		
 		prod.clear();
 	}
 	

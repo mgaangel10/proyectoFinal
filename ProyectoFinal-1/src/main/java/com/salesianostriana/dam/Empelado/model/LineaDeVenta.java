@@ -27,7 +27,7 @@ public class LineaDeVenta implements Serializable{
 	@GeneratedValue
 	private Long id;
 	 private double total;
-	 private int cantiadad;
+	 private int cantidad;
 	 
 	 @ManyToOne
 	 @JoinColumn(foreignKey= @ForeignKey(name="fkLineaDeVentaP"))
@@ -35,7 +35,7 @@ public class LineaDeVenta implements Serializable{
 	 
 	 @ManyToOne
 	 @MapsId("ventaId")
-	 @JoinColumn(name="ventaid")
+	 @JoinColumn(name="ventaId")
 	 private Venta venta;
 	 
 	 @EmbeddedId

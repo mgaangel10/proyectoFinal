@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,7 +38,7 @@ public class Venta {
 	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate fecha;
 	
-	
+	private Cliente cliente;
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
@@ -52,6 +53,7 @@ public class Venta {
 	public List<LineaDeVenta> getLienaDeVenta(){
 	return Collections.unmodifiableList(lv);
 	}
+	
 	
 	public Long generatedId() {
 		if (this.lv.size()>0) {

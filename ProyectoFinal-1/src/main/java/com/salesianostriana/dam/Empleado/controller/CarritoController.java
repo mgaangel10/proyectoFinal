@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.salesianostriana.dam.Empelado.model.Cliente;
 import com.salesianostriana.dam.Empelado.model.Producto;
-import com.salesianostriana.dam.Empelado.model.Usuario;
+import com.salesianostriana.dam.Empelado.model.Venta;
 import com.salesianostriana.dam.Empleado.service.CarritoService;
 import com.salesianostriana.dam.Empleado.service.ProductoService;
+import com.salesianostriana.dam.Empleado.service.VentaService;
 
 @Controller
 public class CarritoController {
@@ -24,6 +26,7 @@ public class CarritoController {
 	private ProductoService p;
 	@Autowired
 	private CarritoService c;
+	
 	
 	@GetMapping("/carrito")
 	public String showCarr(Model model) {
@@ -39,6 +42,7 @@ public class CarritoController {
 		} else {
 			return"productos";
 		}
+		
 	}
 
 	
@@ -55,8 +59,9 @@ public class CarritoController {
 	}
 	
 	@GetMapping("/check")
-	private String saveCarr(@AuthenticationPrincipal Usuario u) {
-		c.checkout(u);
+	private String saveCarr(@AuthenticationPrincipal Cliente cl,Venta v) {
+		
+		c.checkout(cl);
 		return"redirect:/compra";
 	}
 	
