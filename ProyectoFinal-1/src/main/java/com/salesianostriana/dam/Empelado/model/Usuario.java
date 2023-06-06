@@ -3,7 +3,9 @@ package com.salesianostriana.dam.Empelado.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -45,6 +47,12 @@ public class Usuario implements UserDetails {
 	
 	protected boolean admin;
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@OneToMany(
+			mappedBy="usuario", fetch= FetchType.EAGER
+						)
+	private Set<Venta> venta = new HashSet<>();
 	
 	
 	

@@ -12,4 +12,5 @@ function comprobarPassword(){
     }else{
         return document.getElementById("formularioE").action = "inicio.html";
     }
+    
 }

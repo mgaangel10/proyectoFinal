@@ -84,7 +84,7 @@ height: 250px;
     background-color: white;
 }
 .formu label{
-    color: red;
+    color: rgb(64, 0, 64);
 }
 .formu button{
     color: #c00000;
@@ -183,6 +183,9 @@ h2{
 hr{
 	color: #de0e0e;
 	border: 30pt;
+}
+.validacion{
+	color: #de0e0e;
 }
 
 

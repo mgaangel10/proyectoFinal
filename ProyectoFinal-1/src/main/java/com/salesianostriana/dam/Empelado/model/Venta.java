@@ -14,7 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,8 +36,19 @@ public class Venta {
 	private Long id;
 	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate fecha;
+	@ManyToOne
+	@JoinColumn(foreignKey=@ForeignKey(name="usuarioid"))
+	private Usuario usuario;
 	
-	private Cliente cliente;
+	/*public void addCliente (Cliente c) {
+		this.cliente=c;
+		c.getVenta().add(this);
+	}
+	
+	public void eliminarCliente (Cliente c) {
+		c.getVenta().remove(this);
+		this.cliente=null;
+	}*/
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

@@ -34,9 +34,7 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	private VentaService ventaService;
 	
 	private Map<Producto,Integer> prod = new HashMap<>();
-	public Map<Producto,Integer> getProductosCarr(){
-		return Collections.unmodifiableMap(prod);
-	}
+
 	
 	public void addProd(Producto p) {
 		if (prod.containsKey(p)) {
@@ -50,13 +48,18 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	public void eliminarPro(Producto p) {
 		if (prod.containsKey(p)) {
 			if (prod.get(p)>1) {
-				prod.replace(p, prod.get(p)-1);
+				prod.replace(p, prod.get(p)-1);  
 			}
 		} else if(prod.get(p)==1){
 			prod.remove(p);
 		}
 		
 	}
+	
+	public Map<Producto,Integer> getProductosCarr(){
+		return Collections.unmodifiableMap(prod);
+	}
+	
 	public void checkout(Cliente c) {
 		Optional<Producto> optional = java.util.Optional.empty();
 		LineaDeVenta lv = new LineaDeVenta();
@@ -70,6 +73,7 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 			}
 		}
 		ve.addLv(lv);
+		ve.setUsuario(c);;
 		 
 		
 		prod.clear();

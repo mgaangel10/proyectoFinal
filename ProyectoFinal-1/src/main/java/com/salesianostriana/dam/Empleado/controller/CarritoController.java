@@ -49,10 +49,11 @@ public class CarritoController {
 	@GetMapping("/borrarProd/{id}")
 	public String elimar(@PathVariable("id") Long id) {
 		Optional <Producto> elimar= p.findById(id);
-		if (elimar!=null) {
+		if (elimar.isPresent()) {
 			c.eliminarPro(elimar.get());
 			return"redirect:/carrito";
 		} else {
+			
 			return"productos";
 
 		}
@@ -69,11 +70,13 @@ public class CarritoController {
 	public double total() {
 		Map<Producto,Integer> carrito=c.getProductosCarr();
 		double total=0.0;
+		double total1=0.0;
 		if (carrito!=null) {
 			for(Producto p:carrito.keySet()) {
 				total+=p.getPrecio()*carrito.get(p);
+				total1=total-p.getDescuento();
 			}
-			return total;
+			return total1;
 		} else {
 			return 0.0;
 

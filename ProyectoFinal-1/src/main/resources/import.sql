@@ -43,7 +43,7 @@ insert into usuario(id,username,password)values(1,'mgaangel10','{bcrypt}$2a$10$l
 insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com');
 
 
-insert into venta(id,fecha,cliente_id)values(1,'2023-02-23',1);
+insert into venta(id,fecha,usuario_id)values(1,'2023-02-23',1);
 insert into venta(id,fecha)values(NEXTVAL('hibernate_sequence'),'2023-03-23');
 insert into venta(id,fecha)values(NEXTVAL('hibernate_sequence'),'2023-04-25');
 insert into venta(id,fecha)values(NEXTVAL('hibernate_sequence'),'2023-04-23');
