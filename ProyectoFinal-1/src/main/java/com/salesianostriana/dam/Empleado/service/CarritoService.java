@@ -72,8 +72,9 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 				lv.getVenta().setFecha(LocalDate.now());
 			}
 		}
+		ve.setCliente(c);
 		ve.addLv(lv);
-		ve.setUsuario(c);;
+		save(ve);
 		 
 		
 		prod.clear();

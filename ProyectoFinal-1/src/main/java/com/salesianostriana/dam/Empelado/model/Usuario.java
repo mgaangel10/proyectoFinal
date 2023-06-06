@@ -47,12 +47,7 @@ public class Usuario implements UserDetails {
 	
 	protected boolean admin;
 	
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@OneToMany(
-			mappedBy="usuario", fetch= FetchType.EAGER
-						)
-	private Set<Venta> venta = new HashSet<>();
+	
 	
 	
 	

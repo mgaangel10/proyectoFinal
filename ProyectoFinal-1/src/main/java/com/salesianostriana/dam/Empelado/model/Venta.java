@@ -36,19 +36,12 @@ public class Venta {
 	private Long id;
 	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate fecha;
+	
+	
 	@ManyToOne
-	@JoinColumn(foreignKey=@ForeignKey(name="usuarioid"))
-	private Usuario usuario;
+	@JoinColumn(name="usuarioId")
+	private Cliente cliente;
 	
-	/*public void addCliente (Cliente c) {
-		this.cliente=c;
-		c.getVenta().add(this);
-	}
-	
-	public void eliminarCliente (Cliente c) {
-		c.getVenta().remove(this);
-		this.cliente=null;
-	}*/
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

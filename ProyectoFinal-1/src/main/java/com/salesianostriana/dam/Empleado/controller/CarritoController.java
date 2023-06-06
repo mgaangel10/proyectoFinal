@@ -18,7 +18,6 @@ import com.salesianostriana.dam.Empelado.model.Producto;
 import com.salesianostriana.dam.Empelado.model.Venta;
 import com.salesianostriana.dam.Empleado.service.CarritoService;
 import com.salesianostriana.dam.Empleado.service.ProductoService;
-import com.salesianostriana.dam.Empleado.service.VentaService;
 
 @Controller
 public class CarritoController {
@@ -61,6 +60,7 @@ public class CarritoController {
 	
 	@GetMapping("/check")
 	private String saveCarr(@AuthenticationPrincipal Cliente cl,Venta v) {
+		
 		
 		c.checkout(cl);
 		return"redirect:/compra";

@@ -30,6 +30,12 @@ public class Cliente extends Usuario{
 	private String apellidos;
 	private String correo;
 
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@OneToMany(
+			mappedBy="cliente", fetch= FetchType.EAGER
+						)
+	private Set<Venta> venta = new HashSet<>();
 	
 	
 	@ToString.Exclude

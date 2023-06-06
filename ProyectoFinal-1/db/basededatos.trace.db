@@ -23046,3 +23046,31 @@ insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@g
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
 Table "CLIENTE" not found; SQL statement:
 insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
+2023-06-06 11:55:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
+Table "CLIENTE" not found; SQL statement:
+insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
+2023-06-06 11:58:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
+Table "CLIENTE" not found; SQL statement:
+insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
+2023-06-06 12:03:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
+Table "CLIENTE" not found; SQL statement:
+insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
+2023-06-06 12:05:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
+Table "CLIENTE" not found; SQL statement:
+insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
+2023-06-06 12:11:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
+Table "CLIENTE" not found; SQL statement:
+insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
+2023-06-06 12:20:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
+Table "CLIENTE" not found; SQL statement:
+insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
+2023-06-06 12:28:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTE" no encontrada
+Table "CLIENTE" not found; SQL statement:
+insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com') [42102-214]
