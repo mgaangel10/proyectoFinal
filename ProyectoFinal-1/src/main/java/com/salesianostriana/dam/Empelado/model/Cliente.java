@@ -1,34 +1,37 @@
 package com.salesianostriana.dam.Empelado.model;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=false)
+@DiscriminatorValue("C")
+@SuperBuilder
 public class Cliente extends Usuario{
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue
-	private Long id;
+	
 	private String nombre;
 	private String apellidos;
 	private String correo;
+	
+	
+
+	public Cliente(Long id,String username,String password,boolean admin) {
+		super(id,username,password,admin);
+		}
+
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

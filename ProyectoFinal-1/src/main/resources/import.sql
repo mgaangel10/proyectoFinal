@@ -1,20 +1,20 @@
-insert into empleado (id, nombre, apellidos, email) values (NEXTVAL('hibernate_sequence'),'Luis Miguel','López','luismi.lopez@triana.com');
-insert into empleado (id, nombre, apellidos, email) values (NEXTVAL('hibernate_sequence'),'Ángel','Naranjo','angel.narajo@triana.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Juan', 'Pérez García', 'juan.perez@email.com');
-INSERT INTO empleado(id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'María', 'González López', 'maria.gonzalez@email.com');
-INSERT INTO empleado(id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Pedro', 'Rodríguez Martínez', 'pedro.rodriguez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Laura', 'Fernández Gómez', 'laura.fernandez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Jorge', 'Sánchez Pérez', 'jorge.sanchez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Ana', 'Martínez Ruiz', 'ana.martinez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Carlos', 'García Hernández', 'carlos.garcia@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Sofía', 'Torres García', 'sofia.torres@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Miguel', 'López García', 'miguel.lopez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Lucía', 'González Pérez', 'lucia.gonzalez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Antonio', 'Sánchez García', 'antonio.sanchez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Isabel', 'Hernández López', 'isabel.hernandez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'David', 'Fernández Pérez', 'david.fernandez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'Cristina', 'Martínez García', 'cristina.martinez@email.com');
-INSERT INTO empleado (id, nombre, apellidos, email)VALUES (NEXTVAL('hibernate_sequence'),'José', 'García Pérez', 'jose.garcia@email.com');
+insert into usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype) values (NEXTVAL('hibernate_sequence'),'Luis Miguel','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcS,m''López',true,'','luismi.lopez@triana.com''empleado','empleado',43732394);
+insert into usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype) values (NEXTVAL('hibernate_sequence'),'Ángel','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcS,m''Naranjo',true,'','angel.narajo@triana.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Juan','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Pérez García',true,'', 'juan.perez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario(id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'María','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'González López',true,'', 'maria.gonzalez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario(id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Pedro','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Rodríguez Martínez',true,'', 'pedro.rodriguez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Laura','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Fernández Gómez',true,'', 'laura.fernandez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Jorge','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Sánchez Pérez',true,'', 'jorge.sanchez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Ana','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Martínez Ruiz',true,'', 'ana.martinez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Carlos','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'García Hernández',true,'', 'carlos.garcia@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Sofía','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Torres García',true,'', 'sofia.torres@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Miguel','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'López García',true,'', 'miguel.lopez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre,email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Lucía','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'González Pérez',true,'', 'lucia.gonzalez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Antonio','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Sánchez García',true,'', 'antonio.sanchez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Isabel','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Hernández López',true,'', 'isabel.hernandez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'David','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Fernández Pérez',true,'', 'david.fernandez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'Cristina','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'Martínez García',true,'', 'cristina.martinez@email.com''empleado','empleado',43732394);
+INSERT INTO usuario (id, username,password, apellidos,admin,nombre, email,repeatPassword,numTelefono,dtype)VALUES (NEXTVAL('hibernate_sequence'),'José','{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'García Pérez',true, 'jose.garcia@email.com',43732394);
 
 insert into categoria (id, nombre, imagen) values (1,'Champus','https://www.periodistadigital.com/wp-content/uploads/2020/04/mejor-champu-sin-sulfatos.png');
 insert into categoria (id, nombre, imagen) values (2,'Maquinilla','https://pelu10.com/4960-home_default/maquina-corte-inalambrica-cordless-uspro-li-edicion-limitada-sugar-skull-andis-73090.jpg');
@@ -39,9 +39,7 @@ insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_
 insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu par pelo ondulado',15,'gomina para no calvos',0,'verde',1);
 insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'tijeras',9,'champoo para calvos',0,'rojo',3);
 
-insert into usuario(id,username,password)values(1,'mgaangel10','{bcrypt}$2a$10$lt5vug6mEpzyViqIl9kt1OYI9BheJueyl0devtjP2QTTZP.Qp02dy');
-insert into cliente(id,nombre,apellidos,correo)values(1,'angel','perez','angel@gmail.com');
-
+insert into usuario (admin, password, username, apellidos, correo, nombre, dtype, id) values (false,'{bcrypt}$2a$10$daw3CqsK.t/Iqo2CrIsmuuG9R9.7XTVb8mnWkJ7VZLCbYnFi6TiE6' , 'mgaangel10','perez', 'angel@gmail.com', 'angel', 'C', 1);
 
 
 

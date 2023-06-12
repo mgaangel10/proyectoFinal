@@ -22,13 +22,13 @@
               <th>Acciones</th>
             </tr>
           </thead>
-          <tbody th:each="producto : ${lista}">
+          <tbody th:each="servicio : ${lista}">
             <tr>
-              <td th:text="${producto.nombre}">John</td>
-              <td th:text="${producto.precio}">Doe</td>
+              <td th:text="${servicio.nombre}">John</td>
+              <td th:text="${servicio.precio}">Doe</td>
               
-              <td th:text="${producto.descripcion}">john@example.com</td>
-             <td th:text="${producto.duracion}">john@example.com</td>
+              <td th:text="${servicio.descripcion}">john@example.com</td>
+             <td th:text="${servicio.duracion}">john@example.com</td>
              
               <td> <button class="editar" sec:authorize="hasRole('ROLE_USER')"><a th:href="@{/addReserva}">Reserva</a></button></td>
              

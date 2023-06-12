@@ -23,9 +23,10 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class LineaDeVenta implements Serializable{
-	@Id
-	@GeneratedValue
-	private Long id;
+	
+	@EmbeddedId
+	 @Builder.Default
+	 private LineaDeVentaPk linea= new LineaDeVentaPk();
 	 private double total;
 	 private int cantidad;
 	 
@@ -38,7 +39,5 @@ public class LineaDeVenta implements Serializable{
 	 @JoinColumn(name="ventaId")
 	 private Venta venta;
 	 
-	 @EmbeddedId
-	 @Builder.Default
-	 private LineaDeVentaPk linea= new LineaDeVentaPk();
+	 
 }
