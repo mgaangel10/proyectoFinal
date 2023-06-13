@@ -36,6 +36,7 @@ public class InitData {
 		
 				
 		Usuario newCliente = new Cliente();
+		Usuario newAdmin= new Empleado();
 		
 		Usuario admin = Empleado.builder()
 				.admin(true)
@@ -60,7 +61,7 @@ public class InitData {
 				.password(passwordEncoder.encode("admin"))
 				.build();*/
 		
-		repo.saveAll(List.of(cliente,newCliente, admin));
+		repo.saveAll(List.of(cliente,newCliente, admin,newAdmin));
 		
 	}
 }

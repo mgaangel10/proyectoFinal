@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,8 @@ public class EmpleadoController {
 	private EmpleadoService emse;
 	@Autowired
 	HttpSession session;
+	 @Autowired
+	 private PasswordEncoder pass;
 	
 	public EmpleadoController (EmpleadoService ser) {
 		this.emse=ser;
@@ -48,6 +51,8 @@ public class EmpleadoController {
 	}
 	@PostMapping("/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("empleado") Empleado e) {
+		
+		e.setPassword(pass.encode(e.getPassword()));
 		emse.add(e);
 		return "redirect:/administrador";
 	}

@@ -4,9 +4,27 @@
    
 </head>
 <body>
-    <div class="list-group">
-        <a th:href="@{/}" class="list-group-item list-group-item-action"><< Volver a la pagina incial </a>
-</div>
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/}"><button>Volver</button></a>
+              </li>
+              
+              
+            </ul>
+            <form class="d-flex">
+              <input   type="text" placeholder="Search">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
 <h2>Lista de Servicios</h2>
     <hr>
     <div class="container mt-3">

@@ -22,7 +22,6 @@ public class Empleado extends Usuario{
 	private String nombre;
 	private String apellidos;
 	private String email;
-	private String password;
 	private String numTelefono;
 	
 

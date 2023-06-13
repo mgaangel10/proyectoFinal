@@ -30,13 +30,21 @@
             <label for="email">Email</label> 
         <input type="email" id="email" name="email" th:field="*{email}"   placeholder="Indique su email">
         </div>
+        <div>
+            <label for="telefono">Telefono</label> 
+        <input type="telefono" id="telefono" name="telefono" th:field="*{numTelefono}"   placeholder="Indique su numero de telfono">
+        </div>
+         <div>
+            <label for="username">Username</label>
+        <input type="text" id="username" name="username" th:field="*{username}"  placeholder="Indique su username" >
+        </div>
          <div>
             <label for="password">password</label> 
         <input type="password" id="password" name="password" th:field="*{password}"   placeholder="Indique su contraseña">
         </div>
          <div>
             <label for="repeatPassword">repeatPassword</label> 
-        <input type="password" id="repeatPassword" name="repeatPassword" th:field="*{repeatPassword}"   placeholder="Repita su contraseña">
+        <input type="password" id="repeatPassword" name="repeatPassword"    placeholder="Repita su contraseña">
         </div>
         <p id="mensajeError">¡Las contraseñas no coinciden!</p>
        
