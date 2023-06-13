@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="es">
 <head th:replace="~{fragmentos/head::head}">
     
 </head>
-<body>
+<body sec:authorize="hasRole('ROLE_ADMIN')">
+	<div sec:authorize="isAnonymous()" class="spinner-grow text-danger"></div>
     <nav class="navbar navbar-expand-sm navbar-dark ">
         <div class="container-fluid">
           <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
@@ -13,7 +14,7 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" th:action="@{/logout}"><button>Salir</button></a>
+                <a class="nav-link" th:href="@{/logout}"><button>Salir</button></a>
               </li>
               
               

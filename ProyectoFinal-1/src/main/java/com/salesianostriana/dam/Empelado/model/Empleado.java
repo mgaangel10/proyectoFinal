@@ -18,14 +18,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 
 public class Empleado extends Usuario{
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String apellidos;
 	private String email;
 	private String password;
-	private String repeatPassword;
 	private String numTelefono;
 	
 
