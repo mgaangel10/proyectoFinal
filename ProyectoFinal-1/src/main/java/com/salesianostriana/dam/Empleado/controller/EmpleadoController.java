@@ -54,6 +54,7 @@ public class EmpleadoController {
 		
 		e.setPassword(pass.encode(e.getPassword()));
 		emse.add(e);
+		
 		return "redirect:/administrador";
 	}
 	@GetMapping("/editar/{id}")

@@ -37,6 +37,7 @@ public class Venta {
 	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate fecha;
 	
+
 	
 	@ManyToOne
 	@JoinColumn(name="usuarioId")

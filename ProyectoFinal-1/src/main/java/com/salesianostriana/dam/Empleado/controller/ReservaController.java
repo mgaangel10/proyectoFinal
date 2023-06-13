@@ -1,20 +1,14 @@
 package com.salesianostriana.dam.Empleado.controller;
 
-import java.util.Map;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.Empelado.model.Cliente;
 import com.salesianostriana.dam.Empelado.model.Reserva;
-import com.salesianostriana.dam.Empelado.model.Servicio;
-import com.salesianostriana.dam.Empelado.model.Usuario;
 import com.salesianostriana.dam.Empleado.service.ReservaService;
 import com.salesianostriana.dam.Empleado.service.ServicioService;
 import com.salesianostriana.dam.Empleado.service.UsuarioService;
@@ -38,10 +32,11 @@ public class ReservaController {
 	}
 	
 	@PostMapping("/addReserva/submit")
-	public String enviarResevar(@ModelAttribute("reserva")Reserva re) {
+	public String enviarResevar(@ModelAttribute("reserva")Reserva re,Cliente c) {
 		
 		r.save(re);
 		r.addReserv(re);
+		
 		
 		return"redirect:/vistaReserva";
 	}
@@ -50,6 +45,11 @@ public class ReservaController {
 		
 		model.addAttribute("reserva",r.findAll());
 		return"vistaReserva";
+	}
+	@GetMapping("/reservas")
+	public String mostrarReservas(Model model) {
+		model.addAttribute("reservas",r.findAll());
+		return "reservas";
 	}
 	
 	

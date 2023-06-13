@@ -33,13 +33,11 @@ public class Reserva {
 	private double total;
 	
 	@ManyToOne
-	//@MapsId("usuarioId")
 	@JoinColumn(name="usuarioId")
 	private Cliente cliente;
 	
 	
 	@ManyToOne
-	//@MapsId("servicioId")
 	@JoinColumn(name="servicioId")
 	private Servicio servicio;
 	

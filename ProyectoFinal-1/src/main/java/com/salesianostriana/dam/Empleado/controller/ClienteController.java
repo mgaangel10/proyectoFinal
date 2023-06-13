@@ -31,4 +31,5 @@ public class ClienteController {
 		 c.save(cliente);
 		 return"redirect:/login";
 	 }
+	
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragmentos/head::head}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+
+</head>
+
+<body>
+	
+	<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragmentos/head::head}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/m.png}" alt="" width="70px" height="100%"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/verP}"><button>Volver</button></a>
+              </li>
+             
+              
+            </ul>
+            <form class="d-flex">
+              <input   type="text" placeholder="Search">
+              <button  type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container mt-3">
+        <h2>Reservas</h2>
+                
+        <table class="table " style="color:aliceblue;">
+          <thead>
+            <tr>
+              <th>nombre</th>
+              <th>Apellidos</th>
+              <th>Correo</th>
+        
+
+            </tr>
+          </thead>
+          <tbody th:each="reserva:${reservas}">
+            <tr>
+              <td th:text="${reserva.cliente.nombre}">John</td>
+              <td th:text="${reserva.cliente.apellidos}">Doe</td>
+              <td th:text="${reserva.cliente.correo}">john@example.com</td>
+                           
+        	  
+            </tr>
+          
+          </tbody>
+         
+        </table>
+      </div>
+	
+   <footer th:replace="~{fragmentos/footer::footer}">
+	   
+   </footer>
+    
+
+    
+</body>
+</html>

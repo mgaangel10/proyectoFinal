@@ -82,6 +82,11 @@ public class CarritoController {
 
 		}
 	}
+	@GetMapping("/ventas")
+	public String mostrarVentas(Model model) {
+		model.addAttribute("ventas",c.findAll());
+		return "ventas";
+	}
 	
 	
 	
