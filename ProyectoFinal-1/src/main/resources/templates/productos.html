@@ -35,9 +35,9 @@
               
               
             </ul>
-            <form class="d-flex">
-              <input   type="text" placeholder="Search">
-              <button  type="button">Search</button>
+            <form class="d-flex" action="#" th:action="@{/search/submit}" th:object="${searchForm}" method="POST">
+              <input   type="text" name="nombre" placeholder="Buscar Por Nombre" th:field="*{search}">
+             <button  type="button">Search</button>
             </form>
           </div>
         </div>
@@ -47,18 +47,13 @@
 		
 		<h2>Listado de productos</h2>
         <hr>
-         <form action="#" th:action="@{/search/submit}" th:object="${searchForm}" method="POST">
-		<input type="text" name="nombre" placeholder="Buscar Por Nombre" th:field="*{search}" style="margin-left: 5%; padding: 4px;" />
-		<button class="btn- btn-danger" type="submit"  style="padding: 4px;">
-			<span class="glyphicon glyphicon-search"></span>
-		</button>
-		</form>
+         
 
         
 		 <div class="container mt-3">
         
                 
-        <table class="table table-hover ">
+        <table class="table " style="color:aliceblue;">
           <thead>
             <tr>
               <th>nombre</th>

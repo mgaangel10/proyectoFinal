@@ -72,6 +72,14 @@
             </tr>
           
           </tbody>
+          <tfoot>
+			  <tr>
+				  <td>Total Ventas</td>
+				  <td  th:text="${#numbers.formatDecimal(totalVentas, 1, 2)} + '€'" ></td>
+			  </tr>
+			  
+			  
+		  </tfoot>
          
         </table>
       </div>

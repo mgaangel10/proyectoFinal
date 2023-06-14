@@ -66,17 +66,19 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 		Optional<Producto> optional = java.util.Optional.empty();
 		LineaDeVenta lv = new LineaDeVenta();
 		Venta ve = new Venta();
+		double precio=0.0;
 		if (optional.isPresent()) {
 			for (Map.Entry<Producto,Integer> en : prod.entrySet()) {
 				lv.setP(en.getKey());
 				lv.setCantidad(en.getValue());
-				lv.setTotal(lv.getP().getPrecio()*en.getValue());
+				precio=(lv.getP().getPrecio()*en.getValue());
 				lv.getVenta().setFecha(LocalDate.now());
 			}
 		}
 		ve.setCliente(c);
 	
 		ve.addLv(lv);
+		 ve.setSubtotal(precio);
 			ve.setCantidad(lv.getCantidad());
 		ve.setFecha(LocalDate.now());
 		

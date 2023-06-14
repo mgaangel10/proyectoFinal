@@ -18,6 +18,7 @@ import com.salesianostriana.dam.Empelado.model.Producto;
 import com.salesianostriana.dam.Empelado.model.Venta;
 import com.salesianostriana.dam.Empleado.service.CarritoService;
 import com.salesianostriana.dam.Empleado.service.ProductoService;
+import com.salesianostriana.dam.Empleado.service.VentaService;
 
 @Controller
 public class CarritoController {
@@ -25,6 +26,8 @@ public class CarritoController {
 	private ProductoService p;
 	@Autowired
 	private CarritoService c;
+	@Autowired
+	private VentaService venta;
 	
 	
 	@GetMapping("/carrito")
@@ -85,8 +88,10 @@ public class CarritoController {
 	@GetMapping("/ventas")
 	public String mostrarVentas(Model model) {
 		model.addAttribute("ventas",c.findAll());
+		//model.addAttribute("totalVentas",venta.totalVentas());
 		return "ventas";
 	}
+
 	
 	
 	

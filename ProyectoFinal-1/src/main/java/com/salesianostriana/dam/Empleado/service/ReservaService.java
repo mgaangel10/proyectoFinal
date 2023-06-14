@@ -19,6 +19,7 @@ public class ReservaService extends BaseServiceImpl<Reserva,Long,ReservaRepo>{
 	public void addReserv(Reserva res) {
 		res.getServicio().setPrecio(res.getTotal());
 		res.getServicio().getNombre();
+		res.setTotal(res.getServicio().getPrecio());
 		save(res);
 	}
 	/*public void saveReserva(Cliente c) {
@@ -29,6 +30,8 @@ public class ReservaService extends BaseServiceImpl<Reserva,Long,ReservaRepo>{
 		re.getCliente().getCorreo();
 		save(re);
 	}*/
+	
+	
 	
 	
 	

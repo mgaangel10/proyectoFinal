@@ -18,9 +18,9 @@
               
               
             </ul>
-            <form class="d-flex">
-              <input   type="text" placeholder="Search">
-              <button  type="button">Search</button>
+            <form class="d-flex" action="#" th:action="@{/searchS/submit}" th:object="${searchForm}" method="POST">
+              <input   type="text" name="nombre" placeholder="Buscar Por Nombre" th:field="*{search}">
+            	 <button  type="button">Search</button>
             </form>
           </div>
         </div>
