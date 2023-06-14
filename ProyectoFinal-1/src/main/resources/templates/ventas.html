@@ -51,8 +51,9 @@
               <th>nombre</th>
               <th>Apellidos</th>
               <th>Correo</th>
-              <th>Producto</th>
+              <th>Fecha</th>
               <th>Precio</th>
+              <th>Cantidad</th>
 
             </tr>
           </thead>
@@ -61,8 +62,11 @@
               <td th:text="${venta.cliente.nombre}">John</td>
               <td th:text="${venta.cliente.apellidos}">Doe</td>
               <td th:text="${venta.cliente.correo}">john@example.com</td>
-              <td th:text="${venta..producto.nombre}">john@example.com</td>
-              <td th:text="${venta..producto.precio}">john@example.com</td>
+              <td th:text="${venta.fecha}">john@example.com</td>
+              <td th:text="${venta.subtotal}">john@example.com</td>
+              <td th:text="${venta.cantidad}">john@example.com</td>
+              
+        
               
         	  
             </tr>

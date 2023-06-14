@@ -33,6 +33,8 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	
 	private VentaService ventaService;
 	
+	private Producto producto;
+	
 	private Map<Producto,Integer> prod = new HashMap<>();
 
 	
@@ -73,7 +75,11 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 			}
 		}
 		ve.setCliente(c);
+	
 		ve.addLv(lv);
+			ve.setCantidad(lv.getCantidad());
+		ve.setFecha(LocalDate.now());
+		
 		save(ve);
 		 
 		
