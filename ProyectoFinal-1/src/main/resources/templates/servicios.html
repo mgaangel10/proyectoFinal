@@ -27,6 +27,7 @@
       </nav>
 <h2>Lista de Servicios</h2>
     <hr>
+    <button class="reservar" sec:authorize="hasRole('ROLE_USER')"><a th:href="@{/addReserva}">Reserva</a></button>
     <div class="container mt-3">
         
                 
@@ -48,7 +49,7 @@
               <td th:text="${servicio.descripcion}">john@example.com</td>
              <td th:text="${servicio.duracion}">john@example.com</td>
              
-              <td> <button class="editar" sec:authorize="hasRole('ROLE_USER')"><a th:href="@{/addReserva}">Reserva</a></button></td>
+              
              
             </tr>
           
