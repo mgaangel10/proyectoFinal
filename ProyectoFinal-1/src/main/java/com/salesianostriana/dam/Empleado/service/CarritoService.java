@@ -63,23 +63,33 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	}
 	
 	public void checkout(Cliente c) {
-		Optional<Producto> optional = java.util.Optional.empty();
+		
 		LineaDeVenta lv = new LineaDeVenta();
 		Venta ve = new Venta();
 		double precio=0.0;
-		if (optional.isPresent()) {
-			for (Map.Entry<Producto,Integer> en : prod.entrySet()) {
-				lv.setP(en.getKey());
+	
+			for(Producto p:prod.keySet()) {
+				int valor = prod.get(p);
+				ve.addLv(LineaDeVenta.builder()
+						.p(p)
+						.cantidad(valor)
+						.total(p.getPrecio()*valor)
+						.build());
+			
+			/*for (Map.Entry<Producto,Integer> en : prod.entrySet()) {
+				ve.addLv(LineaDeVenta.builder()
+						.p(producto))*/;
+				
+				/*lv.setP(en.getKey());
 				lv.setCantidad(en.getValue());
-				precio=(lv.getP().getPrecio()*en.getValue());
-				lv.getVenta().setFecha(LocalDate.now());
+				lv.setTotal((lv.getP().getPrecio()*en.getValue()));
+				lv.getVenta().setFecha(LocalDate.now());*/
+				;
 			}
-		}
+		
 		ve.setCliente(c);
 	
-		ve.addLv(lv);
-		 ve.setSubtotal(precio);
-			ve.setCantidad(lv.getCantidad());
+	
 		ve.setFecha(LocalDate.now());
 		
 		save(ve);

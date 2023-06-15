@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../static/js/validacion.js" th:src="@{/js/validacion.js}"></script>
     <title>formulario</title>
+     <script>
+      function comprobar() {
+        // Obtener los valores de los campos de contraseña
+        let password1 = document.getElementById("password1").value;
+        let password2 = document.getElementById("password2").value;
+
+        // Comprobar si las contraseñas son iguales
+        if (password1 === password2) {
+          document.getElementById("mensaje").textContent = "Las contraseñas coinciden.";
+        } else {
+          document.getElementById("mensaje").textContent = "Las contraseñas no coinciden.";
+        }
+      }
+    </script>
 
 </head>
 
@@ -39,17 +53,20 @@
         <input type="text" id="username" name="username" th:field="*{username}"  placeholder="Indique su username" >
         </div>
          <div>
-            <label for="password">password</label> 
-        <input type="password" id="password" name="password" th:field="*{password}"   placeholder="Indique su contraseña">
+            <label for="password1">password</label> 
+        <input type="password" id="password1" name="password1" th:field="*{password}"   placeholder="Indique su contraseña">
         </div>
          <div>
-            <label for="repeatPassword">repeatPassword</label> 
-        <input type="password" id="repeatPassword" name="repeatPassword"    placeholder="Repita su contraseña">
+            <label for="password2">repeatPassword</label> 
+        <input type="password" id="password2" name="password2"    placeholder="Repita su contraseña">
         </div>
-        <p id="mensajeError">¡Las contraseñas no coinciden!</p>
+        
        
-         <button type="submit">Enviar</button>
-       
+         <button onclick="comprobar()" type="submit">Enviar</button>
+     <p id="mensaje"></p>
+   
+  </body>
+</html>
         
         
     </div>

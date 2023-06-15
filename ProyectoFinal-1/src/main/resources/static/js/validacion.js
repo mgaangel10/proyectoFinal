@@ -14,3 +14,11 @@ function comprobarPassword(){
     }
     
 }
+
+let fechaInput = document.getElementById('fecha');
+		let fechaActual = new Date();
+		let dia = fechaActual.getDate();
+		let mes = fechaActual.getMonth() + 1;
+		let anio = fechaActual.getFullYear();
+		let fechaMinima = `${anio}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+		fechaInput.setAttribute('min', fechaMinima);

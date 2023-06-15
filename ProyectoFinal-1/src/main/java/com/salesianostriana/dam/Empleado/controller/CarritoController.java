@@ -2,6 +2,7 @@
 
 package com.salesianostriana.dam.Empleado.controller;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -90,6 +91,15 @@ public class CarritoController {
 		model.addAttribute("ventas",c.findAll());
 		//model.addAttribute("totalVentas",venta.totalVentas());
 		return "ventas";
+	}
+	@ModelAttribute("totalVentas")
+	private double totalVentas() {
+		List <Venta> ventas = c.findAll();
+		double totalGanancia = 0;
+		for(Venta venta:ventas) {
+			totalGanancia += venta.getTotal();
+		}
+		return totalGanancia;
 	}
 
 	

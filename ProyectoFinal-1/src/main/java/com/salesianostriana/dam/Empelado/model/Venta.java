@@ -36,8 +36,7 @@ public class Venta {
 	private Long id;
 	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate fecha;
-	private double subtotal;
-	private int cantidad;
+	private double total;
 
 	
 	@ManyToOne
@@ -83,6 +82,14 @@ public class Venta {
 		this.lv.remove(lin);
 		lin.setVenta(null);
 	}
+	public double getPrecioTotal() {
+	    double precioTotal = 0;
+	    Producto p = new Producto ();
+	    for (LineaDeVenta linea : lv) {
+	      precioTotal += linea.getCantidad() * p.getPrecio();
+	    }
+	    return precioTotal;
+	  }
 
 
 	

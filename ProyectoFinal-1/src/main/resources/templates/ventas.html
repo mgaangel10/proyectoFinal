@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" th:href="@{/verP}"><button>Volver</button></a>
+                <a class="nav-link" th:href="@{/administrador}"><button>Volver</button></a>
               </li>
              
               
@@ -52,8 +52,10 @@
               <th>Apellidos</th>
               <th>Correo</th>
               <th>Fecha</th>
+              <th>Productos</th>
               <th>Precio</th>
-              <th>Cantidad</th>
+              <th>Nombre</th>
+            
 
             </tr>
           </thead>
@@ -63,8 +65,7 @@
               <td th:text="${venta.cliente.apellidos}">Doe</td>
               <td th:text="${venta.cliente.correo}">john@example.com</td>
               <td th:text="${venta.fecha}">john@example.com</td>
-              <td th:text="${venta.subtotal}">john@example.com</td>
-              <td th:text="${venta.cantidad}">john@example.com</td>
+            
               
         
               
@@ -75,7 +76,7 @@
           <tfoot>
 			  <tr>
 				  <td>Total Ventas</td>
-				  <td  th:text="${#numbers.formatDecimal(totalVentas, 1, 2)} + '€'" ></td>
+				  
 			  </tr>
 			  
 			  
@@ -84,9 +85,7 @@
         </table>
       </div>
 	
-   <footer th:replace="~{fragmentos/footer::footer}">
-	   
-   </footer>
+   
     
 
     
