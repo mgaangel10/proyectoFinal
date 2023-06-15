@@ -61,6 +61,20 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	public Map<Producto,Integer> getProductosCarr(){
 		return Collections.unmodifiableMap(prod);
 	}
+	public double totalCarrito() {
+		Map<Producto, Integer> carrito = getProductosCarr();
+		double total = 0.0;
+		if (carrito != null) {
+			for (Producto p : carrito.keySet()) {
+				total += (p.getPrecio() - (p.getPrecio() * p.getDescuento() / 100)) * carrito.get(p);
+			}
+			return total;
+		}
+		return 0.0;
+	}
+	
+	
+	
 	
 	public void checkout(Cliente c) {
 		
@@ -71,25 +85,30 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 			for(Producto p:prod.keySet()) {
 				int valor = prod.get(p);
 				ve.addLv(LineaDeVenta.builder()
-						.p(p)
+						.prod(p)
 						.cantidad(valor)
 						.total(p.getPrecio()*valor)
 						.build());
+						
+						
+				
 			
 			/*for (Map.Entry<Producto,Integer> en : prod.entrySet()) {
 				ve.addLv(LineaDeVenta.builder()
-						.p(producto))*/;
+						.p(producto))*/
 				
 				/*lv.setP(en.getKey());
 				lv.setCantidad(en.getValue());
 				lv.setTotal((lv.getP().getPrecio()*en.getValue()));
 				lv.getVenta().setFecha(LocalDate.now());*/
-				;
+				
 			}
 		
 		ve.setCliente(c);
-	
-	
+		ve.setTotal(totalCarrito());
+		
+		
+		
 		ve.setFecha(LocalDate.now());
 		
 		save(ve);

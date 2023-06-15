@@ -37,6 +37,8 @@ public class Venta {
 	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate fecha;
 	private double total;
+	private String nombre;
+	private int cantidad;
 
 	
 	@ManyToOne
@@ -75,6 +77,7 @@ public class Venta {
 	public void addLv(LineaDeVenta lin) {
 		lin.getLinea().setLineaDeVentaId(generatedId());
 		lin.setVenta(this);
+		setCantidad(lin.getCantidad());
 		this.lv.add(lin);
 	}
 	

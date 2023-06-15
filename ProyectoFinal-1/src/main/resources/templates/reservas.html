@@ -48,15 +48,20 @@
         <table class="table " style="color:aliceblue;">
           <thead>
             <tr>
+				<th>id</th>
               <th>nombre</th>
-              <th>Apellidos</th>
-              <th>Correo</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Precio</th>
+              
         
 
             </tr>
           </thead>
           <tbody th:each="reserva:${reservas}">
             <tr>
+				<td th:text="${reserva.id}">John</td>
+			  <td th:text="${reserva.servicio.nombre}">John</td>
               <td th:text="${reserva.fecha}">John</td>
               <td th:text="${reserva.hora}">Doe</td>
               <td th:text="${reserva.total}">john@example.com</td>
@@ -65,6 +70,11 @@
             </tr>
           
           </tbody>
+          <tfoot>
+    <tr>
+        
+    </tr>
+</tfoot>
          
         </table>
       </div>

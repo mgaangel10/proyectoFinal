@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 
-public class LineaDeVenta implements Serializable{
+public class LineaDeVenta {
 	
 	@EmbeddedId
 	 @Builder.Default
@@ -32,12 +32,15 @@ public class LineaDeVenta implements Serializable{
 	 
 	 @ManyToOne
 	 @JoinColumn(foreignKey= @ForeignKey(name="fkLineaDeVentaP"))
-	 private Producto p;
+	 private Producto prod;
+	 
+	
 	 
 	 @ManyToOne
 	 @MapsId("ventaId")
 	 @JoinColumn(name="ventaId")
 	 private Venta venta;
+	
 	 
 	 
 }

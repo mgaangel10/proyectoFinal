@@ -35,10 +35,7 @@
              
               
             </ul>
-            <form class="d-flex">
-              <input   type="text" placeholder="Search">
-              <button  type="button">Search</button>
-            </form>
+           
           </div>
         </div>
       </nav>
@@ -52,9 +49,9 @@
               <th>Apellidos</th>
               <th>Correo</th>
               <th>Fecha</th>
-              <th>Productos</th>
+              <th>Nombre del Producto</th>
               <th>Precio</th>
-              <th>Nombre</th>
+              <th>Cantidad</th>
             
 
             </tr>
@@ -65,6 +62,9 @@
               <td th:text="${venta.cliente.apellidos}">Doe</td>
               <td th:text="${venta.cliente.correo}">john@example.com</td>
               <td th:text="${venta.fecha}">john@example.com</td>
+              <td th:text="${venta.total}">john@example.com</td>
+             <td th:each="lineaVenta : ${venta.lv}" th:text="${lineaVenta.prod.nombre}"></td>
+              <td th:each="lineaVenta : ${venta.lv}" th:text="${lineaVenta.cantidad}"></td>
             
               
         
@@ -76,6 +76,7 @@
           <tfoot>
 			  <tr>
 				  <td>Total Ventas</td>
+				  <td th:text="${totalVentas}">0.0</td>
 				  
 			  </tr>
 			  

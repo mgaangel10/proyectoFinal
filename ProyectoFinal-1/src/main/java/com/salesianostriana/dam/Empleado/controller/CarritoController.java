@@ -72,19 +72,7 @@ public class CarritoController {
 	
 	@ModelAttribute("total")
 	public double total() {
-		Map<Producto,Integer> carrito=c.getProductosCarr();
-		double total=0.0;
-		double total1=0.0;
-		if (carrito!=null) {
-			for(Producto p:carrito.keySet()) {
-				total+=p.getPrecio()*carrito.get(p);
-				total1=total-p.getDescuento();
-			}
-			return total1;
-		} else {
-			return 0.0;
-
-		}
+		return c.totalCarrito();
 	}
 	@GetMapping("/ventas")
 	public String mostrarVentas(Model model) {
