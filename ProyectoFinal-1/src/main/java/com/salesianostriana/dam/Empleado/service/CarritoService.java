@@ -37,7 +37,11 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 	
 	private Map<Producto,Integer> prod = new HashMap<>();
 
-	
+	/**
+	 * Agrega un producto al carrito
+	 * 
+	 * @param p Producto que se quiere agregar
+	 */
 	public void addProd(Producto p) {
 		if (prod.containsKey(p)) {
 			prod.replace(p, prod.get(p)+1);
@@ -46,7 +50,11 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 		}
 	
 	}
-	
+	/**
+	 * Elimina un producto del carrito
+	 * 
+	 * @param p Producto que se quiere eliminar
+	 */
 	public void eliminarPro(Producto p) {
 		if (prod.containsKey(p)) {
 			if (prod.get(p)>1) {
@@ -57,25 +65,42 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 		}
 		
 	}
-	
+	/**
+	 * Devuelve los productos y su cantidad en el carrito
+	 * 
+	 * @return Mapa de productos y su cantidad en el carrito
+	 */
 	public Map<Producto,Integer> getProductosCarr(){
 		return Collections.unmodifiableMap(prod);
 	}
-	public double totalCarrito() {
-		Map<Producto, Integer> carrito = getProductosCarr();
+	
+	/**
+	 * Calcula el total del carrito
+	 * 
+	 * @return Total del carrito
+	 */
+	public double carritoTotal() {
+		
 		double total = 0.0;
-		if (carrito != null) {
-			for (Producto p : carrito.keySet()) {
-				total += (p.getPrecio() - (p.getPrecio() * p.getDescuento() / 100)) * carrito.get(p);
+		double total1=0.0;
+		Map<Producto, Integer> c = getProductosCarr();
+		if (c != null) {
+			for (Producto p : c.keySet()) {
+				total += (p.getPrecio()-(p.getPrecio()*p.getDescuento()/100));
+				total1 = total* c.get(p);
 			}
-			return total;
+			return total1;
 		}
 		return 0.0;
 	}
 	
 	
 	
-	
+	/**
+	 * Realiza la compra
+	 * 
+	 * @param c Cliente que realiza la compra
+	 */
 	public void checkout(Cliente c) {
 		
 		LineaDeVenta lv = new LineaDeVenta();
@@ -105,7 +130,7 @@ public class CarritoService extends BaseServiceImpl<Venta,Long,VentaRepo >{
 			}
 		
 		ve.setCliente(c);
-		ve.setTotal(totalCarrito());
+		ve.setTotal(carritoTotal());
 		
 		
 		

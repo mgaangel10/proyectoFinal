@@ -32,23 +32,42 @@ public class EmpleadoController {
 	public EmpleadoController (EmpleadoService ser) {
 		this.emse=ser;
 	}
+	/**
+	 * Muestra la página de inicio con la lista de todos los empleados.
+	 * @param model Modelo que se utiliza para luego verlo en el html
+	 * @return La vista de inicio.
+	 */
 	@GetMapping({"/","/todo"})
 	public String index(Model model) {
 		model.addAttribute("lista",emse.findAll());
 		return "index";
 	}
+	/**
+	 * Muestra la vista de búsqueda de empleados.
+	 * @param model Modelo que se utiliza para luego verlo en el html
+	 * @return La vista de búsqueda de empleados.
+	 */
 	@GetMapping("/mostrarFormulario")
 	public String Mostrar(Model model) {
 		model.addAttribute("lista",emse.findAll());
 		model.addAttribute("searchForm",new SearchBean());
 		return "vistaFormularioTerminado";
 	}
-	
+	/**
+	 * Muestra la vista de creación de un nuevo empleado.
+	 * @param model Modelo que se utiliza para luego verlo en el html
+	 * @return La vista de creación de empleado.
+	 */
 	@GetMapping("/nuevo")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("empleado",new Empleado());
 		return "vistaFormulario";
 	}
+	/**
+	 * Procesa el formulario de creación de un nuevo empleado.
+	 * @param e el empleado que se creará.
+	 * @return Redirige a la vista del administrador.
+	 */
 	@PostMapping("/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("empleado") Empleado e) {
 		
@@ -57,6 +76,12 @@ public class EmpleadoController {
 		
 		return "redirect:/administrador";
 	}
+	/**
+	 * Muestra la vista de edición de un empleado existente.
+	 * @param id identificador del empleado que se editará.
+	 * @param model Modelo que se utiliza para pasar luego verlo en el html.
+	 * @return La vista de edición de empleado.
+	 */
 	@GetMapping("/editar/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		
@@ -81,7 +106,11 @@ public class EmpleadoController {
 	public String administrador() {
 		return "administrador";
 	}
-	
+	/**
+	 * Procesa el formulario de edición de un empleado.
+	 * @param a el empleado que se editará.
+	 * @return Redirige a la vista de búsqueda de empleados.
+	 */
 	@PostMapping("/editar/submit")
 		public String procesarFormularioEdicion(@ModelAttribute("empleado") Empleado a) {
 			emse.edit(a);
@@ -89,7 +118,11 @@ public class EmpleadoController {
 			//para pintar la lista actualizada con la modificación hecha
 		}
 	
-	
+	/**
+	 * Elimina un empleado.
+	 * @param id identificador del empleado que se eliminará.
+	 * @return Redirige a la vista de búsqueda de empleados.
+	 */
 	@GetMapping("/borrar/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		emse.delete(id);
@@ -97,7 +130,12 @@ public class EmpleadoController {
 	}
 	
 	
-	
+	/**
+	 * Procesa el formulario de búsqueda de empleados.
+	 * @param search el término de búsqueda introducido por el usuario.
+	 * @param model Modelo que se utiliza para pasar luego verlo en el html
+	 * @return La vista de búsqueda de empleados con los resultados de la búsqueda.
+	 */
 	@PostMapping("/searchE/submit")
 	public String enviarBusqueda(@ModelAttribute("searchForm") SearchBean search,Model model) {
 		model.addAttribute("lista",emse.searchByNombre(search.getSearch()));

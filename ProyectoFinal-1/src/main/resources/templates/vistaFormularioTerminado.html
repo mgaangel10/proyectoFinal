@@ -16,9 +16,7 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
              
-              <li class="nav-item">
-                <a class="nav-link" th:href="@{/nuevo}"><button>Inicar sesion</button></a>
-              </li>
+             
               
             </ul>
             <form class="d-flex" th:action="@{/searchE/submit}" th:object="${searchForm}" method="POST" >
@@ -48,7 +46,7 @@
               <td th:text="${empleado.apellidos}">Doe</td>
               
               <td th:text="${empleado.email}">john@example.com</td>
-             
+              <td><button class="editar"><a href="#" th:href="@{/editar/{id}(id=${empleado.id})}">editar</a> </button></button><button class="borrar"><a href="#" th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></button> </td>
              
             </tr>
           

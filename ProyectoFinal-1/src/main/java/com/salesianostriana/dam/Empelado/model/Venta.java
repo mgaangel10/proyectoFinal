@@ -57,11 +57,20 @@ public class Venta {
 			)
 	private List<LineaDeVenta> lv = new ArrayList<>();
 	
+	/**
+	 * Devuelve las lineas de venta que componen la venta
+	 * 
+	 * @return Lista de lineas de venta
+	 */
 	public List<LineaDeVenta> getLienaDeVenta(){
 	return Collections.unmodifiableList(lv);
 	}
 	
-	
+	/**
+	 * Genera un nuevo id para la linea de venta
+	 * 
+	 * @return Nuevo id para la linea de venta
+	 */
 	public Long generatedId() {
 		if (this.lv.size()>0) {
 			return this.lv.stream()
@@ -73,18 +82,31 @@ public class Venta {
 			return 1L;
 		}
 	}
-	
+	/**
+	 * Agrega una linea de venta a la lista de lineas de venta
+	 * 
+	 * @param lin Linea de venta que se quiere agregar
+	 */
 	public void addLv(LineaDeVenta lin) {
 		lin.getLinea().setLineaDeVentaId(generatedId());
 		lin.setVenta(this);
 		setCantidad(lin.getCantidad());
 		this.lv.add(lin);
 	}
-	
+	/**
+	 * Elimina una linea de venta de la lista de lineas de venta
+	 * 
+	 * @param lin Linea de venta que se quiere eliminar
+	 */
 	public void eliminarLv(LineaDeVenta lin) {
 		this.lv.remove(lin);
 		lin.setVenta(null);
 	}
+	/**
+	 * Calcula el precio total de la venta
+	 * 
+	 * @return Precio total de la venta
+	 */
 	public double getPrecioTotal() {
 	    double precioTotal = 0;
 	    Producto p = new Producto ();

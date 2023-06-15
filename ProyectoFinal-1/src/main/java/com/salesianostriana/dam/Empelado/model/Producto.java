@@ -39,8 +39,6 @@ public class Producto {
 	@ManyToOne
 	private Categoria categoria;
 	
-	@OneToMany(mappedBy="producto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
-	private Set<Puntuacion> puntuaciones = new HashSet<Puntuacion>();
 	
 	public Producto(String nombre, String descripcion, double precio, float descuento, String imagen,String color, Categoria categoria) {
 		this.nombre = nombre;
@@ -50,7 +48,7 @@ public class Producto {
 		this.color=color;
 		this.categoria = categoria;
 	}
-	public void addPuntuacion(Puntuacion puntuacion) {
+	/*public void addPuntuacion(Puntuacion puntuacion) {
 		this.puntuaciones.add(puntuacion);
 		puntuacion.setProducto(this);
 	}
@@ -66,6 +64,6 @@ public class Producto {
 	
 	public double getNumeroTotalPuntuaciones() {
 		return this.puntuaciones.size();
-	}
+	}*/
 
 }

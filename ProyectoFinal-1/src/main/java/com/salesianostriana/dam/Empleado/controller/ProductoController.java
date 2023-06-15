@@ -31,18 +31,33 @@ public class ProductoController {
 	@Autowired
 	private CategoriaService catService;
 	
+	/**
+	 * Muestra el formulario para agregar un nuevo producto.
+	 * @param model el Modelo de Spring para luego verlo en el html
+	 * @return la vista "addProductos" 
+	 */
 	@GetMapping("/addProd")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("producto",new Producto());
 		model.addAttribute("categoria", catService.findAll());
 		return "addProductos";
 	}
-	
+	/**
+	 * Procesa los datos del formulario de agregar producto y guarda el producto en la base de datos.
+	 * @param p el objeto Producto enviado desde el formulario
+	 * @return la vista "administrador" redirigida
+	 */
 	@PostMapping("/nuevoProducto")
 	public String procesarFormulario(@ModelAttribute("producto") Producto p) {
 		prod.save(p);
 		return "redirect:/administrador";
 	}
+	/**
+	 * Muestra el formulario para editar un producto existente.
+	 * @param id del producto a editar
+	 * @param model el Modelo de Spring para luego verlo en el html
+	 * @return la vista "addProductos" con el modelo necesario
+	 */
 	@GetMapping("/editarP/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		Optional<Producto> aEditar = prod.findById(id);
@@ -54,23 +69,46 @@ public class ProductoController {
 			return "redirect:/listaprod";
 		}
 	}
+	
+	/**
+	 * Procesa los datos del formulario de edición de producto y actualiza el producto en la base de datos.
+	 * @param p el objeto Producto enviado desde el formulario
+	 * @return la vista "listaprod" redirigida
+	 */
 	@PostMapping("/editarP/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("producto") Producto p) {
 		prod.edit(p);
 		return "redirect:/listaprod";
 	}
 	
+	/**
+	 * Muestra una lista de todos los productos.
+	 * @param model el Modelo para luego verlo en el html
+	 * @return la vista "listaprod" 
+	 */
 	@GetMapping("/listaprod")
 	public String MostrarProducto(Model model) {
 		model.addAttribute("lista",prod.findAll());
 		
 		return "listaprod";	
 	}
+	
+	/**
+	 * Borra un producto de la base de datos.
+	 * @param id del producto a borrar
+	 * @return la vista "listaprod" redirigida
+	 */
 	@GetMapping("/borrarP/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		prod.deleteById(id);
 		return "redirect:/listaprod";
 	}
+	
+	/**
+	 * Muestra una lista de todos los productos y un formulario de búsqueda.
+	 * @param model el Modelo para luego verlo en el html
+	 * @return la vista "productos" 
+	 */
 	@GetMapping("/verP")
 	public String verP(Model model) {
 		model.addAttribute("lista",prod.findAll());
@@ -78,6 +116,12 @@ public class ProductoController {
 		return "productos";	
 		
 	}
+	/**
+	 * Ordena la lista de productos por nombre de forma ascendente.
+	 * @param nombre un parámetro no utilizado para cumplir con la convención de nomenclatura REST
+	 * @param model el modelo para luego verlo en el html
+	 * @return la vista "productos" 
+	 */
 	@GetMapping("/ordenarByNombre")
 	public String ordenarNombre(@RequestParam("nombre")String nombre,Model model) {
 		List<Producto> p = prod.ordenarNombre();

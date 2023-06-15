@@ -19,15 +19,27 @@ public class ReservaService extends BaseServiceImpl<Reserva,Long,ReservaRepo>{
 	@Autowired
     private ReservaRepo reservaRepo;
 	
+	/**
+	 * Calcula el total de la reserva
+	 * 
+	 * @param res Reserva de la que se quiere calcular el total
+	 * @return Total de la reserva
+	 */
 	public double totalreserva(Reserva res) {
 		double total=0.0;
 		total+=res.getTotal();
 		return total;
 	}
 	
-	
-	public void addReserv(Reserva res) {
-		 
+	/**
+	 * Agrega una reserva para un cliente
+	 * 
+	 * @param c Cliente que realiza la reserva
+	 * @param res Reserva que se quiere agregar
+	 */
+	public void addReserv(Cliente c,Reserva res) {
+		
+		 res.setCliente(c);
 	    res.setTotal(totalreserva(res));
 	    save(res);
 	}

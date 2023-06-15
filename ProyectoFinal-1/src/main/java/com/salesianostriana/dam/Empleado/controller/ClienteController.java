@@ -18,12 +18,22 @@ public class ClienteController {
 	 @Autowired
 	 private PasswordEncoder pass;
 	 
+	 /**
+		 * Muestra la vista de registro de un nuevo cliente.
+		 * @param model Modelo que se utiliza para pasar luego verlo en el html
+		 * @return La vista de registro de cliente.
+		 */
 	 @GetMapping("/registro")
 	 public String addCliente(Model model) {
 		 model.addAttribute("cliente",new Cliente());
 		 return "registro";
 	 }
 	 
+	 /**
+		 * Procesa el formulario de registro de un nuevo cliente.
+		 * @param cliente El cliente que se registrará.
+		 * @return Redirige a la vista de inicio de sesión.
+		 */
 	 @PostMapping("/addC/submit")
 	 public String agregarC(@ModelAttribute("cliente")Cliente cliente) {
 		

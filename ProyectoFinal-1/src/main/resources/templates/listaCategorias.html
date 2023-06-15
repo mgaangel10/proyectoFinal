@@ -24,8 +24,11 @@
 							<td class="operaciones"><a href="#"
 								th:href="@{/editarC/{id}(id=${categoria.id})}"
 								class="btn btn-primary">Editar</a>
-								<button type="button" class="btn btn-danger" data-toggle="modal"
-									data-target="#delete-modal" th:data-id="${categoria.id}">Borrar</button></td>
+								<a href="#"
+								th:href="@{/borrarC/{id}(id=${categoria.id})}"
+								class="btn btn-danger">Borrar</a>
+								
+								
 						</tr>
 					</tbody>
 				</table>

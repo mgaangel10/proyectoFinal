@@ -47,14 +47,21 @@ public class Servicio {
 	private List<Reserva> re = new ArrayList<>();
 	
 
-
+	/**
+	 * Añade una reserva a la lista de reservas del servicio
+	 * 
+	 * @param r Objeto Reserva que se quiere añadir a la lista
+	 */
 	public void add(Servicio s) {
 		s.add(s);
 		
 	}
 
-
-	public void remove(Servicio s) {
+	/**
+	 * Elimina una reserva de la lista de reservas del servicio
+	 * 
+	 * @param r Objeto Reserva que se quiere eliminar de la lista
+	 */	public void remove(Servicio s) {
 		s.remove(s);
 		
 	}

@@ -1,27 +1,34 @@
 insert into usuario (admin, password, username, apellidos, email, nombre, num_telefono, dtype, id) values (true, '{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'jose12', 'perez', 'jose@gmail.com', 'Jose Miguel', 7736257, 'A', 1);
+insert into usuario (admin, password, username, apellidos, email, nombre, num_telefono, dtype, id) values (true, '{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'pepe3', 'gomez', 'pepe@gmail.com', 'pepe', 77656547, 'A', 2);
+insert into usuario (admin, password, username, apellidos, email, nombre, num_telefono, dtype, id) values (true, '{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'juan30', 'alvarez', 'juan@gmail.com', 'Juan', 7756557, 'A', 3);
+insert into usuario (admin, password, username, apellidos, email, nombre, num_telefono, dtype, id) values (true, '{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'raul2', 'fernandez', 'raul@gmail.com', 'Raul', 7743257, 'A', 4);
+insert into usuario (admin, password, username, apellidos, email, nombre, num_telefono, dtype, id) values (true, '{bcrypt}$2a$10$EJyBnD7gGY5IM2mUDb91M.eBgqK1txOlGdUA0wnoZwo/rVFiffcSm', 'javier45', 'martinez', 'javier@gmail.com', 'Javier', 77546257, 'A', 5);
+
+
+
 
 insert into categoria (id, nombre, imagen) values (1,'Champus','https://www.periodistadigital.com/wp-content/uploads/2020/04/mejor-champu-sin-sulfatos.png');
 insert into categoria (id, nombre, imagen) values (2,'Maquinilla','https://pelu10.com/4960-home_default/maquina-corte-inalambrica-cordless-uspro-li-edicion-limitada-sugar-skull-andis-73090.jpg');
 insert into categoria (id, nombre, imagen) values (3,'tijeras','https://pelu10.com/4960-home_default/maquina-corte-inalambrica-cordless-uspro-li-edicion-limitada-sugar-skull-andis-73090.jpg');
 insert into categoria (id, nombre, imagen) values (4,'navajas','https://pelu10.com/4960-home_default/maquina-corte-inalambrica-cordless-uspro-li-edicion-limitada-sugar-skull-andis-73090.jpg');
 
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu ',9,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina',11,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla r33',33,'champoo para calvos',0,'rojo',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja l2',12,'gomina para no calvos',0,'verde',4);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'abrillantador',10,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador',8,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla yt5',70,'champoo para calvos',0,'rojo',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'razer 6r',25,'gomina para no calvos',0,'verde',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina star',3,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'polvos moldeador',5,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'cera',5,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu anti-caspa',9,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador para pelo blanco',8,'champoo para calvos',0,'rojo',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja r2',8,'gomina para no calvos',0,'verde',4);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla star',40,'champoo para calvos',0,'rojo',2);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu par pelo ondulado',15,'gomina para no calvos',0,'verde',1);
-insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'tijeras',9,'champoo para calvos',0,'rojo',3);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu ',9,'Sin descripcion',0,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina',11,'Sin descripcion',0,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla r33',33,'Sin descripcion',0,'rojo',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja l2',12,'Sin descripcion',0,'verde',4);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'abrillantador',10,'Sin descripcion',0,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador',8,'Sin descripcion',0,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla yt5',70,'Sin descripcion',0,'rojo',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'razer 6r',25,'',0,'verde',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'gomina star',3,'Sin descripcion',0,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'polvos moldeador',5,'Sin descripcion',0,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'cera',5,'Sin descripcion',0,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu anti-caspa',9,'Sin descripcion',0,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'matizador para pelo blanco',8,'Sin descripcion',0,'rojo',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'navaja r2',8,'Sin descripcion',0,'verde',4);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'maquinilla star',40,'Sin descripcion',0,'rojo',2);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'champu par pelo ondulado',15,'Sin descripcion',0,'verde',1);
+insert into producto (id, nombre, precio, descripcion,descuento,color,categoria_id) values (NEXTVAL('hibernate_sequence'),'tijeras',9,'Sin descripcion',0,'rojo',3);
 
 insert into usuario (admin, password, username, apellidos, correo, nombre, dtype, id) values (false,'{bcrypt}$2a$10$daw3CqsK.t/Iqo2CrIsmuuG9R9.7XTVb8mnWkJ7VZLCbYnFi6TiE6' , 'mgaangel10','perez', 'angel@gmail.com', 'angel', 'C', 18);
 

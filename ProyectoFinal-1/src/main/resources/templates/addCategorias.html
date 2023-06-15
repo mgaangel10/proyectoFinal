@@ -32,7 +32,7 @@
       <form th:action="${categoria.id != 0} ? @{/editarC/submit} : @{/nuevaC/submit}" th:object="${categoria}" method="post">
         <div class="formu" >
 			
-			<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
+			<input th:if="${categoria.id != 0}" type="hidden" name="id" th:field="*{id}" />
             <div >
                 <label for="nombre">Nombre</label>
                 
